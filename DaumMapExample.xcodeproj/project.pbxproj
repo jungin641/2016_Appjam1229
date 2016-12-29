@@ -13,6 +13,8 @@
 		26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1E1E14F2B10069971A /* GatheringCell.swift */; };
 		26F1ED231E14F2B10069971A /* UITabbar_custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */; };
 		26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED241E14F9480069971A /* ExtensionControl.swift */; };
+		26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED261E14FCDF0069971A /* ContactsViewController.swift */; };
+		26F1ED291E1509CE0069971A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED281E1509CE0069971A /* MainVC.swift */; };
 		3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */; };
 		3C36EF641DE5BF7300B3F1B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF631DE5BF7300B3F1B4 /* ViewController.swift */; };
 		3C36EF671DE5BF7300B3F1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */; };
@@ -78,6 +80,8 @@
 		26F1ED1E1E14F2B10069971A /* GatheringCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringCell.swift; sourceTree = "<group>"; };
 		26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabbar_custom.swift; sourceTree = "<group>"; };
 		26F1ED241E14F9480069971A /* ExtensionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionControl.swift; sourceTree = "<group>"; };
+		26F1ED261E14FCDF0069971A /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		26F1ED281E1509CE0069971A /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = "../../DaumMapAPI-Swift-Sample/DaumMapExample/MainVC.swift"; sourceTree = "<group>"; };
 		3036DF5B27D0798AA5B81644 /* Pods-DaumMapExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleTests/Pods-DaumMapExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		3610EB5E7CF92F72AA1875BC /* Pods-DaumMapExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleUITests/Pods-DaumMapExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39BA9260937876F4F0C790C5 /* Pods-DaumMapExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExample/Pods-DaumMapExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,8 +208,10 @@
 			children = (
 				3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */,
 				3C36EF631DE5BF7300B3F1B4 /* ViewController.swift */,
+				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
 				26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */,
 				26F1ED1D1E14F2B10069971A /* Gathering.swift */,
+				26F1ED281E1509CE0069971A /* MainVC.swift */,
 				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
 				26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */,
 				3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */,
@@ -590,7 +596,9 @@
 				3C36EF641DE5BF7300B3F1B4 /* ViewController.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CreateMeetingCalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
+				26F1ED291E1509CE0069971A /* MainVC.swift in Sources */,
 				26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */,
+				26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */,
 				3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */,
 				26F1ED211E14F2B10069971A /* Gathering.swift in Sources */,
 			);
