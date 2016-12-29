@@ -1,0 +1,18 @@
+PODS:
+  - Fabric (1.6.11)
+  - FSCalendar (2.5.1)
+  - KCFloatingActionButton (2.1.1)
+
+DEPENDENCIES:
+  - Fabric
+  - FSCalendar
+  - KCFloatingActionButton (~> 2.1.0)
+
+SPEC CHECKSUMS:
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FSCalendar: 8efeb4b92240937204165c7743f4375923112fb5
+  KCFloatingActionButton: 084cfe9d16b741be33393c99757f5967296c7645
+
+PODFILE CHECKSUM: ef5d4d5c244d30657cb3f22d8b21731c85388697
+
+COCOAPODS: 1.1.1

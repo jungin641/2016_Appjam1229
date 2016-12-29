@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4661DE93FE1DD685B61D97FA96CA42C0F1E73899",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EDDCE31474C0113636968B9E4450B16E3ED56756" : 9223372036854775807,
+    "4661DE93FE1DD685B61D97FA96CA42C0F1E73899" : 9223372036854775807,
+    "E8BF02EE35D9AB71E00DFE5916DB1587A2F5FDC3" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0E5C46FF-3B58-4B66-8948-1805B70B31EC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EDDCE31474C0113636968B9E4450B16E3ED56756" : "SwiftStudy\/Appjam_1%202\/",
+    "4661DE93FE1DD685B61D97FA96CA42C0F1E73899" : "DaumMapAPI-Swift-Sample\/",
+    "E8BF02EE35D9AB71E00DFE5916DB1587A2F5FDC3" : "SwiftStudy\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DaumMapExample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DaumMapExample.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Amanida\/DaumMapAPI-Swift-Sample",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4661DE93FE1DD685B61D97FA96CA42C0F1E73899"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jungin641\/2016_iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E8BF02EE35D9AB71E00DFE5916DB1587A2F5FDC3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jungin641\/2016_iOS_APPJAM.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EDDCE31474C0113636968B9E4450B16E3ED56756"
+    }
+  ]
+}
