@@ -16,7 +16,8 @@ class CreateMeetingCalendarVC: UIViewController, FSCalendarDelegate, FSCalendarD
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-
+        
+        self.navigationController?.navigationBar.topItem?.title = "언제"
          self.calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
      
         calendar.delegate = self

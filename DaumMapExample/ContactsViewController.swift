@@ -22,6 +22,8 @@ class ContactsViewController: UITableViewController {
         let userDefault = UserDefaults.standard
         userDefault.string(forKey: "어쭈구")
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.topItem?.title = "누구"
         print("1")
         hideKeyboardWhenTappedAround()
         print("2")
@@ -51,9 +53,9 @@ class ContactsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneNumCell")!
         let formatter = CNContactFormatter()
         
-        cell.textLabel!.text = formatter.string(from: item)
-        let number = item.phoneNumbers.first?.value
-        print(number?.stringValue.asPhoneFormat)
+//        cell.textLabel!.text = formatter.string(from: item)
+//        let number = item.phoneNumbers.first?.value
+//        print(number?.stringValue.asPhoneFormat)
         
 //        if let phoneNumberToText = number?.stringValue.asPhoneFormat{
 //            

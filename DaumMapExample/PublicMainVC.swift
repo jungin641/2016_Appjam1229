@@ -8,13 +8,21 @@
 
 import UIKit
 import KCFloatingActionButton
+
 //import DigitsKit
 
-class MainVC: UITableViewController {
-
+class PublicMainVC: UITableViewController , UISearchResultsUpdating{
+    
     var myGatheringList = [GatheringVO]()
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
         //+ 플로팅 버튼 생성
         let fab = KCFloatingActionButton()
         fab.paddingY = 70
@@ -32,8 +40,10 @@ class MainVC: UITableViewController {
             self.present(alert, animated: true, completion: nil)
             fab.close()
         })
-        self.view.addSubview(fab)
+        
 
+        self.view.addSubview(fab)
+        
         
         myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
         myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
@@ -44,11 +54,15 @@ class MainVC: UITableViewController {
         myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
         myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
         
-               
+        
     }
     
-
-
+    
+    
+    //검색창에 사용자가 입력할 때마다 위의 메소드 실행
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myGatheringList.count
     }
@@ -80,22 +94,22 @@ class MainVC: UITableViewController {
             
         }
         if let participateNum = item.participateNum {
-           cell.txtparticipateNum.text = "\(participateNum)명"
+            cell.txtparticipateNum.text = "\(participateNum)명"
         }
-   
+        
         
         return cell
     }
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//  //      let item = myGatheringList[indexPath.row]
-////        
-////        let vc = storyboard?.instantiateViewController(withIdentifier: "PokemonInfoVC") as! PokemonInfoVC
-////        vc.pokemon = item
-//        
-////        navigationController?.pushViewController(vc, animated: true)
-//        
-//    }
-
-
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //  //      let item = myGatheringList[indexPath.row]
+    ////
+    ////        let vc = storyboard?.instantiateViewController(withIdentifier: "PokemonInfoVC") as! PokemonInfoVC
+    ////        vc.pokemon = item
+    //
+    ////        navigationController?.pushViewController(vc, animated: true)
+    //        
+    //    }
+    
+    
 }
 

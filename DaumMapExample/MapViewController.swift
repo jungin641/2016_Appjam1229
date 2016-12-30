@@ -12,10 +12,11 @@ class MapViewController: UIViewController, MTMapViewDelegate {
 
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
     //mymapview생성
-    lazy var myMapView: MTMapView = MTMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width/2, height: self.view.frame.size.height/2))
+    lazy var myMapView: MTMapView = MTMapView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height-100))
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem?.title = "어디"
         myMapView.daumMapApiKey = daumAPIKey
         myMapView.delegate = self
         myMapView.baseMapType = .standard
