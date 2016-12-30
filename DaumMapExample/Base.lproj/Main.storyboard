@@ -280,7 +280,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jB3-qF-ikk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="비공개방" image="map_pin_red.png" id="CLM-p3-yx8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LJ4-Pb-OW6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LJ4-Pb-OW6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
