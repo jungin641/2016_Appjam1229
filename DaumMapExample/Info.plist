@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>몰라 내가 알아?</string>
+    <string>내위치를 확인하고, 보다 편리한 이용을 위하여 사용됩니다</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

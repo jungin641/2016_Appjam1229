@@ -37,15 +37,15 @@
             <objects>
                 <tableViewController restorationIdentifier="MainVC" storyboardIdentifier="MainVC" title="내 약속 모아보기" id="d90-e5-Mex" userLabel="Main View" customClass="MainVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="194" sectionHeaderHeight="28" sectionFooterHeight="28" id="UCU-wr-JMt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GatheringCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GatheringCell" rowHeight="194" id="sr5-Mo-fQX" customClass="GatheringCell" customModule="DaumMapExample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="194"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sr5-Mo-fQX" id="i1P-Br-XZd">
-                                    <frame key="frameInset" width="375" height="193.5"/>
+                                    <frame key="frameInset" width="414" height="193.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellbackgroundSample" translatesAutoresizingMaskIntoConstraints="NO" id="iLN-wH-xay">
@@ -134,37 +134,49 @@
         <scene sceneID="GH6-P7-l4B">
             <objects>
                 <tableViewController restorationIdentifier="ContactsViewController" storyboardIdentifier="ContactsViewController" id="LJK-4h-Cap" customClass="ContactsViewController" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jm4-9y-eif">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" id="jm4-9y-eif">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="her-00-v48">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu128" translatesAutoresizingMaskIntoConstraints="NO" id="ZhF-CG-Rkq"/>
+                            </subviews>
                         </stackView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneNumCell" id="7Nm-kf-KQH">
-                                <rect key="frame" x="0.0" y="96" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneNumCell" rowHeight="97" id="7Nm-kf-KQH">
+                                <rect key="frame" x="0.0" y="123" width="414" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nm-kf-KQH" id="Crp-sy-7Gh">
-                                    <frame key="frameInset" width="414" height="43.5"/>
+                                    <frame key="frameInset" width="414" height="96.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUo-3d-St2">
-                                            <frame key="frameInset" minX="306" minY="14" width="44" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pikachu128" translatesAutoresizingMaskIntoConstraints="NO" id="Qcx-ek-Lg2">
+                                            <frame key="frameInset" minX="24" minY="12" width="58" height="73"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne0-2g-3de">
+                                            <frame key="frameInset" minX="90" minY="28" width="67" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne0-2g-3de">
-                                            <frame key="frameInset" minX="8" minY="11" width="34" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21l-LC-RXF">
+                                            <frame key="frameInset" minX="333" minY="14" width="73" height="68"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="아이디" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUo-3d-St2">
+                                            <frame key="frameInset" minX="154" minY="38" width="171" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.80351211570000003" green="0.82562658629999996" blue="0.81656469190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -179,12 +191,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyy-Rh-NH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5273.6000000000004" y="780.35982008995506"/>
+            <point key="canvasLocation" x="5271.0144927536239" y="779.75543478260875"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="9R2-os-5TR">
             <objects>
-                <viewController restorationIdentifier="CreateMeetingCalendarVC" storyboardIdentifier="CreateMeetingCalendarVC" title="CalendarController" id="4Ef-LI-oKp" customClass="CreateMeetingCalendarVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="CalendarVC" storyboardIdentifier="CalendarVC" title="CalendarController" id="4Ef-LI-oKp" customClass="CalendarVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jtl-2k-YIh"/>
                         <viewControllerLayoutGuide type="bottom" id="3fX-Mq-Awj"/>
@@ -295,15 +307,15 @@
             <objects>
                 <tableViewController restorationIdentifier="PublicMainVC" storyboardIdentifier="PublicMainVC" title="내 약속 모아보기" id="POa-bG-gP6" userLabel="Main View" customClass="PublicMainVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="194" sectionHeaderHeight="28" sectionFooterHeight="28" id="xDX-lE-KUx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GatheringCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GatheringCell" rowHeight="194" id="pLa-gM-2di" customClass="GatheringCell" customModule="DaumMapExample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="194"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pLa-gM-2di" id="kie-c5-5eQ">
-                                    <frame key="frameInset" width="375" height="193.5"/>
+                                    <frame key="frameInset" width="414" height="193.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellbackgroundSample" translatesAutoresizingMaskIntoConstraints="NO" id="gF9-9n-SRP">
@@ -397,7 +409,7 @@
                         <viewControllerLayoutGuide type="bottom" id="nVQ-8m-ZqC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0xS-Kw-mkP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="주소록 동기화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4c-Yb-HZY">
@@ -510,21 +522,35 @@
                         <viewControllerLayoutGuide type="bottom" id="u79-h7-yhj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hws-01-fv1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="copyright.png" translatesAutoresizingMaskIntoConstraints="NO" id="xyt-z6-KIB">
-                                <frame key="frameInset" minX="67" minY="539" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noimage256.png" translatesAutoresizingMaskIntoConstraints="NO" id="hKl-qk-xuH">
+                                <frame key="frameInset" minX="67" minY="671" width="240" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgW-JC-w8w">
+                                <frame key="frameInset" minX="16" minY="699" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="취소"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS6-Ro-mZ7">
+                                <frame key="frameInset" minX="350" minY="699" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="완료">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="누구" id="FBv-nI-NKs"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="737"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPg-DY-6eF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3847.826086956522" y="54.619565217391312"/>
+            <point key="canvasLocation" x="3847.1999999999998" y="54.422788605697157"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="XHv-5U-aFl">
@@ -543,11 +569,11 @@
                         <viewControllerLayoutGuide type="bottom" id="5jx-Qv-qhO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gVb-Yb-1MJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="58Z-8t-iL5">
-                                <frame key="frameInset" height="672"/>
+                                <frame key="frameInset" minX="-0.5" height="672"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="LJK-4h-Cap" kind="embed" id="6Vd-0B-7UQ"/>
@@ -587,9 +613,10 @@
     </scenes>
     <resources>
         <image name="cellbackgroundSample" width="982" height="446"/>
-        <image name="copyright.png" width="70" height="30"/>
-        <image name="map_pin.png" width="42" height="60"/>
-        <image name="map_pin_red.png" width="42" height="60"/>
+        <image name="map_pin.png" width="14" height="20"/>
+        <image name="map_pin_red.png" width="14" height="20"/>
+        <image name="noimage256.png" width="256" height="256"/>
+        <image name="pikachu128" width="128" height="128"/>
     </resources>
     <color key="tintColor" red="1" green="0.24175600650000001" blue="0.2499479798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

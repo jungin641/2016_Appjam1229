@@ -19,7 +19,7 @@
 		26DC77D51E164984000FEDF2 /* NoldamPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D11E164984000FEDF2 /* NoldamPresentationController.swift */; };
 		26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D21E164984000FEDF2 /* NoldamTrasitionDelegate.swift */; };
 		26DC77D71E164984000FEDF2 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D31E164984000FEDF2 /* PopupVC.swift */; };
-		26F1ED201E14F2B10069971A /* CreateMeetingCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */; };
+		26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1C1E14F2B10069971A /* CalendarVC.swift */; };
 		26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1D1E14F2B10069971A /* GatheringVO.swift */; };
 		26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1E1E14F2B10069971A /* GatheringCell.swift */; };
 		26F1ED231E14F2B10069971A /* UITabbar_custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */; };
@@ -79,7 +79,7 @@
 		26DC77D11E164984000FEDF2 /* NoldamPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamPresentationController.swift; sourceTree = "<group>"; };
 		26DC77D21E164984000FEDF2 /* NoldamTrasitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamTrasitionDelegate.swift; sourceTree = "<group>"; };
 		26DC77D31E164984000FEDF2 /* PopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
-		26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMeetingCalendarVC.swift; sourceTree = "<group>"; };
+		26F1ED1C1E14F2B10069971A /* CalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		26F1ED1D1E14F2B10069971A /* GatheringVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringVO.swift; sourceTree = "<group>"; };
 		26F1ED1E1E14F2B10069971A /* GatheringCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringCell.swift; sourceTree = "<group>"; };
 		26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabbar_custom.swift; sourceTree = "<group>"; };
@@ -174,9 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */,
-				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
-				26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */,
 				26816FA41E166E7500327375 /* MakeGatheringVC.swift */,
+				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
+				26F1ED1C1E14F2B10069971A /* CalendarVC.swift */,
 				26816FA51E166E7500327375 /* ContentViewController.swift */,
 			);
 			name = MakeGathering;
@@ -518,7 +518,7 @@
 				26DC77D51E164984000FEDF2 /* NoldamPresentationController.swift in Sources */,
 				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
-				26F1ED201E14F2B10069971A /* CreateMeetingCalendarVC.swift in Sources */,
+				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
 				26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */,
 				26816FA71E166E7500327375 /* ContentViewController.swift in Sources */,

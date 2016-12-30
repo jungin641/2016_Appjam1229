@@ -9,7 +9,7 @@
 import UIKit
 import FSCalendar
 
-class CreateMeetingCalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { //Delegate랑 Datasource프로토콜은 거의 필수로 구현한다고 보시면 됩니다.
+class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { //Delegate랑 Datasource프로토콜은 거의 필수로 구현한다고 보시면 됩니다.
     
     @IBOutlet weak var calendar: FSCalendar!
     override func viewDidLoad() {
