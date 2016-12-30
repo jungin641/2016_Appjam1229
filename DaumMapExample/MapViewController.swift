@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, MTMapViewDelegate {
+class MapViewController: UIViewController, MTMapViewDelegate {
 
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
     //mymapview생성

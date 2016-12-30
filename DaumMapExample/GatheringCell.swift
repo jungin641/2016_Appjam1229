@@ -13,10 +13,9 @@ class GatheringCell : UITableViewCell{
     
     @IBOutlet var imgProfile : UIImageView!
     @IBOutlet var txttitle : UILabel!
-    @IBOutlet var txtnames : UILabel!
+    @IBOutlet var txtname : UILabel!
     @IBOutlet var txtplace : UILabel!
     @IBOutlet var txtdate : UILabel!
-    @IBOutlet var txtconfirmNum : UILabel!
     @IBOutlet var txtparticipateNum : UILabel!
     
     

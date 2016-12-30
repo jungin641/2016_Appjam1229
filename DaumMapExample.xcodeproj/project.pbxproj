@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0273E61EBC8D10E920D64291 /* Pods_DaumMapExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */; };
+		26DC77C71E1616F4000FEDF2 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77C61E1616F4000FEDF2 /* NetworkModel.swift */; };
+		26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77C81E161701000FEDF2 /* NetworkCallback.swift */; };
+		26DC77CB1E161730000FEDF2 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77CA1E161730000FEDF2 /* PostModel.swift */; };
 		26F1ED201E14F2B10069971A /* CreateMeetingCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */; };
-		26F1ED211E14F2B10069971A /* Gathering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1D1E14F2B10069971A /* Gathering.swift */; };
+		26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1D1E14F2B10069971A /* GatheringVO.swift */; };
 		26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1E1E14F2B10069971A /* GatheringCell.swift */; };
 		26F1ED231E14F2B10069971A /* UITabbar_custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */; };
 		26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED241E14F9480069971A /* ExtensionControl.swift */; };
 		26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED261E14FCDF0069971A /* ContactsViewController.swift */; };
 		26F1ED291E1509CE0069971A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED281E1509CE0069971A /* MainVC.swift */; };
 		3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */; };
-		3C36EF641DE5BF7300B3F1B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF631DE5BF7300B3F1B4 /* ViewController.swift */; };
+		3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */; };
 		3C36EF671DE5BF7300B3F1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */; };
 		3C36EF691DE5BF7300B3F1B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */; };
 		3C36EF6C1DE5BF7300B3F1B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF6A1DE5BF7300B3F1B4 /* LaunchScreen.storyboard */; };
@@ -55,6 +58,8 @@
 		3C36F00D1DE5CBF400B3F1B4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36F00C1DE5CBF400B3F1B4 /* libxml2.tbd */; };
 		3C36F00F1DE5CBFB00B3F1B4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36F00E1DE5CBFB00B3F1B4 /* libsqlite3.tbd */; };
 		3C36F0111DE5CC9D00B3F1B4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36F0101DE5CC9D00B3F1B4 /* CoreLocation.framework */; };
+		4C64E35479BF89DA41828A31 /* Pods_DaumMapExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66B22827B0407222D44A8D7 /* Pods_DaumMapExampleUITests.framework */; };
+		95D682BA27F94ABB06662BA6 /* Pods_DaumMapExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DE6DB33C080A3296CBF370 /* Pods_DaumMapExampleTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +80,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26DC77C61E1616F4000FEDF2 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		26DC77C81E161701000FEDF2 /* NetworkCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
+		26DC77CA1E161730000FEDF2 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMeetingCalendarVC.swift; sourceTree = "<group>"; };
-		26F1ED1D1E14F2B10069971A /* Gathering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gathering.swift; sourceTree = "<group>"; };
+		26F1ED1D1E14F2B10069971A /* GatheringVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringVO.swift; sourceTree = "<group>"; };
 		26F1ED1E1E14F2B10069971A /* GatheringCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringCell.swift; sourceTree = "<group>"; };
 		26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabbar_custom.swift; sourceTree = "<group>"; };
 		26F1ED241E14F9480069971A /* ExtensionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionControl.swift; sourceTree = "<group>"; };
@@ -87,7 +95,7 @@
 		39BA9260937876F4F0C790C5 /* Pods-DaumMapExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExample/Pods-DaumMapExample.debug.xcconfig"; sourceTree = "<group>"; };
 		3C36EF5E1DE5BF7300B3F1B4 /* DaumMapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaumMapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C36EF631DE5BF7300B3F1B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3C36EF661DE5BF7300B3F1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C36EF6B1DE5BF7300B3F1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -130,10 +138,12 @@
 		3C36F00E1DE5CBFB00B3F1B4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3C36F0101DE5CC9D00B3F1B4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3C36F0121DE5CFC300B3F1B4 /* DaumMapExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DaumMapExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		69DE6DB33C080A3296CBF370 /* Pods_DaumMapExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaumMapExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83ACEEFA00463D077C005E57 /* Pods-DaumMapExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExample/Pods-DaumMapExample.release.xcconfig"; sourceTree = "<group>"; };
 		BECC0167CF1FF86DA25D3695 /* Pods-DaumMapExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleTests/Pods-DaumMapExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaumMapExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3095B9E8C831D3CAF2293E /* Pods-DaumMapExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleUITests/Pods-DaumMapExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E66B22827B0407222D44A8D7 /* Pods_DaumMapExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaumMapExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D682BA27F94ABB06662BA6 /* Pods_DaumMapExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,12 +175,87 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C64E35479BF89DA41828A31 /* Pods_DaumMapExampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26151F2B1E152EBE00F38CAA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
+				26F1ED281E1509CE0069971A /* MainVC.swift */,
+				3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */,
+				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
+				26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		26DC77BF1E16154F000FEDF2 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */,
+				3C36EF6A1DE5BF7300B3F1B4 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		26DC77C01E161582000FEDF2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				26DC77C51E1615AB000FEDF2 /* Function */,
+				26DC77C41E1615A6000FEDF2 /* UI */,
+				26DC77C11E161589000FEDF2 /* Model */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		26DC77C11E161589000FEDF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26DC77C31E161599000FEDF2 /* ViewObject */,
+				26DC77C21E161593000FEDF2 /* Network */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		26DC77C21E161593000FEDF2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				26DC77CA1E161730000FEDF2 /* PostModel.swift */,
+				26DC77C61E1616F4000FEDF2 /* NetworkModel.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		26DC77C31E161599000FEDF2 /* ViewObject */ = {
+			isa = PBXGroup;
+			children = (
+				26F1ED1D1E14F2B10069971A /* GatheringVO.swift */,
+			);
+			name = ViewObject;
+			sourceTree = "<group>";
+		};
+		26DC77C41E1615A6000FEDF2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		26DC77C51E1615AB000FEDF2 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				26DC77C81E161701000FEDF2 /* NetworkCallback.swift */,
+				26F1ED241E14F9480069971A /* ExtensionControl.swift */,
+			);
+			name = Function;
+			sourceTree = "<group>";
+		};
 		2C56E116E91C284D7B182D58 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,19 +293,12 @@
 			isa = PBXGroup;
 			children = (
 				3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */,
-				3C36EF631DE5BF7300B3F1B4 /* ViewController.swift */,
-				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
-				26F1ED1C1E14F2B10069971A /* CreateMeetingCalendarVC.swift */,
-				26F1ED1D1E14F2B10069971A /* Gathering.swift */,
-				26F1ED281E1509CE0069971A /* MainVC.swift */,
-				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
-				26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */,
-				3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */,
+				26DC77BF1E16154F000FEDF2 /* Storyboard */,
+				26151F2B1E152EBE00F38CAA /* ViewController */,
+				26DC77C01E161582000FEDF2 /* Utils */,
 				3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */,
-				3C36EF6A1DE5BF7300B3F1B4 /* LaunchScreen.storyboard */,
 				3C36EF6D1DE5BF7300B3F1B4 /* Info.plist */,
 				3C36F0121DE5CFC300B3F1B4 /* DaumMapExample-Bridging-Header.h */,
-				26F1ED241E14F9480069971A /* ExtensionControl.swift */,
 			);
 			path = DaumMapExample;
 			sourceTree = "<group>";
@@ -236,6 +315,8 @@
 				3C36F0041DE5CBDA00B3F1B4 /* OpenGLES.framework */,
 				3C36EFCA1DE5C9D800B3F1B4 /* DaumMap.embeddedframework */,
 				CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */,
+				69DE6DB33C080A3296CBF370 /* Pods_DaumMapExampleTests.framework */,
+				E66B22827B0407222D44A8D7 /* Pods_DaumMapExampleUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -593,14 +674,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				26F1ED231E14F2B10069971A /* UITabbar_custom.swift in Sources */,
-				3C36EF641DE5BF7300B3F1B4 /* ViewController.swift in Sources */,
+				26DC77CB1E161730000FEDF2 /* PostModel.swift in Sources */,
+				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CreateMeetingCalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
 				26F1ED291E1509CE0069971A /* MainVC.swift in Sources */,
+				26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */,
 				26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */,
 				26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */,
 				3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */,
-				26F1ED211E14F2B10069971A /* Gathering.swift in Sources */,
+				26DC77C71E1616F4000FEDF2 /* NetworkModel.swift in Sources */,
+				26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +878,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DaumMapExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amanida.DaumMapExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -809,6 +894,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DaumMapExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amanida.DaumMapExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -823,6 +909,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = DaumMapExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amanida.DaumMapExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -837,6 +924,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = DaumMapExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amanida.DaumMapExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
