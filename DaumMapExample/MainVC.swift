@@ -29,12 +29,12 @@ class MainVC: UITableViewController, NetworkCallback {
         fab.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
         
         let item = KCFloatingActionButtonItem()
-        item.title = "직접 추가"
+        item.title = "공개방"
         item.handler = { item in
             self.moveScene(VCname: "NavMakeGatheringVC")
         }
         
-        fab.addItem("기본옷 추가", icon: UIImage(named: "icMap")) { item in
+        fab.addItem("비공개방", icon: UIImage(named: "icMap")) { item in
             self.moveScene(VCname: "NavMakeGatheringVC")
         }
         fab.addItem(item: item)

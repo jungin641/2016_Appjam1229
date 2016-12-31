@@ -19,7 +19,7 @@ extension String {
             let p1 = self.substring(to: i1)
             let p2 = self.substring(with: range)
             let p3 = self.substring(from: i2)
-            let txtPhone = "\(p1)-\(p2)-\(p3)"
+            let txtPhone = "\(p1)\(p2)\(p3)"
             
             return txtPhone
         } else if self.lengthOfBytes(using: String.Encoding.utf8) == 10 {
@@ -30,7 +30,7 @@ extension String {
             let p1 = self.substring(to: i1)
             let p2 = self.substring(with: range)
             let p3 = self.substring(from: i2)
-            let txtPhone = "\(p1)-\(p2)-\(p3)"
+            let txtPhone = "\(p1)\(p2)\(p3)"
             
             return txtPhone
         } else {

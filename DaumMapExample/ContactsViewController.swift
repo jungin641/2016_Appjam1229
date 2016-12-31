@@ -9,14 +9,19 @@
 import UIKit
 import Contacts
 
-class ContactsViewController: UITableViewController {
+class ContactsViewController: UITableViewController, NetworkCallback  {
+    internal func networkResult(resultData: Any, code: Int) {
+        print(resultData)
+    }
+
     
     var contactList = [CNContact]()
+    var friendList = [FriendVO]()
     let maleImage = UIImage(named: "ic_male")
     let femaleImage  = UIImage(named: "ic_female")
     
     override func viewDidLoad() {
-        
+         self.navigationController?.navigationBar.topItem?.title = "누구"
 //        let userDefault = UserDefaults.standard
 //        userDefault.string(forKey: "어쭈구")
         super.viewDidLoad()
@@ -27,8 +32,9 @@ class ContactsViewController: UITableViewController {
         print("3")
         initModels()
         print("4")
+       
     }
-    
+
     func initViews() {
 ////        searchController.searchResultsUpdater = self
 ////        searchController.dimsBackgroundDuringPresentation = false
@@ -49,13 +55,19 @@ class ContactsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
         let formatter = CNContactFormatter()
         
-        cell.txtname.text = formatter.string(from: item)
+        let friendname = formatter.string(from: item)
+        cell.txtname.text = friendname
         let number = item.phoneNumbers.first?.value
-        cell.email.text = number?.stringValue.asPhoneFormat
+        
+        let friendPh = number?.stringValue.asPhoneFormat
+        cell.email.text = friendPh
+        
         cell.checkBox.setBackgroundImage(maleImage,for: UIControlState())
         cell.checkBox.setBtnUnClickedImg(unClickedImage: maleImage!)
         cell.checkBox.setBtnClickedImg(clickedImage: femaleImage!)
-
+        
+        friendList.append(FriendVO(name: friendname!, ph: friendPh!))
+       
         return cell
     }
     
@@ -90,31 +102,33 @@ class ContactsViewController: UITableViewController {
             DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
             })
+            for item in contactList {
+
+            let formatter = CNContactFormatter()
+            
+            let friendname = formatter.string(from: item)
+            let number = item.phoneNumbers.first?.value
+            let friendPh = number?.stringValue.asPhoneFormat
+           
+            
+            friendList.append(FriendVO(name: gsno(friendname), ph: gsno(friendPh)))
+                
+            }
+            
+            let model = PostModel(self)
+            print("연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화")
+            print(friendList[2].ph!)
+            model.sync(friends_list: friendList)
+
+
+            
+            
         } catch {
             print(error)
         }
+        
+        
     }
-//    
-//    //검색창에 사용자가 입력하는 값에 따라 매번 테이블뷰의 내용을 갱신
-//    func filterContentForSearchText(searchText: String, scope: String = "All") {
-//        filteredList = contactList.filter { contact in
-//            let formatter = CNContactFormatter()
-//            if let text = formatter.string(from: contact) {
-//                if searchText.isEmpty {
-//                    return true
-//                } else {
-//                    return text.contains(searchText)
-//                }
-//            } else {
-//                return false
-//            }
-//        }
-//        tableView.reloadData()
-//    }
-//    
-//    //검색창에 사용자가 입력할 때마다 위의 메소드 실행
-//    func updateSearchResults(for searchController: UISearchController) {
-//        filterContentForSearchText(searchText: searchController.searchBar.text!)
-//    }
+
 }
 

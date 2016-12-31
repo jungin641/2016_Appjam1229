@@ -12,6 +12,16 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
 
     var pageViewController : UIPageViewController!
    
+    @IBAction func CancelBtn(_ sender: AnyObject) {
+        // 저장안하고 끄면 데이터 날라가야겠지?
+        dismiss(animated: true)
+        
+    }
+    @IBAction func CompleteBtn(_ sender: AnyObject) {
+        //확인창으로 넘어가기
+        dismiss(animated: true)
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
       

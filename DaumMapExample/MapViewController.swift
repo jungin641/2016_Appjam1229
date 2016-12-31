@@ -26,6 +26,7 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.navigationController?.navigationBar.topItem?.title = "어디"
         myMapView.daumMapApiKey = daumAPIKey
         myMapView.delegate = self
         myMapView.baseMapType = .standard

@@ -36,34 +36,38 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
 //        searchController.dimsBackgroundDuringPresentation = false
 //        definesPresentationContext = true
 //        tableView.tableHeaderView = searchController.searchBar
-        
+//        
         let model = PostModel(self)
-
+        
         model.getPrivate()
+        
         //+ 플로팅 버튼 생성
         let fab = KCFloatingActionButton()
         fab.paddingY = 70
         fab.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
         
-        fab.addItem("비공개방", icon: UIImage(named: "pikachu128.jpg")!, handler: { item in
-            let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            fab.close()
-        })
-        fab.addItem("공개방", icon: UIImage(named: "pikachu128.jpg")!, handler: { item in
-            let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            fab.close()
-        })
+        let item = KCFloatingActionButtonItem()
+        item.title = "공개방"
+        item.handler = { item in
+            self.moveScene(VCname: "NavMakeGatheringVC")
+        }
+        
+        fab.addItem("비공개방", icon: UIImage(named: "icMap")) { item in
+            self.moveScene(VCname: "NavMakeGatheringVC")
+        }
+        fab.addItem(item: item)
         
         
         self.view.addSubview(fab)
         
-        
     }
-    
+    func moveScene(VCname : String){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: VCname){
+            present(vc, animated: true)
+            
+        }
+    }
+
     
     
     //검색창에 사용자가 입력할 때마다 위의 메소드 실행

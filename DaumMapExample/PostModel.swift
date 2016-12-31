@@ -155,10 +155,10 @@ class PostModel: NetworkModel {
             })
         }
     }
+    // 개인방 목록 가져오기
     func getPrivate() {
-        let tt = userDefault.string(forKey: "id")
-        
-        let params1 = ["id" : gsno(tt)]
+        let id = userDefault.string(forKey: "id")
+        let params1 = ["id" : gsno(id)]
   
         Alamofire.request("\(baseURL)/main", method: .post, parameters: params1, encoding: JSONEncoding.default).responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
             switch res.result {
@@ -166,20 +166,16 @@ class PostModel: NetworkModel {
                 
                 if let value = res.result.value {
                     let data = JSON(value)
-                    print("########")
-                    print(data)
                     var tempList = [GatheringVO]()
                     if let array = data["result"].array{
                         for item in array{
-//                            let gvo = GatheringVO(
-//                                profileImg: item["host_profile"].string,
-//                                title: item["title"].string,
-//                                name: item["host_name"].string,
-//                                place : item["where_fix"].string ,
-//                                date : item["when_fix"].string,
-//                                participateNum : item["member"].int )
-//                            
-                            let gvo = GatheringVO(profileImg: item["host_profile"].string, title: item["title"].string, name: item["host_name"].string, where_fix: item["where_fix"].int, when_fix: item["when_fix"].int, participateNum: item["member"].int)
+                            let gvo = GatheringVO(
+                                profileImg: item["host_profile"].string,
+                                title: item["title"].string,
+                                name: item["host_name"].string,
+                                where_fix: item["where_fix"].int,
+                                when_fix: item["when_fix"].int,
+                                participateNum: item["member"].int)
                             tempList.append(gvo)
                         }
                         
@@ -195,5 +191,49 @@ class PostModel: NetworkModel {
             }
         }
     }
+    // 전화번호 동기화
+    func sync(friends_list: [FriendVO]) {
+        let id = userDefault.string(forKey: "id")
+        var friends = [[String : String]]()
+        
+        for friend in friends_list{
+            let tempFriends_list = [
+            "ph" : gsno(friend.ph),
+            "name" : gsno(friend.name)
+            ]
+            print(tempFriends_list)
+            friends.append(tempFriends_list)
+        }
+      
+        let params = [
+            "id" :  gsno(id),
+            "friends_list" : friends
+        ] as [String : Any]
+        
+        Alamofire.request("\(baseURL)/main/sync", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
+            switch res.result {
+            case .success :
+                if let value = res.result.value {
+                    let data = JSON(value)
+                    
+                    if let syncResult = data["result"].string{
+                        print("\(syncResult)동기화성공")
+//                        if joinResult == "SUCCESS" {
+//                            self.view.networkResult(resultData: "회원가입이 완료되었습니다.", code: 0)
+//                        }
+                    }
+                }
+                
+                break
+            case .failure(let err) :
+                print(err)
+                print("동기화실패\(err)")
+                self.view.networkFailed()
+            }
+            
+        }
+        
+    }
+    
 }
 

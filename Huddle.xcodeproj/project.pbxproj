@@ -21,6 +21,7 @@
 		26816FA71E166E7500327375 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA51E166E7500327375 /* ContentViewController.swift */; };
 		269173331E17B6CF000788AF /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173321E17B6CF000788AF /* UserVO.swift */; };
 		269173351E17C981000788AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173341E17C981000788AF /* FriendCell.swift */; };
+		26D1E0631E181C4500201341 /* FriendVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E0621E181C4500201341 /* FriendVO.swift */; };
 		26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77C81E161701000FEDF2 /* NetworkCallback.swift */; };
 		26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */; };
 		26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */; };
@@ -90,6 +91,7 @@
 		26816FA51E166E7500327375 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		269173321E17B6CF000788AF /* UserVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
 		269173341E17C981000788AF /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		26D1E0621E181C4500201341 /* FriendVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendVO.swift; sourceTree = "<group>"; };
 		26DC77C81E161701000FEDF2 /* NetworkCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicMainVC.swift; sourceTree = "<group>"; };
 		26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamAnimatedTransitioning.swift; sourceTree = "<group>"; };
@@ -205,11 +207,11 @@
 		26816FA31E166E5D00327375 /* MakeGathering */ = {
 			isa = PBXGroup;
 			children = (
-				3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */,
 				26816FA41E166E7500327375 /* MakeGatheringVC.swift */,
+				26816FA51E166E7500327375 /* ContentViewController.swift */,
 				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
 				26F1ED1C1E14F2B10069971A /* CalendarVC.swift */,
-				26816FA51E166E7500327375 /* ContentViewController.swift */,
+				3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */,
 			);
 			name = MakeGathering;
 			sourceTree = "<group>";
@@ -274,6 +276,7 @@
 			children = (
 				26F1ED1D1E14F2B10069971A /* GatheringVO.swift */,
 				269173321E17B6CF000788AF /* UserVO.swift */,
+				26D1E0621E181C4500201341 /* FriendVO.swift */,
 			);
 			name = ViewObject;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26F1ED231E14F2B10069971A /* UITabbar_custom.swift in Sources */,
+				26D1E0631E181C4500201341 /* FriendVO.swift in Sources */,
 				26DC77D51E164984000FEDF2 /* NoldamPresentationController.swift in Sources */,
 				264548671E175D080084C865 /* NetworkModel.swift in Sources */,
 				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
