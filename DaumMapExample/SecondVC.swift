@@ -21,10 +21,15 @@ class SecondVC : UIViewController, NetworkCallback {
 
     let btnOk = UIAlertAction(title: "확인", style: .default, handler: {_ in print("얍")})
 
-    let maleImage = UIImage(named: "ic_male")
-    let femaleImage  = UIImage(named: "ic_female")
-    let maleImageClicked = UIImage(named: "ic_male_check")
-    let femaleImageClicked  = UIImage(named: "ic_female_check")
+//    let maleImage = UIImage(named: "ic_male")
+//    let femaleImage  = UIImage(named: "ic_female")
+//    let maleImageClicked = UIImage(named: "ic_male_check")
+//    let femaleImageClicked  = UIImage(named: "ic_female_check")
+    
+    let maleImage = UIImage(named: "icon")
+    let femaleImage  = UIImage(named: "icon")
+    let maleImageClicked = UIImage(named: "icon")
+    let femaleImageClicked  = UIImage(named: "icon")
   
     var IDdata = ""
     var PWdata = ""
@@ -97,8 +102,8 @@ class SecondVC : UIViewController, NetworkCallback {
         let model = PostModel(self)
         let id = gsno(IdTextField.text)
         let pw = gsno(PwTextField.text)
-        let ph = gsno(NameTextField.text)
-        let name = gsno(AgeTextField.text)
+        let ph = gsno(AgeTextField.text)
+        let name = gsno(NameTextField.text)
         
         model.join(id: id, pw: pw, ph: ph, name: name)
  

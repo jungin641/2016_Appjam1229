@@ -93,8 +93,6 @@
 		26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabbar_custom.swift; sourceTree = "<group>"; };
 		26F1ED241E14F9480069971A /* ExtensionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionControl.swift; sourceTree = "<group>"; };
 		26F1ED261E14FCDF0069971A /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		3036DF5B27D0798AA5B81644 /* Pods-DaumMapExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleTests/Pods-DaumMapExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		3610EB5E7CF92F72AA1875BC /* Pods-DaumMapExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleUITests/Pods-DaumMapExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39BA9260937876F4F0C790C5 /* Pods-DaumMapExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExample/Pods-DaumMapExample.debug.xcconfig"; sourceTree = "<group>"; };
 		3C36EF5E1DE5BF7300B3F1B4 /* DaumMapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaumMapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,9 +139,7 @@
 		3C36F0121DE5CFC300B3F1B4 /* DaumMapExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DaumMapExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		69DE6DB33C080A3296CBF370 /* Pods_DaumMapExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaumMapExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83ACEEFA00463D077C005E57 /* Pods-DaumMapExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExample/Pods-DaumMapExample.release.xcconfig"; sourceTree = "<group>"; };
-		BECC0167CF1FF86DA25D3695 /* Pods-DaumMapExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleTests/Pods-DaumMapExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaumMapExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC3095B9E8C831D3CAF2293E /* Pods-DaumMapExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaumMapExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaumMapExampleUITests/Pods-DaumMapExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E66B22827B0407222D44A8D7 /* Pods_DaumMapExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaumMapExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -288,10 +284,6 @@
 			children = (
 				39BA9260937876F4F0C790C5 /* Pods-DaumMapExample.debug.xcconfig */,
 				83ACEEFA00463D077C005E57 /* Pods-DaumMapExample.release.xcconfig */,
-				BECC0167CF1FF86DA25D3695 /* Pods-DaumMapExampleTests.debug.xcconfig */,
-				3036DF5B27D0798AA5B81644 /* Pods-DaumMapExampleTests.release.xcconfig */,
-				DC3095B9E8C831D3CAF2293E /* Pods-DaumMapExampleUITests.debug.xcconfig */,
-				3610EB5E7CF92F72AA1875BC /* Pods-DaumMapExampleUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";

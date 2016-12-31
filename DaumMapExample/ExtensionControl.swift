@@ -56,6 +56,16 @@ extension UIViewController {
             return 0
         }
     }
+    var today: Date {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "ko-kr")
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+    
+        let tempToday = calendar.date(byAdding: .hour, value: 9, to: Date())
+        let today = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: tempToday!)
+//        let eee = calendar.date(byAdding: .day, value: 7, to: today!)
+        return today!
+    }
     
     func simpleAlert(title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)

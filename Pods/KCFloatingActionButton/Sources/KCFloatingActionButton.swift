@@ -89,7 +89,7 @@ open class KCFloatingActionButton: UIView {
     /**
         Background overlaying color.
     */
-    @IBInspectable open var overlayColor: UIColor = UIColor.black.withAlphaComponent(0.3)
+    @IBInspectable open var overlayColor: UIColor = UIColor.black.withAlphaComponent(0.0)
 
     /**
         The space between the item and item.
@@ -563,17 +563,19 @@ open class KCFloatingActionButton: UIView {
     }
 
     fileprivate func setRightBottomFrame(_ keyboardSize: CGFloat = 0) {
-        if superview == nil {
+        if superview == nil { //상위뷰가 없으면
             frame = CGRect(
+
+
                 x: (UIScreen.main.bounds.size.width - size) - paddingX,
                 y: (UIScreen.main.bounds.size.height - size - keyboardSize) - paddingY,
                 width: size,
                 height: size
             )
-        } else {
+        } else { //상위뷰가 있으면
             frame = CGRect(
                 x: (superview!.bounds.size.width-size) - paddingX,
-                y: (superview!.bounds.size.height-size-keyboardSize) - paddingY-50,
+                y: (superview!.bounds.size.height-size-keyboardSize) - paddingY,
                 width: size,
                 height: size
             )
@@ -648,6 +650,12 @@ open class KCFloatingActionButton: UIView {
                     if superview is UIScrollView {
                         superview.removeObserver(self, forKeyPath: "contentOffset", context:nil)
                     }
+                    if superview is UITableView {
+                        superview.removeObserver(self, forKeyPath: "contentOffset", context:nil)
+                    }
+                    if superview is UINavigationController {
+                        superview.removeObserver(self, forKeyPath: "contentOffset", context:nil)
+                    }
                 }
             }
         }
@@ -660,6 +668,21 @@ open class KCFloatingActionButton: UIView {
         if sticky == true {
             if let superviews = self.getAllSuperviews() {
                 for superview in superviews {
+//                    if superview is UIScrollView {
+//                        superview.removeObserver(self, forKeyPath: "contentOffset", context:nil)
+//                    }
+//                    if superview is UITableView {
+//                        superview.removeObserver(self, forKeyPath: "contentOffset", context:nil)
+//                    }
+//                    if superview is UINavigationController {
+//                        superview.removeObserver(self, forKeyPath: "contentOffset", context:nil)
+//                    }
+                    if superview is UITableView {
+                        superview.addObserver(self, forKeyPath: "contentOffset", options: .new, context:nil)
+                    }
+                    if superview is UINavigationController {
+                        superview.addObserver(self, forKeyPath: "contentOffset", options: .new, context:nil)
+                    }
                     if superview is UIScrollView {
                         superview.addObserver(self, forKeyPath: "contentOffset", options: .new, context:nil)
                     }

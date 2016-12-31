@@ -13,11 +13,12 @@ import KCFloatingActionButton
 class MainVC: UITableViewController {
 
     var myGatheringList = [GatheringVO]()
+    var fabY : CGFloat?
     override func viewDidLoad() {
         super.viewDidLoad()
         //+ 플로팅 버튼 생성
         let fab = KCFloatingActionButton()
-//        fab.paddingY = 70
+        fab.paddingY = 70
         fab.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
         
         fab.addItem("비공개방", icon: UIImage(named: "pikachu128.jpg")!, handler: { item in
@@ -46,7 +47,12 @@ class MainVC: UITableViewController {
         
                
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
