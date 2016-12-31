@@ -1,4 +1,4 @@
-//
+
 //  ViewController.swift
 //  Appjam_1
 //
@@ -6,16 +6,23 @@
 //  Copyright © 2016년 jungining. All rights reserved.
 //
 
+
 import UIKit
+import Alamofire
+import SwiftyJSON
 import KCFloatingActionButton
 //import DigitsKit
 
-class MainVC: UITableViewController {
-
+class MainVC: UITableViewController, NetworkCallback {
+    
     var myGatheringList = [GatheringVO]()
-    var fabY : CGFloat?
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        let model = PostModel(self)
+      
+        model.getPrivate()
+        
         //+ 플로팅 버튼 생성
         let fab = KCFloatingActionButton()
         fab.paddingY = 70
@@ -34,74 +41,79 @@ class MainVC: UITableViewController {
             fab.close()
         })
         self.view.addSubview(fab)
-
         
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        
-               
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-     
-    }
-    override func viewWillAppear(_ animated: Bool) {
         
     }
-
-
+    
+    
+    internal func networkResult(resultData: Any, code: Int) {
+        
+        myGatheringList = resultData as! [GatheringVO]
+        
+        print("@@@@@@@@@")
+        print(myGatheringList.count)
+        
+        tableView.reloadData()
+        
+    }
+    override func networkFailed() {
+        print("name dddd")
+    }
+    
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myGatheringList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
         //다운캐스팅
         let cell = tableView.dequeueReusableCell(withIdentifier: "GatheringCell") as! GatheringCell
         let item = myGatheringList[indexPath.row]
         
-        if let profileImg = item.profileImg {
-            cell.imgProfile.image = UIImage(named: profileImg)
-            cell.imgProfile.contentMode = .scaleAspectFit
-            
-        }
-        if let title = item.title {
-            cell.txttitle.text = title
-        }
         
-        if let name = item.name {
-            cell.txtname.text = name
-            
-        }
-        if let place = item.place {
-            cell.txtplace.text = place
-        }
+        cell.imgProfile.image = UIImage(named: gsno(item.profileImg))
+        cell.imgProfile.contentMode = .scaleAspectFit
         
-        if let date = item.date {
-            cell.txtdate.text = date
-            
-        }
-        if let participateNum = item.participateNum {
-           cell.txtparticipateNum.text = "\(participateNum)명"
-        }
-   
+        
+        
+        cell.txttitle.text = item.title!
+        
+        
+        
+        cell.txtname.text = item.name!
+        
+        
+        
+        // cell.txtplace.text = item.place
+        
+        
+        
+        //cell.txtdate.text = item.date
+        
+        
+        
+        cell.txtparticipateNum.text = "\(item.participateNum!)명"
+        
+        
         
         return cell
     }
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//  //      let item = myGatheringList[indexPath.row]
-////        
-////        let vc = storyboard?.instantiateViewController(withIdentifier: "PokemonInfoVC") as! PokemonInfoVC
-////        vc.pokemon = item
-//        
-////        navigationController?.pushViewController(vc, animated: true)
-//        
-//    }
-
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //  //      let item = myGatheringList[indexPath.row]
+    ////
+    ////        let vc = storyboard?.instantiateViewController(withIdentifier: "PokemonInfoVC") as! PokemonInfoVC
+    ////        vc.pokemon = item
+    //
+    ////        navigationController?.pushViewController(vc, animated: true)
+    //
+    //    }
+    
+    
 }
 

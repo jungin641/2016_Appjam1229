@@ -18,7 +18,7 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
         
         
         self.navigationController?.navigationBar.topItem?.title = "언제"
-         self.calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
+        self.calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
      
         calendar.delegate = self
         calendar.dataSource = self

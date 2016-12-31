@@ -15,7 +15,7 @@ class GatheringVO{
     var date : String?
     var participateNum: Int?
     
-
+    
     
     init(){ //디폴트 생성자
         
@@ -27,6 +27,6 @@ class GatheringVO{
         self.place = place
         self.date = date
         self.participateNum = participateNum
-        }
+    }
     
 }

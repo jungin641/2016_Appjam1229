@@ -8,21 +8,38 @@
 
 import UIKit
 import KCFloatingActionButton
-
+import SwiftyJSON
+import Alamofire
 //import DigitsKit
 
-class PublicMainVC: UITableViewController , UISearchResultsUpdating{
+class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCallback{
     
     var myGatheringList = [GatheringVO]()
-    let searchController = UISearchController(searchResultsController: nil)
     
+    
+    internal func networkResult(resultData: Any, code: Int) {
+        
+        myGatheringList = resultData as! [GatheringVO]
+        
+        print("@@@@@@@@@")
+        print(myGatheringList.count)
+        
+        tableView.reloadData()
+        
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+//        let searchController = UISearchController(searchResultsControllear: nil)
+//        
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//        tableView.tableHeaderView = searchController.searchBar
         
+        let model = PostModel(self)
+
+        model.getPrivate()
         //+ 플로팅 버튼 생성
         let fab = KCFloatingActionButton()
         fab.paddingY = 70
@@ -41,18 +58,8 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating{
             fab.close()
         })
         
-
+        
         self.view.addSubview(fab)
-        
-        
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
-        myGatheringList.append(GatheringVO(profileImg: "pikachu128", title: "종주랑 초밥", name: "이미나",place : "미정" ,date : "확정",participateNum: 3))
         
         
     }
@@ -73,28 +80,28 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating{
         let item = myGatheringList[indexPath.row]
         
         if let profileImg = item.profileImg {
-            cell.imgProfile.image = UIImage(named: profileImg)
+            cell.imgProfile.image = UIImage(named: item.profileImg!)
             cell.imgProfile.contentMode = .scaleAspectFit
             
         }
         if let title = item.title {
-            cell.txttitle.text = title
+            cell.txttitle.text = item.title
         }
         
         if let name = item.name {
-            cell.txtname.text = name
+            cell.txtname.text = item.name
             
         }
         if let place = item.place {
-            cell.txtplace.text = place
+            //cell.txtplace.text = place
         }
         
         if let date = item.date {
-            cell.txtdate.text = date
+            //cell.txtdate.text = date
             
         }
         if let participateNum = item.participateNum {
-            cell.txtparticipateNum.text = "\(participateNum)명"
+            cell.txtparticipateNum.text = "\(item.participateNum)명"
         }
         
         
@@ -107,7 +114,7 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating{
     ////        vc.pokemon = item
     //
     ////        navigationController?.pushViewController(vc, animated: true)
-    //        
+    //
     //    }
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2hA-gm-hwU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TtD-k5-gGT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -8,7 +8,7 @@
         <!--MapViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="MapViewController" storyboardIdentifier="MapViewController" title="MapViewController" id="BYZ-38-t0r" customClass="MapViewController" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MapViewController" storyboardIdentifier="MapViewController" title="MapViewController" id="BYZ-38-t0r" customClass="MapViewController" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -46,7 +46,7 @@
         <!--Main View-->
         <scene sceneID="NUt-Cl-kEG">
             <objects>
-                <tableViewController restorationIdentifier="MainVC" storyboardIdentifier="MainVC" title="내 약속 모아보기" id="d90-e5-Mex" userLabel="Main View" customClass="MainVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="MainVC" storyboardIdentifier="MainVC" title="내 약속 모아보기" id="d90-e5-Mex" userLabel="Main View" customClass="MainVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="194" sectionHeaderHeight="28" sectionFooterHeight="28" id="UCU-wr-JMt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,7 @@
                             <color key="backgroundColor" red="0.96862745100000003" green="0.69019607839999997" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GatheringCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GatheringCell" rowHeight="194" id="sr5-Mo-fQX" customClass="GatheringCell" customModule="DaumMapExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GatheringCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GatheringCell" rowHeight="194" id="sr5-Mo-fQX" customClass="GatheringCell" customModule="Huddle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sr5-Mo-fQX" id="i1P-Br-XZd">
@@ -159,21 +159,14 @@
         <!--Contacts View Controller-->
         <scene sceneID="GH6-P7-l4B">
             <objects>
-                <tableViewController restorationIdentifier="ContactsViewController" storyboardIdentifier="ContactsViewController" id="LJK-4h-Cap" customClass="ContactsViewController" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="ContactsViewController" storyboardIdentifier="ContactsViewController" id="LJK-4h-Cap" customClass="ContactsViewController" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" id="jm4-9y-eif">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="her-00-v48">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu128" translatesAutoresizingMaskIntoConstraints="NO" id="ZhF-CG-Rkq"/>
-                            </subviews>
-                        </stackView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneNumCell" rowHeight="97" id="7Nm-kf-KQH">
-                                <rect key="frame" x="0.0" y="123" width="414" height="97"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FriendCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="97" id="7Nm-kf-KQH" customClass="FriendCell" customModule="Huddle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nm-kf-KQH" id="Crp-sy-7Gh">
                                     <frame key="frameInset" width="414" height="96.666666666666671"/>
@@ -190,10 +183,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21l-LC-RXF">
-                                            <frame key="frameInset" minX="333" minY="14" width="73" height="68"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="아이디" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUo-3d-St2">
                                             <frame key="frameInset" minX="154" minY="38" width="171" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -201,9 +190,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcG-T0-8TK" customClass="ToggleImageBtn" customModule="Huddle" customModuleProvider="target">
+                                            <frame key="frameInset" minX="333" minY="8" width="73" height="77"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.80351211570000003" green="0.82562658629999996" blue="0.81656469190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkBox" destination="HcG-T0-8TK" id="UF8-a7-xsl"/>
+                                    <outlet property="email" destination="FUo-3d-St2" id="tNt-lO-20m"/>
+                                    <outlet property="imgProfile" destination="Qcx-ek-Lg2" id="v6P-33-cnp"/>
+                                    <outlet property="txtname" destination="ne0-2g-3de" id="5dT-Ee-cCo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -217,12 +216,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyy-Rh-NH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6178.2608695652179" y="779.75543478260875"/>
+            <point key="canvasLocation" x="6149" y="778"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="9R2-os-5TR">
             <objects>
-                <viewController restorationIdentifier="CalendarVC" storyboardIdentifier="CalendarVC" title="CalendarController" id="4Ef-LI-oKp" customClass="CalendarVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="CalendarVC" storyboardIdentifier="CalendarVC" title="CalendarController" id="4Ef-LI-oKp" customClass="CalendarVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jtl-2k-YIh"/>
                         <viewControllerLayoutGuide type="bottom" id="3fX-Mq-Awj"/>
@@ -270,7 +269,7 @@
         <!--Tabbar custom-->
         <scene sceneID="zFK-at-O3z">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2hA-gm-hwU" customClass="UITabbar_custom" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="UITabbar_custom" automaticallyAdjustsScrollViewInsets="NO" id="2hA-gm-hwU" customClass="UITabbar_custom" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sVW-zn-TNB">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -286,18 +285,18 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUy-8G-LF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="835"/>
+            <point key="canvasLocation" x="946" y="779"/>
         </scene>
         <!--Main View-->
         <scene sceneID="dcE-1T-gR1">
             <objects>
-                <tableViewController restorationIdentifier="PublicMainVC" storyboardIdentifier="PublicMainVC" title="내 약속 모아보기" id="POa-bG-gP6" userLabel="Main View" customClass="PublicMainVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="PublicMainVC" storyboardIdentifier="PublicMainVC" title="내 약속 모아보기" id="POa-bG-gP6" userLabel="Main View" customClass="PublicMainVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="194" sectionHeaderHeight="28" sectionFooterHeight="28" id="xDX-lE-KUx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GatheringCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GatheringCell" rowHeight="194" id="pLa-gM-2di" customClass="GatheringCell" customModule="DaumMapExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GatheringCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GatheringCell" rowHeight="194" id="pLa-gM-2di" customClass="GatheringCell" customModule="Huddle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pLa-gM-2di" id="kie-c5-5eQ">
@@ -380,7 +379,7 @@
                             <outlet property="delegate" destination="POa-bG-gP6" id="CSA-Vg-hbO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="옹기종기" id="KO5-4q-bCw"/>
+                    <navigationItem key="navigationItem" title="공개방" id="KO5-4q-bCw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bS-X5-w3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -389,7 +388,7 @@
         <!--마이페이지-->
         <scene sceneID="S3a-8E-wv4">
             <objects>
-                <viewController storyboardIdentifier="set" id="0b3-HU-LwP" customClass="set" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="set" id="0b3-HU-LwP" customClass="set" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RGH-Zl-ZHB"/>
                         <viewControllerLayoutGuide type="bottom" id="nVQ-8m-ZqC"/>
@@ -416,6 +415,9 @@
                                 <frame key="frameInset" minX="292" minY="357" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="TtD-k5-gGT" kind="show" id="iQE-Hh-ICZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWz-27-Boz">
                                 <frame key="frameInset" minX="292" minY="435" width="46" height="30"/>
@@ -502,7 +504,7 @@
         <!--누구-->
         <scene sceneID="jMA-Lo-AC4">
             <objects>
-                <viewController restorationIdentifier="MakeGatheringVC" storyboardIdentifier="MakeGatheringVC" id="EEa-vN-LT6" customClass="MakeGatheringVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MakeGatheringVC" storyboardIdentifier="MakeGatheringVC" id="EEa-vN-LT6" customClass="MakeGatheringVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mJq-4X-e6z"/>
                         <viewControllerLayoutGuide type="bottom" id="u79-h7-yhj"/>
@@ -549,7 +551,7 @@
         <!--Content View Controller-->
         <scene sceneID="Pte-Gk-ME8">
             <objects>
-                <viewController storyboardIdentifier="ContentViewController" id="G5T-iy-ShO" customClass="ContentViewController" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentViewController" id="G5T-iy-ShO" customClass="ContentViewController" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5BC-8D-s8v"/>
                         <viewControllerLayoutGuide type="bottom" id="5jx-Qv-qhO"/>
@@ -599,7 +601,7 @@
         <!--로그인-->
         <scene sceneID="Jwa-Tw-qRc">
             <objects>
-                <viewController storyboardIdentifier="FirstVC" title="로그인" id="vBM-lD-9p5" customClass="ViewController" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstVC" title="로그인" id="vBM-lD-9p5" customClass="ViewController" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9uc-OT-JiO"/>
                         <viewControllerLayoutGuide type="bottom" id="lGg-Zp-Dgj"/>
@@ -649,6 +651,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcX-U1-NmZ">
+                                <frame key="frameInset" minX="181" minY="164" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="공유하기"/>
+                                <connections>
+                                    <action selector="kakaoShare:" destination="vBM-lD-9p5" eventType="touchUpInside" id="5Rx-Hw-rn7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -662,10 +672,28 @@
             </objects>
             <point key="canvasLocation" x="-2852" y="227"/>
         </scene>
+        <!--Splash-->
+        <scene sceneID="vtq-8A-ui9">
+            <objects>
+                <viewController title="Splash" id="Rle-be-wX0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RrC-nj-4UB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ihp-wu-qMi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="etn-lG-kEy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vaI-Vv-RPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2841" y="920"/>
+        </scene>
         <!--회원가입-->
         <scene sceneID="xnh-dp-B4h">
             <objects>
-                <viewController storyboardIdentifier="SecondVC" title="회원가입" id="piU-P1-uTO" customClass="SecondVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondVC" title="회원가입" id="piU-P1-uTO" customClass="SecondVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PbP-67-vIo"/>
                         <viewControllerLayoutGuide type="bottom" id="kCd-JS-uTa"/>
@@ -749,11 +777,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oit-2z-kAw" customClass="ToggleImageBtn" customModule="DaumMapExample" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oit-2z-kAw" customClass="ToggleImageBtn" customModule="Huddle" customModuleProvider="target">
                                 <frame key="frameInset" minX="151" minY="419" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-Pt-KwA" customClass="ToggleImageBtn" customModule="DaumMapExample" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-Pt-KwA" customClass="ToggleImageBtn" customModule="Huddle" customModuleProvider="target">
                                 <frame key="frameInset" minX="235" minY="419" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
@@ -834,7 +862,7 @@
         <!--PopupVC-->
         <scene sceneID="lEN-4k-YX2">
             <objects>
-                <viewController storyboardIdentifier="PopupVC" id="cx6-Ck-r7T" customClass="PopupVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupVC" id="cx6-Ck-r7T" customClass="PopupVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPE-dt-iRN"/>
                         <viewControllerLayoutGuide type="bottom" id="HrM-Uc-7hW"/>

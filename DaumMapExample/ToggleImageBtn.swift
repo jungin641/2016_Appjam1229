@@ -12,8 +12,8 @@ import UIKit
 //마찬가지로 여러분이 버튼을 만들고 이를 토글버튼으로 사용하고 싶다면 아이덴티티 인스펙터에서 ToggleButton을 class로 설정해주셔야 합니다.
 class ToggleImageBtn : ToggleBtn{
     
-    var selectedImage : UIImage = UIImage(named: "icon.png")!
-    var unSelectedImage : UIImage = UIImage(named: "icon.png")!
+    var selectedImage : UIImage = UIImage(named: "ic_female_check")!
+    var unSelectedImage : UIImage = UIImage(named: "ic_male_check")!
 
     override func setBtnClickEvent() {
         //버튼같이 클릭이 가능한 객체에 한해서 제공하는 addTarget 메소드

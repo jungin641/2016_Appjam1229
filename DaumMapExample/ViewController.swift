@@ -11,13 +11,29 @@ import Alamofire
 import SwiftyJSON
 
 class ViewController :UIViewController, NetworkCallback,UITextFieldDelegate {
+    
     internal func networkResult(resultData: Any, code: Int) {
-        
-        
         let alert = UIAlertController(title: "", message: "\(resultData)", preferredStyle: .alert)
         
         alert.addAction(btnOk)
-        present(alert, animated: true , completion: nil)
+        //present(alert, animated: true , completion: nil)
+        
+        let i = resultData as! Int
+        
+        if(i == 1){
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "UITabbar_custom"){
+                
+                present(vc, animated: true)
+            }}
+    }
+    @IBAction func kakaoShare(_ sender: AnyObject) {
+        let text = KakaoTalkLinkObject.createLabel("테스트입니다.")
+        let image = KakaoTalkLinkObject.createImage("https://s3.ap-northeast-2.amazonaws.com/noldam/sitter/certificate/pokemon1.png", width: 164, height: 198)
+        let appAction = KakaoTalkLinkAction.createAppAction(.IOS, devicetype: .phone, marketparamString: "itms-apps://itunes.apple.com/kr/app/noldam/id1137715307?mt=8", execparamString: "")!
+//        let appAction2 = KakaoTalkLinkAction.createApac
+        //설치되어있으면 거기로 감 안되어있으면 아이튠즈 링크 뜸
+        let link = KakaoTalkLinkObject.createAppButton("눌러보세요!!", actions: [appAction])
+        KOAppCall.openKakaoTalkAppLink([text!, image!, link!])
     }
 
     @IBOutlet weak var txtID: UITextField!
@@ -80,6 +96,7 @@ class ViewController :UIViewController, NetworkCallback,UITextFieldDelegate {
             present(alert, animated: true , completion: nil)
         }
         else {
+            print("login Clicked")
 //            if (txtID.text != userID || txtPasswd.text != userPasswd){
 //                let alert = UIAlertController(title: "", message: "아이디와 비밀번호를 확인해 주세요", preferredStyle: .alert)
 //                

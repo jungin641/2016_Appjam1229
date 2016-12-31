@@ -16,8 +16,11 @@
 		264548671E175D080084C865 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548651E175D080084C865 /* NetworkModel.swift */; };
 		264548681E175D080084C865 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548661E175D080084C865 /* PostModel.swift */; };
 		2645486A1E178B0D0084C865 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264548691E178B0D0084C865 /* KakaoOpenSDK.framework */; };
+		2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645486C1E17B3C50084C865 /* SplashVC.swift */; };
 		26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA41E166E7500327375 /* MakeGatheringVC.swift */; };
 		26816FA71E166E7500327375 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA51E166E7500327375 /* ContentViewController.swift */; };
+		269173331E17B6CF000788AF /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173321E17B6CF000788AF /* UserVO.swift */; };
+		269173351E17C981000788AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173341E17C981000788AF /* FriendCell.swift */; };
 		26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77C81E161701000FEDF2 /* NetworkCallback.swift */; };
 		26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */; };
 		26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */; };
@@ -82,8 +85,11 @@
 		264548661E175D080084C865 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		264548691E178B0D0084C865 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		2645486B1E178BA70084C865 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		2645486C1E17B3C50084C865 /* SplashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		26816FA41E166E7500327375 /* MakeGatheringVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringVC.swift; sourceTree = "<group>"; };
 		26816FA51E166E7500327375 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		269173321E17B6CF000788AF /* UserVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
+		269173341E17C981000788AF /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		26DC77C81E161701000FEDF2 /* NetworkCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicMainVC.swift; sourceTree = "<group>"; };
 		26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamAnimatedTransitioning.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				2645485B1E1695810084C865 /* ToggleBtn */,
 				26816FA31E166E5D00327375 /* MakeGathering */,
 				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
+				269173341E17C981000788AF /* FriendCell.swift */,
 				2617976C1E16735700CF785E /* MainVC.swift */,
 				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
 			);
@@ -190,6 +197,7 @@
 		264548601E175C4D0084C865 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				2645486C1E17B3C50084C865 /* SplashVC.swift */,
 				264548611E175C550084C865 /* ViewController.swift */,
 				264548621E175C550084C865 /* SecondVC.swift */,
 			);
@@ -249,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				26F1ED1D1E14F2B10069971A /* GatheringVO.swift */,
+				269173321E17B6CF000788AF /* UserVO.swift */,
 			);
 			name = ViewObject;
 			sourceTree = "<group>";
@@ -311,9 +320,9 @@
 		3C36EF601DE5BF7300B3F1B4 /* DaumMapExample */ = {
 			isa = PBXGroup;
 			children = (
-				26DC77D81E16498F000FEDF2 /* PopUp */,
 				3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */,
 				26DC77BF1E16154F000FEDF2 /* Storyboard */,
+				26DC77D81E16498F000FEDF2 /* PopUp */,
 				26151F2B1E152EBE00F38CAA /* ViewController */,
 				26DC77C01E161582000FEDF2 /* Utils */,
 				3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */,
@@ -540,11 +549,13 @@
 				264548671E175D080084C865 /* NetworkModel.swift in Sources */,
 				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
 				264548631E175C550084C865 /* ViewController.swift in Sources */,
+				2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */,
 				264548681E175D080084C865 /* PostModel.swift in Sources */,
 				2645485E1E1695AD0084C865 /* ToggleBtn.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
+				269173351E17C981000788AF /* FriendCell.swift in Sources */,
 				26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */,
 				26816FA71E166E7500327375 /* ContentViewController.swift in Sources */,
 				264548641E175C550084C865 /* SecondVC.swift in Sources */,
@@ -555,6 +566,7 @@
 				2617976D1E16735700CF785E /* MainVC.swift in Sources */,
 				26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */,
 				3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */,
+				269173331E17B6CF000788AF /* UserVO.swift in Sources */,
 				26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */,
 				26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */,
 				26DC77D71E164984000FEDF2 /* PopupVC.swift in Sources */,

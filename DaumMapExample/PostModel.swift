@@ -11,12 +11,14 @@ import SwiftyJSON
 
 // 모델을 만들어서 뷰와 연동한 상황!!
 class PostModel: NetworkModel {
+    let userDefault = UserDefaults.standard
     // 로그인 하기
     func login(id: String, pw: String) {
         let params = [
             "id" : id,
             "pw" : pw
         ]
+        
         Alamofire.request("\(baseURL)/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
             case .success :
@@ -26,23 +28,16 @@ class PostModel: NetworkModel {
                     
                     if let loginResult = data["result"].string{
                         if loginResult == "SUCCESS" {
-                            self.view.networkResult(resultData: "\(id)님 반갑습니다", code: 0)
+                            self.view.networkResult(resultData: 1, code: 0)
                         }
                         else if loginResult == "FAIL"{
-                            self.view.networkResult(resultData: "아이디와 비밀번호를 확인해주세요", code: 0)
+                            self.view.networkResult(resultData: 0, code: 0)
                         }
-                            
+                        
                     }
-                   
-                     let info = data["info"]
-                      print(info)
                     
-                      print(info["id"].string)
-                      print(info["ph"].string)
-                      print(info["name"].string)
-                      print(info["profile"].string)
-                      print(info["home"].string)
-                      print(info["work"].string)
+                    let info = data["info"]
+                    print(info)
                     
                 }
                 break
@@ -117,6 +112,76 @@ class PostModel: NetworkModel {
             
         }
 
+    }
+    //사진업로드
+    func uploadPost(title: String, content: String, imageData: Data?) {
+        
+        let url = "\(baseURL)/posts/"
+        
+        let titleData = title.data(using: .utf8)!
+        let contentsData = content.data(using: .utf8)!
+        
+        if imageData == nil {
+        } else {
+            Alamofire.upload(
+                multipartFormData: { multipartFormData in
+                    multipartFormData.append(imageData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
+                    multipartFormData.append(titleData, withName:"title")
+                    multipartFormData.append(contentsData, withName:"contents")
+                },
+                to: url,
+                encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        upload.responseData { res in
+                            switch res.result {
+                            case .success:
+                                DispatchQueue.main.async(execute: {
+                                    self.view.networkResult(resultData: "", code: 0)
+                                })
+                            case .failure(let err):
+                                print("upload Error : \(err)")
+                                DispatchQueue.main.async(execute: {
+                                    self.view.networkFailed()
+                                })
+                            }
+                        }
+                    case .failure(let err):
+                        print("network Error : \(err)")
+                        self.view.networkFailed()
+                    }
+            })
+        }
+    }
+    func getPrivate() {
+        let params1 = ["id" : userDefault.string(forKey: "id")]
+  
+        Alamofire.request("\(baseURL)/main", method: .post, parameters: params1, encoding: JSONEncoding.default).responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
+            switch res.result {
+            case .success :
+                
+                if let value = res.result.value {
+                    let data = JSON(value)
+                    print("########")
+                    print(data)
+                    var tempList = [GatheringVO]()
+                    if let array = data["result"].array{
+                        for item in array{
+                            let gvo = GatheringVO(profileImg: item["host_profile"].string, title: item["title"].string, name: item["host_name"].string,place : item["where_fix"].string ,date : item["when_fix"].string,participateNum : item["member"].int )
+                            tempList.append(gvo)
+                        }
+                        
+                        self.view.networkResult(resultData: tempList, code: 0)
+                    }
+                    
+                    
+                }
+                break
+                
+            case .failure :
+                self.view.networkFailed()
+            }
+        }
     }
 }
 

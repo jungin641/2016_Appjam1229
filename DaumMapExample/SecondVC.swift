@@ -45,6 +45,10 @@ class SecondVC : UIViewController, NetworkCallback {
     }
     @IBOutlet var CompleteBtn: UIButton!
 
+    @IBOutlet var imgContent: UIImageView!
+    // 포토 갤러리로 넘어가는거 구현
+    let picker = UIImagePickerController()
+    
     
     @IBOutlet var IdTextField: UITextField!
     @IBOutlet var PwTextField: UITextField!
@@ -74,6 +78,11 @@ class SecondVC : UIViewController, NetworkCallback {
         
 
            }
+    @IBAction func selectPhoto(_ sender: AnyObject) {
+        // 새로운 화면창을 띄운다
+        // 10.0부터 사진첩 열 때 허락 받아야함 -> Info.plist 오른쪽클릭 -> open as -> source code한 뒤 <key>와 <string> 입력 (딕셔너리형태라고 생각하면 됨. 키와 밸류, 키와 밸류 ...)
+        present(picker, animated: true)
+    }
     
     @IBAction func ValueChanged(_ sender: AnyObject) {
         if((IdTextField.text?.characters.count != 0) && (PwTextField.text?.characters.count != 0) && (NameTextField.text?.characters.count != 0) && (AgeTextField.text?.characters.count != 0) ){
@@ -106,8 +115,7 @@ class SecondVC : UIViewController, NetworkCallback {
         let name = gsno(NameTextField.text)
         
         model.join(id: id, pw: pw, ph: ph, name: name)
- 
-            
+        
 //            
 //            let noldamTransitionDelegate = NoldamTrasitionDelegate()
 //            transitioningDelegate = noldamTransitionDelegate
@@ -129,5 +137,30 @@ class SecondVC : UIViewController, NetworkCallback {
             IsWoman = true}
         else if (maleImageToggleBtn.Btnstate == 0 && femaleImageToggleBtn.Btnstate == 1){
             IsWoman = false}
+    }
+}
+
+extension SecondVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+    // 이미지 선택하려다 취소했을 때
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    }
+    
+    // 사진 선택 관련 딜리게이트
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("선택완료")
+        // 새로운 이미지 프로퍼티를 만들어주고
+        var newImage: UIImage
+        
+        //인자로 받은 info 딕셔너리 안에 만들어져 있는 거
+        if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage{ // 크롭된 이미지
+            newImage = possibleImage
+        } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage { // 크롭 안 된 원본 이미지
+            newImage = possibleImage
+        } else {
+            return
+        }
+        
+        imgContent.image = newImage
+        dismiss(animated: true, completion: nil) // present로 사진선택 들어왔기 때문에 dismiss 해주어야 함
     }
 }

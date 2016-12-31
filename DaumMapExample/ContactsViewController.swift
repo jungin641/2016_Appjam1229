@@ -1,9 +1,9 @@
 //
-//  ContactsViewController.swift
-//  DaumMapExample
+//  ViewController.swift
+//  ContactList
 //
-//  Created by YuJungin on 2016. 12. 29..
-//  Copyright © 2016년 이규진. All rights reserved.
+//  Created by  noldam on 2016. 12. 29..
+//  Copyright © 2016년 Pumpa. All rights reserved.
 //
 
 import UIKit
@@ -12,18 +12,13 @@ import Contacts
 class ContactsViewController: UITableViewController {
     
     var contactList = [CNContact]()
-  //  var filteredList = [CNContact]()
-   // var isStudent = true
-  //  let searchController = UISearchController(searchResultsController: nil)
-    
+
     
     override func viewDidLoad() {
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        let userDefault = UserDefaults.standard
-        userDefault.string(forKey: "어쭈구")
-        super.viewDidLoad()
         
-        self.navigationController?.navigationBar.topItem?.title = "누구"
+//        let userDefault = UserDefaults.standard
+//        userDefault.string(forKey: "어쭈구")
+        super.viewDidLoad()
         print("1")
         hideKeyboardWhenTappedAround()
         print("2")
@@ -34,10 +29,10 @@ class ContactsViewController: UITableViewController {
     }
     
     func initViews() {
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-       // tableView.tableHeaderView = searchController.searchBar
+////        searchController.searchResultsUpdater = self
+////        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//        tableView.tableHeaderView = searchController.searchBar
     }
     
     func initModels() {
@@ -50,17 +45,12 @@ class ContactsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = contactList[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneNumCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
         let formatter = CNContactFormatter()
         
-        cell.textLabel!.text = formatter.string(from: item)
+        cell.txtname.text = formatter.string(from: item)
         let number = item.phoneNumbers.first?.value
-        print(number?.stringValue)
-//        
-//        if let phoneNumberToText = number?.stringValue.asPhoneFormat{
-//            cell.detailTextLabel!.text = phoneNumberToText
-//        }
-//        cell.detailTextLabel!.text = number?.stringValue.asPhoneFormat
+        cell.email.text = number?.stringValue.asPhoneFormat
         
         return cell
     }
@@ -81,7 +71,6 @@ class ContactsViewController: UITableViewController {
         }
     }
     
-    
     //디바이스에 저장된 연락처를 가져와 [CNContact] 배열에 저장하는 메소드
     func retrieveContactsWithStore(_ store: CNContactStore) {
         do {
@@ -93,7 +82,7 @@ class ContactsViewController: UITableViewController {
             let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey] as [Any]
             let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
             contactList = contacts
-         
+    
             DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
             })
@@ -101,8 +90,7 @@ class ContactsViewController: UITableViewController {
             print(error)
         }
     }
-
-    
+//    
 //    //검색창에 사용자가 입력하는 값에 따라 매번 테이블뷰의 내용을 갱신
 //    func filterContentForSearchText(searchText: String, scope: String = "All") {
 //        filteredList = contactList.filter { contact in
@@ -119,10 +107,10 @@ class ContactsViewController: UITableViewController {
 //        }
 //        tableView.reloadData()
 //    }
-    
+//    
 //    //검색창에 사용자가 입력할 때마다 위의 메소드 실행
 //    func updateSearchResults(for searchController: UISearchController) {
 //        filterContentForSearchText(searchText: searchController.searchBar.text!)
 //    }
-
 }
+
