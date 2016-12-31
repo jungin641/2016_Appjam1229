@@ -174,13 +174,11 @@
 		26151F2B1E152EBE00F38CAA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				26B75DDB1E17DD0E002FD67E /* Cell */,
 				264548601E175C4D0084C865 /* Login */,
+				26B75DDA1E17DCFA002FD67E /* MainTabbar */,
 				2645485B1E1695810084C865 /* ToggleBtn */,
 				26816FA31E166E5D00327375 /* MakeGathering */,
-				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
-				269173341E17C981000788AF /* FriendCell.swift */,
-				2617976C1E16735700CF785E /* MainVC.swift */,
-				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -214,6 +212,24 @@
 				26816FA51E166E7500327375 /* ContentViewController.swift */,
 			);
 			name = MakeGathering;
+			sourceTree = "<group>";
+		};
+		26B75DDA1E17DCFA002FD67E /* MainTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				2617976C1E16735700CF785E /* MainVC.swift */,
+				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
+			);
+			name = MainTabbar;
+			sourceTree = "<group>";
+		};
+		26B75DDB1E17DD0E002FD67E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
+				269173341E17C981000788AF /* FriendCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		26DC77BF1E16154F000FEDF2 /* Storyboard */ = {

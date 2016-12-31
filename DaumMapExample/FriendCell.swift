@@ -14,7 +14,9 @@ class FriendCell : UITableViewCell{
     @IBOutlet var imgProfile : UIImageView!
     @IBOutlet var txtname : UILabel!
     @IBOutlet var email : UILabel!
-    @IBOutlet var checkBox : UIButton!
+    @IBOutlet var checkBox : ToggleImageBtn!
+    
+    
     
     
 }

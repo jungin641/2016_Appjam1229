@@ -12,7 +12,8 @@ import Contacts
 class ContactsViewController: UITableViewController {
     
     var contactList = [CNContact]()
-
+    let maleImage = UIImage(named: "ic_male")
+    let femaleImage  = UIImage(named: "ic_female")
     
     override func viewDidLoad() {
         
@@ -51,7 +52,10 @@ class ContactsViewController: UITableViewController {
         cell.txtname.text = formatter.string(from: item)
         let number = item.phoneNumbers.first?.value
         cell.email.text = number?.stringValue.asPhoneFormat
-        
+        cell.checkBox.setBackgroundImage(maleImage,for: UIControlState())
+        cell.checkBox.setBtnUnClickedImg(unClickedImage: maleImage!)
+        cell.checkBox.setBtnClickedImg(clickedImage: femaleImage!)
+
         return cell
     }
     

@@ -80,28 +80,39 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         let item = myGatheringList[indexPath.row]
         
         if let profileImg = item.profileImg {
-            cell.imgProfile.image = UIImage(named: item.profileImg!)
+            cell.imgProfile.image = UIImage(named: profileImg)
             cell.imgProfile.contentMode = .scaleAspectFit
             
         }
         if let title = item.title {
-            cell.txttitle.text = item.title
+            cell.txttitle.text = title
         }
         
         if let name = item.name {
-            cell.txtname.text = item.name
+            cell.txtname.text = name
             
         }
-        if let place = item.place {
-            //cell.txtplace.text = place
+        if let place = item.where_fix {
+            if(place == 0){
+                 cell.txtplace.text = "미정"
+            }
+            else if(place == 1){
+                cell.txtplace.text = "확정"
+            }
+           
         }
         
-        if let date = item.date {
-            //cell.txtdate.text = date
+        if let date = item.where_fix {
+            if(date == 0){
+                cell.txtdate.text = "미정"
+            }
+            else if(date == 1){
+                cell.txtdate.text = "확정"
+            }
             
         }
         if let participateNum = item.participateNum {
-            cell.txtparticipateNum.text = "\(item.participateNum)명"
+            cell.txtparticipateNum.text = "\(participateNum)명"
         }
         
         

@@ -28,24 +28,28 @@ class MainVC: UITableViewController, NetworkCallback {
         fab.paddingY = 70
         fab.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
         
-        fab.addItem("비공개방", icon: UIImage(named: "pikachu128.jpg")!, handler: { item in
-            let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            fab.close()
-        })
-        fab.addItem("공개방", icon: UIImage(named: "pikachu128.jpg")!, handler: { item in
-            let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            fab.close()
-        })
+        let item = KCFloatingActionButtonItem()
+        item.title = "직접 추가"
+        item.handler = { item in
+            self.moveScene(VCname: "NavMakeGatheringVC")
+        }
+        
+        fab.addItem("기본옷 추가", icon: UIImage(named: "icMap")) { item in
+            self.moveScene(VCname: "NavMakeGatheringVC")
+        }
+        fab.addItem(item: item)
+        
+        
         self.view.addSubview(fab)
         
-        
     }
-    
-    
+    func moveScene(VCname : String){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: VCname){
+            present(vc, animated: true)
+           
+        }
+    }
+
     internal func networkResult(resultData: Any, code: Int) {
         
         myGatheringList = resultData as! [GatheringVO]
@@ -72,29 +76,41 @@ class MainVC: UITableViewController, NetworkCallback {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GatheringCell") as! GatheringCell
         let item = myGatheringList[indexPath.row]
         
+        if let profileImg = item.profileImg {
+            cell.imgProfile.image = UIImage(named: profileImg)
+            cell.imgProfile.contentMode = .scaleAspectFit
+            
+        }
+        if let title = item.title {
+            cell.txttitle.text = title
+        }
         
-        cell.imgProfile.image = UIImage(named: gsno(item.profileImg))
-        cell.imgProfile.contentMode = .scaleAspectFit
+        if let name = item.name {
+            cell.txtname.text = name
+            
+        }
+        if let place = item.where_fix {
+            if(place == 0){
+                cell.txtplace.text = "미정"
+            }
+            else if(place == 1){
+                cell.txtplace.text = "확정"
+            }
+            
+        }
         
-        
-        
-        cell.txttitle.text = item.title!
-        
-        
-        
-        cell.txtname.text = item.name!
-        
-        
-        
-        // cell.txtplace.text = item.place
-        
-        
-        
-        //cell.txtdate.text = item.date
-        
-        
-        
-        cell.txtparticipateNum.text = "\(item.participateNum!)명"
+        if let date = item.where_fix {
+            if(date == 0){
+                cell.txtdate.text = "미정"
+            }
+            else if(date == 1){
+                cell.txtdate.text = "확정"
+            }
+            
+        }
+        if let participateNum = item.participateNum {
+            cell.txtparticipateNum.text = "\(participateNum)명"
+        }
         
         
         
