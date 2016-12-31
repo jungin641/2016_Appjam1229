@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dK4-B1-Gpe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2hA-gm-hwU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sr5-Mo-fQX" id="i1P-Br-XZd">
-                                    <frame key="frameInset" width="414" height="193.66666666666666"/>
+                                    <frame key="frameInset" width="414" height="193.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellbackgroundSample" translatesAutoresizingMaskIntoConstraints="NO" id="iLN-wH-xay">
@@ -164,7 +164,7 @@
                                 <rect key="frame" x="0.0" y="123" width="414" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nm-kf-KQH" id="Crp-sy-7Gh">
-                                    <frame key="frameInset" width="414" height="96.666666666666671"/>
+                                    <frame key="frameInset" width="414" height="96.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pikachu128" translatesAutoresizingMaskIntoConstraints="NO" id="Qcx-ek-Lg2">
@@ -329,7 +329,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pLa-gM-2di" id="kie-c5-5eQ">
-                                    <frame key="frameInset" width="414" height="193.66666666666666"/>
+                                    <frame key="frameInset" width="414" height="193.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellbackgroundSample" translatesAutoresizingMaskIntoConstraints="NO" id="gF9-9n-SRP">
@@ -627,7 +627,7 @@
         <!--로그인-->
         <scene sceneID="Jwa-Tw-qRc">
             <objects>
-                <viewController storyboardIdentifier="FirstVC" title="로그인" id="vBM-lD-9p5" customClass="ViewController" customModule="seminar_2_hw" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstVC" title="로그인" id="vBM-lD-9p5" customClass="ViewController" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9uc-OT-JiO"/>
                         <viewControllerLayoutGuide type="bottom" id="lGg-Zp-Dgj"/>
@@ -688,7 +688,7 @@
         <!--회원가입-->
         <scene sceneID="xnh-dp-B4h">
             <objects>
-                <viewController storyboardIdentifier="SecondVC" title="회원가입" id="piU-P1-uTO" customClass="SecondVC" customModule="seminar_2_hw" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondVC" title="회원가입" id="piU-P1-uTO" customClass="SecondVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PbP-67-vIo"/>
                         <viewControllerLayoutGuide type="bottom" id="kCd-JS-uTa"/>
@@ -772,11 +772,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oit-2z-kAw" customClass="ToggleImageBtn" customModule="seminar_2_hw" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oit-2z-kAw" customClass="ToggleImageBtn" customModule="DaumMapExample" customModuleProvider="target">
                                 <frame key="frameInset" minX="151" minY="419" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-Pt-KwA" customClass="ToggleImageBtn" customModule="seminar_2_hw" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-Pt-KwA" customClass="ToggleImageBtn" customModule="DaumMapExample" customModuleProvider="target">
                                 <frame key="frameInset" minX="235" minY="419" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
@@ -820,7 +820,7 @@
         <!--Item-->
         <scene sceneID="ePi-fO-2XE">
             <objects>
-                <viewController storyboardIdentifier="GameVC" id="X9i-K8-atj" customClass="GameVC" customModule="seminar_2_hw" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameVC" id="X9i-K8-atj" customClass="GameVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uvE-07-NeY"/>
                         <viewControllerLayoutGuide type="bottom" id="KLX-nA-5QP"/>
@@ -974,7 +974,7 @@
         <!--PopupVC-->
         <scene sceneID="lEN-4k-YX2">
             <objects>
-                <viewController storyboardIdentifier="PopupVC" id="cx6-Ck-r7T" customClass="PopupVC" customModule="seminar_2_hw" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupVC" id="cx6-Ck-r7T" customClass="PopupVC" customModule="DaumMapExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPE-dt-iRN"/>
                         <viewControllerLayoutGuide type="bottom" id="HrM-Uc-7hW"/>

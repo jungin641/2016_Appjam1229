@@ -17,7 +17,6 @@ class PostModel: NetworkModel {
             "id" : id,
             "pw" : pw
         ]
-        
         Alamofire.request("\(baseURL)/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
             case .success :

@@ -573,7 +573,7 @@ open class KCFloatingActionButton: UIView {
         } else {
             frame = CGRect(
                 x: (superview!.bounds.size.width-size) - paddingX,
-                y: (superview!.bounds.size.height-size-keyboardSize) - paddingY,
+                y: (superview!.bounds.size.height-size-keyboardSize) - paddingY-50,
                 width: size,
                 height: size
             )

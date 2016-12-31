@@ -17,7 +17,7 @@ class MainVC: UITableViewController {
         super.viewDidLoad()
         //+ 플로팅 버튼 생성
         let fab = KCFloatingActionButton()
-        fab.paddingY = 70
+//        fab.paddingY = 70
         fab.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
         
         fab.addItem("비공개방", icon: UIImage(named: "pikachu128.jpg")!, handler: { item in
