@@ -6,9 +6,8 @@
 //  Copyright © 2016년 jungining. All rights reserved.
 //
 
-
-import SwiftyJSON
 import Alamofire
+import SwiftyJSON
 
 // 모델을 만들어서 뷰와 연동한 상황!!
 class PostModel: NetworkModel {
@@ -27,11 +26,24 @@ class PostModel: NetworkModel {
                     
                     
                     if let loginResult = data["result"].string{
-                        
-                        self.view.networkResult(resultData: "\(loginResult)", code: 0)
-                        print("로그인결과 \(loginResult)")
+                        if loginResult == "SUCCESS" {
+                            self.view.networkResult(resultData: "\(id)님 반갑습니다", code: 0)
+                        }
+                        else if loginResult == "FAIL"{
+                            self.view.networkResult(resultData: "아이디와 비밀번호를 확인해주세요", code: 0)
+                        }
+                            
                     }
+                   
+                     let info = data["info"]
+                      print(info)
                     
+                      print(info["id"].string)
+                      print(info["ph"].string)
+                      print(info["name"].string)
+                      print(info["profile"].string)
+                      print(info["home"].string)
+                      print(info["work"].string)
                     
                 }
                 break
@@ -54,8 +66,14 @@ class PostModel: NetworkModel {
                     
                     
                     if let idCheckResult = data["result"].string{
-                         self.view.networkResult(resultData: "\(idCheckResult)", code: 0)
-                        print("중복확인결과 \(idCheckResult)")
+                            print("\(idCheckResult)중복확인결과")
+                            if idCheckResult == "SUCCESS" {
+                                self.view.networkResult(resultData: "\(id)는 사용 가능합니다", code: 0)
+                            }
+                            else if idCheckResult == "FAIL" {
+                                self.view.networkResult(resultData: "\(id)는 이미 사용중입니다.\n다른 아이디를 입력해주세요", code: 0)
+                            }
+                        
                     }
 
                 }
@@ -83,13 +101,12 @@ class PostModel: NetworkModel {
                     let data = JSON(value)
                     
                     
-                    if let loginResult = data["result"].string{
-                        
-                        self.view.networkResult(resultData: "\(loginResult)", code: 0)
-                        print("로그인결과 \(loginResult)")
+                    if let joinResult = data["result"].string{
+                         print("\(joinResult)회원가입결과")
+                        if joinResult == "SUCCESS" {
+                            self.view.networkResult(resultData: "회원가입이 완료되었습니다.", code: 0)
+                        }
                     }
-                    
-                    
                 }
 
                 break

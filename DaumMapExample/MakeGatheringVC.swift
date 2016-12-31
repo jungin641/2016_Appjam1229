@@ -59,10 +59,14 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         let vc = viewController as! ContentViewController
         var index = vc.pageIndex as Int
 
-        if( index == 0 || index == NSNotFound) {
+        if( index == 0 ) {
             return nil
         }
-        
+//        
+//        if( index == 0 || index == NSNotFound) {
+//            return nil
+//        }
+//        
         index -= 1
         
         return self.viewControllerAtIndex(index)
@@ -78,7 +82,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         
         var index = vc.pageIndex as Int
         
-        if( index == NSNotFound) {
+        if( index == 3) {
             return nil
         }
         

@@ -2,7 +2,7 @@
 //  NetworkModel.swift
 //  seminar_161126_1
 //
-//  Created by 유정인 on 2016. 11. 26..
+//  Created by 최윤주 on 2016. 11. 26..
 //  Copyright © 2016년 SOPT. All rights reserved.
 //
 
