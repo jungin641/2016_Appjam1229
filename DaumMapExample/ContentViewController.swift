@@ -25,7 +25,7 @@ class ContentViewController: UIViewController {
                 view.addSubview(vc.view)
             }
         }else if(pageIndex == 1){
-          if  let vc = storyboard?.instantiateViewController(withIdentifier: "CreateMeetingCalendarVC"){
+          if  let vc = storyboard?.instantiateViewController(withIdentifier: "CalendarVC"){
                 addChildViewController(vc)
                 view.addSubview(vc.view)
             }

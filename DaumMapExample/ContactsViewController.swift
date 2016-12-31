@@ -18,7 +18,7 @@ class ContactsViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         let userDefault = UserDefaults.standard
         userDefault.string(forKey: "어쭈구")
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class ContactsViewController: UITableViewController {
         
         cell.textLabel!.text = formatter.string(from: item)
         let number = item.phoneNumbers.first?.value
-        print(number?.stringValue.asPhoneFormat)
+        print(number?.stringValue)
 //        
 //        if let phoneNumberToText = number?.stringValue.asPhoneFormat{
 //            cell.detailTextLabel!.text = phoneNumberToText

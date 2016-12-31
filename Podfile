@@ -9,15 +9,10 @@ target 'DaumMapExample' do
     pod "KCFloatingActionButton", "~> 2.1.0"
     pod 'Fabric'
     pod 'FSCalendar'
-    
-  target 'DaumMapExampleTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+    pod 'Alamofire', '~> 4.0'
+    pod 'SwiftyJSON'
+    pod 'Kingfisher'
 
-  target 'DaumMapExampleUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+
 
 end

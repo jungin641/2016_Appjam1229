@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0273E61EBC8D10E920D64291 /* Pods_DaumMapExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */; };
 		2617976D1E16735700CF785E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617976C1E16735700CF785E /* MainVC.swift */; };
+		2645485E1E1695AD0084C865 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645485C1E1695AD0084C865 /* ToggleBtn.swift */; };
+		2645485F1E1695AD0084C865 /* ToggleImageBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645485D1E1695AD0084C865 /* ToggleImageBtn.swift */; };
 		26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA41E166E7500327375 /* MakeGatheringVC.swift */; };
 		26816FA71E166E7500327375 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA51E166E7500327375 /* ContentViewController.swift */; };
 		26DC77C71E1616F4000FEDF2 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77C61E1616F4000FEDF2 /* NetworkModel.swift */; };
@@ -69,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		2617976C1E16735700CF785E /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		2645485C1E1695AD0084C865 /* ToggleBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
+		2645485D1E1695AD0084C865 /* ToggleImageBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleImageBtn.swift; sourceTree = "<group>"; };
 		26816FA41E166E7500327375 /* MakeGatheringVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringVC.swift; sourceTree = "<group>"; };
 		26816FA51E166E7500327375 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		26DC77C61E1616F4000FEDF2 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
@@ -162,12 +166,22 @@
 		26151F2B1E152EBE00F38CAA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2645485B1E1695810084C865 /* ToggleBtn */,
 				26816FA31E166E5D00327375 /* MakeGathering */,
 				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
 				2617976C1E16735700CF785E /* MainVC.swift */,
 				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		2645485B1E1695810084C865 /* ToggleBtn */ = {
+			isa = PBXGroup;
+			children = (
+				2645485C1E1695AD0084C865 /* ToggleBtn.swift */,
+				2645485D1E1695AD0084C865 /* ToggleImageBtn.swift */,
+			);
+			name = ToggleBtn;
 			sourceTree = "<group>";
 		};
 		26816FA31E166E5D00327375 /* MakeGathering */ = {
@@ -517,6 +531,7 @@
 				26DC77CB1E161730000FEDF2 /* PostModel.swift in Sources */,
 				26DC77D51E164984000FEDF2 /* NoldamPresentationController.swift in Sources */,
 				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
+				2645485E1E1695AD0084C865 /* ToggleBtn.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
@@ -524,6 +539,7 @@
 				26816FA71E166E7500327375 /* ContentViewController.swift in Sources */,
 				26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */,
 				26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */,
+				2645485F1E1695AD0084C865 /* ToggleImageBtn.swift in Sources */,
 				26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */,
 				2617976D1E16735700CF785E /* MainVC.swift in Sources */,
 				26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */,

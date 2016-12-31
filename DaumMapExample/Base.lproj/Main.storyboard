@@ -17,10 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellbackgroundSample" translatesAutoresizingMaskIntoConstraints="NO" id="uFA-ty-gHH">
-                                <frame key="frameInset" minX="67" minY="406" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzp-UP-LJi">
+                                <frame key="frameInset" minX="157" minY="515" width="96" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="위치 확정" backgroundImage="info_box.png">
+                                    <color key="titleColor" red="1" green="0.24175600650000001" blue="0.2499479798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="LocateSendBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mF6-p1-SUO"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="검색할 위치를 입력하세요" translatesAutoresizingMaskIntoConstraints="NO" id="G6t-vu-MdW">
+                                <frame key="frameInset" minX="-2" minY="61" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -30,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6774" y="779"/>
+            <point key="canvasLocation" x="6500.0000000000009" y="779.75543478260875"/>
         </scene>
         <!--Main View-->
         <scene sceneID="NUt-Cl-kEG">
@@ -45,7 +56,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sr5-Mo-fQX" id="i1P-Br-XZd">
-                                    <frame key="frameInset" width="414" height="193.66666666666666"/>
+                                    <frame key="frameInset" width="414" height="193.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellbackgroundSample" translatesAutoresizingMaskIntoConstraints="NO" id="iLN-wH-xay">
@@ -150,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="123" width="414" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nm-kf-KQH" id="Crp-sy-7Gh">
-                                    <frame key="frameInset" width="414" height="96.666666666666671"/>
+                                    <frame key="frameInset" width="414" height="96.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pikachu128" translatesAutoresizingMaskIntoConstraints="NO" id="Qcx-ek-Lg2">
@@ -239,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9b-tw-9Xu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6013" y="780"/>
+            <point key="canvasLocation" x="5886" y="780"/>
         </scene>
         <!--Tabbar custom-->
         <scene sceneID="zFK-at-O3z">
@@ -315,7 +326,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pLa-gM-2di" id="kie-c5-5eQ">
-                                    <frame key="frameInset" width="414" height="193.66666666666666"/>
+                                    <frame key="frameInset" width="414" height="193.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellbackgroundSample" translatesAutoresizingMaskIntoConstraints="NO" id="gF9-9n-SRP">
@@ -550,7 +561,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPg-DY-6eF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3847.1999999999998" y="54.422788605697157"/>
+            <point key="canvasLocation" x="4535" y="815"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="XHv-5U-aFl">
@@ -608,15 +619,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJI-Rw-6AI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2940.579710144928" y="54.619565217391312"/>
+            <point key="canvasLocation" x="3759" y="55"/>
         </scene>
     </scenes>
     <resources>
         <image name="cellbackgroundSample" width="982" height="446"/>
+        <image name="info_box.png" width="400" height="72"/>
         <image name="map_pin.png" width="14" height="20"/>
         <image name="map_pin_red.png" width="14" height="20"/>
         <image name="noimage256.png" width="256" height="256"/>
         <image name="pikachu128" width="128" height="128"/>
     </resources>
-    <color key="tintColor" red="1" green="0.24175600650000001" blue="0.2499479798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.16546681598833823" green="0.74836660634079155" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

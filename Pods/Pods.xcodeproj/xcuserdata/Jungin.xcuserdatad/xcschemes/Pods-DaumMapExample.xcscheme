@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "093DF75BF0D556C853706893CF9C7AD4"
+               BlueprintIdentifier = "BFC608FF39413A1AA237E2ACEFEBFA07"
                BuildableName = "Pods_DaumMapExample.framework"
                BlueprintName = "Pods-DaumMapExample"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "093DF75BF0D556C853706893CF9C7AD4"
+            BlueprintIdentifier = "BFC608FF39413A1AA237E2ACEFEBFA07"
             BuildableName = "Pods_DaumMapExample.framework"
             BlueprintName = "Pods-DaumMapExample"
             ReferencedContainer = "container:Pods.xcodeproj">

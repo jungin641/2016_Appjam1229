@@ -1,18 +1,27 @@
 PODS:
+  - Alamofire (4.1.0)
   - Fabric (1.6.11)
   - FSCalendar (2.5.1)
   - KCFloatingActionButton (2.1.1)
+  - Kingfisher (3.2.1)
+  - SwiftyJSON (3.1.3)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - Fabric
   - FSCalendar
   - KCFloatingActionButton (~> 2.1.0)
+  - Kingfisher
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: e266cf991b933498df791e645e0d8ac294492153
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FSCalendar: 8efeb4b92240937204165c7743f4375923112fb5
   KCFloatingActionButton: 084cfe9d16b741be33393c99757f5967296c7645
+  Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
+  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: ef5d4d5c244d30657cb3f22d8b21731c85388697
+PODFILE CHECKSUM: e975917cd370e41bf31f4233fa91f6acdaf976cc
 
 COCOAPODS: 1.1.1
