@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>내위치를 확인하고, 보다 편리한 이용을 위하여 사용됩니다</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>내위치를 확인하고, 보다 편리한 이용을 위하여 사용됩니다</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>사진위치접근하겟씀ㄴ디ㅏ!!!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -35,8 +37,8 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-    <key>KAKAO_APP_KEY</key>
-    <string>67a65566c7bcfe7f01d9184205e02a9f</string>
+	<key>KAKAO_APP_KEY</key>
+	<string>67a65566c7bcfe7f01d9184205e02a9f</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -53,13 +55,13 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-        <string>kakao67a65566c7bcfe7f01d9184205e02a9f</string>
-        <string>kakaokompassauth</string>
-        <string>storykompassauth</string>
-        <string>kakaolink</string>
-        <string>kakaotalk-4.5.0</string>
-        <string>kakaostory-2.9.0</string>
-        <string>storylink</string>
+		<string>kakao67a65566c7bcfe7f01d9184205e02a9f</string>
+		<string>kakaokompassauth</string>
+		<string>storykompassauth</string>
+		<string>kakaolink</string>
+		<string>kakaotalk-4.5.0</string>
+		<string>kakaostory-2.9.0</string>
+		<string>storylink</string>
 	</array>
 </dict>
 </plist>

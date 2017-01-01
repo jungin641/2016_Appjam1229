@@ -773,14 +773,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oit-2z-kAw" customClass="ToggleImageBtn" customModule="Huddle" customModuleProvider="target">
-                                <frame key="frameInset" minX="151" minY="419" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-Pt-KwA" customClass="ToggleImageBtn" customModule="Huddle" customModuleProvider="target">
-                                <frame key="frameInset" minX="235" minY="419" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jb-C4-HrV">
                                 <frame key="frameInset" minY="575" width="375" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -801,6 +793,18 @@
                                     <action selector="checkID:" destination="piU-P1-uTO" eventType="touchUpInside" id="8Ut-FU-jT5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24T-qZ-ddY">
+                                <frame key="frameInset" minX="146" minY="488" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="사진선택"/>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="piU-P1-uTO" eventType="touchUpInside" id="Wke-Rl-qN6"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRa-50-VOO">
+                                <frame key="frameInset" minX="41" minY="55" width="157" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -810,13 +814,12 @@
                         <outlet property="IdTextField" destination="GTi-EY-5jH" id="uf4-Et-09k"/>
                         <outlet property="NameTextField" destination="ztj-oI-ruP" id="Ku8-Ex-g4K"/>
                         <outlet property="PwTextField" destination="Hoe-H0-I1d" id="Ktf-sV-cIK"/>
-                        <outlet property="femaleImageToggleBtn" destination="jcV-Pt-KwA" id="FeX-2e-jZl"/>
-                        <outlet property="maleImageToggleBtn" destination="oit-2z-kAw" id="jM6-WG-vmQ"/>
+                        <outlet property="imgContent" destination="WRa-50-VOO" id="rmS-6N-PNd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5z-ap-eA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2154" y="227"/>
+            <point key="canvasLocation" x="-2155.072463768116" y="226.63043478260872"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MPI-Vg-KAq">

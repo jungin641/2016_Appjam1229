@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate {
+class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate{
 
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
     
@@ -34,7 +34,7 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         
         self.view.insertSubview(myMapView, at: 0)
     }
-    
+
     //현위치 트래킹
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
         let currentLocationPointGeo = location.mapPointGeo

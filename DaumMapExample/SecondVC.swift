@@ -46,11 +46,7 @@ class SecondVC : UIViewController, NetworkCallback {
     @IBOutlet var CompleteBtn: UIButton!
 
     @IBOutlet var imgContent: UIImageView!
-    // 포토 갤러리로 넘어가는거 구현
-    let picker = UIImagePickerController()
-    
-    
-    @IBOutlet var IdTextField: UITextField!
+      @IBOutlet var IdTextField: UITextField!
     @IBOutlet var PwTextField: UITextField!
     @IBOutlet var NameTextField: UITextField!
     @IBOutlet var AgeTextField: UITextField!
@@ -61,17 +57,22 @@ class SecondVC : UIViewController, NetworkCallback {
     public var receivedinputIdData : String = ""
     public var receivedinputPasswdData : String = ""
 
-   
+    let picker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 포토 갤러리로 넘어가는거 구현
 
-        maleImageToggleBtn.setBackgroundImage(maleImageClicked, for: UIControlState())
-        maleImageToggleBtn.setBtnClickedImg(clickedImage: maleImageClicked!)
-        maleImageToggleBtn.setBtnUnClickedImg(unClickedImage: maleImage!)
+        picker.allowsEditing = true
+        picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
         
-        femaleImageToggleBtn.setBackgroundImage(femaleImageClicked, for: UIControlState())
-        femaleImageToggleBtn.setBtnClickedImg(clickedImage: femaleImageClicked!)
-        femaleImageToggleBtn.setBtnUnClickedImg(unClickedImage: femaleImage!)
+
+//        maleImageToggleBtn.setBackgroundImage(maleImageClicked, for: UIControlState())
+//        maleImageToggleBtn.setBtnClickedImg(clickedImage: maleImageClicked!)
+//        maleImageToggleBtn.setBtnUnClickedImg(unClickedImage: maleImage!)
+//        
+//        femaleImageToggleBtn.setBackgroundImage(femaleImageClicked, for: UIControlState())
+//        femaleImageToggleBtn.setBtnClickedImg(clickedImage: femaleImageClicked!)
+//        femaleImageToggleBtn.setBtnUnClickedImg(unClickedImage: femaleImage!)
         
         CompleteBtn.isEnabled = false
         CompleteBtn.backgroundColor = UIColor( red :177/255 , green : 181/255, blue : 192/255, alpha : 1)
@@ -113,8 +114,13 @@ class SecondVC : UIViewController, NetworkCallback {
         let pw = gsno(PwTextField.text)
         let ph = gsno(AgeTextField.text)
         let name = gsno(NameTextField.text)
+        if let image = imgContent.image{
+            let imageData = UIImageJPEGRepresentation(image, 0.5) // (데이터로 바꿔준 이미지, 품질)
+            model.joinWithPhoto(id: id, pw: pw, ph: ph, name: name, imageData: imageData)
+        }
+        //model.joinWithPhoto(id: id, pw: pw, ph: ph, name: name, imageData: <#T##Data?#>)
+      //  model.join(id: id, pw: pw, ph: ph, name: name,)
         
-        model.join(id: id, pw: pw, ph: ph, name: name)
         
 //            
 //            let noldamTransitionDelegate = NoldamTrasitionDelegate()
@@ -159,7 +165,7 @@ extension SecondVC: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         } else {
             return
         }
-        
+        imgContent.roundedBorder()
         imgContent.image = newImage
         dismiss(animated: true, completion: nil) // present로 사진선택 들어왔기 때문에 dismiss 해주어야 함
     }

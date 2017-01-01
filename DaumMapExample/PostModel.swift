@@ -82,7 +82,7 @@ class PostModel: NetworkModel {
         }
     }
     // 회원가입
-    func join(id: String, pw: String,ph:String,name:String) {
+    func join(id: String, pw: String,ph:String,name:String,profileData:Data?) {
         let params = [
             "id" : id,
             "pw" : pw,
@@ -115,21 +115,25 @@ class PostModel: NetworkModel {
         }
 
     }
-    //사진업로드
-    func uploadPost(title: String, content: String, imageData: Data?) {
+    //사진회원가입
+    func joinWithPhoto(id: String, pw: String,ph:String,name:String,imageData: Data?) {
         
-        let url = "\(baseURL)/posts/"
+        let url = "\(baseURL)/join/"
         
-        let titleData = title.data(using: .utf8)!
-        let contentsData = content.data(using: .utf8)!
+        let idData = id.data(using: .utf8)!
+        let pwData = pw.data(using: .utf8)!
+        let phData = ph.data(using: .utf8)!
+        let nameData = name.data(using: .utf8)!
         
         if imageData == nil {
         } else {
             Alamofire.upload(
                 multipartFormData: { multipartFormData in
-                    multipartFormData.append(imageData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
-                    multipartFormData.append(titleData, withName:"title")
-                    multipartFormData.append(contentsData, withName:"contents")
+                    multipartFormData.append(imageData!, withName: "profile", fileName: "image.jpg", mimeType: "image/png")
+                    multipartFormData.append(idData, withName:"id")
+                    multipartFormData.append(pwData, withName:"pw")
+                    multipartFormData.append(phData, withName:"ph")
+                    multipartFormData.append(nameData, withName:"name")
                 },
                 to: url,
                 encodingCompletion: { encodingResult in
@@ -139,7 +143,8 @@ class PostModel: NetworkModel {
                             switch res.result {
                             case .success:
                                 DispatchQueue.main.async(execute: {
-                                    self.view.networkResult(resultData: "", code: 0)
+                                    print("사진회원가입 성공")
+                                    self.view.networkResult(resultData: "success", code: 0)
                                 })
                             case .failure(let err):
                                 print("upload Error : \(err)")
