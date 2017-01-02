@@ -82,7 +82,7 @@ class SecondVC : UIViewController, NetworkCallback {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 포토 갤러리로 넘어가는거 구현
-        
+        hideKeyboardWhenTappedAround()
         picker.allowsEditing = true
         picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
         
