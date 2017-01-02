@@ -9,13 +9,14 @@
 import UIKit
 
 class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate {
-    
+    let userDefault = UserDefaults.standard
+
     @IBAction func ConfirmBtn(_ sender: AnyObject) {
         //GatheringVO객체에 추가
-        if let parentVC = self.parent as? MakeGatheringVC {
-            let newGathering = parentVC.newGathering
-            newGathering.setPosision(position: Position(place: "", longtitude: "37.4981688", latitude: "127.0484572"))
-        }
+//        if let parentVC = self.parent as? MakeGatheringVC {
+//            let newGathering = parentVC.newGathering
+//            newGathering.setPosision(position: Position(place: "", longtitude: "37.4981688", latitude: "127.0484572"))
+//        }
         
     }
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key

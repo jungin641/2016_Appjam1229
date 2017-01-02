@@ -10,7 +10,8 @@
 import UIKit
 
 class ContactsViewController: UITableViewController, NetworkCallback {
-    
+    let userDefault = UserDefaults.standard
+
     var friendList = [FriendVO]()
     var selectedArray = NSMutableArray()
     
@@ -87,22 +88,11 @@ class ContactsViewController: UITableViewController, NetworkCallback {
             selectedArray.remove(value)
         }else{
             selectedArray.add(value)
-        }
-        tableView.reloadData()
-        
-        if let parentVC = self.parent?.parent as? MakeGatheringVC {
-            print("ok")
-            let newGathering = parentVC.newGathering
-            if let swiftArray = selectedArray as NSArray as? [String] {
-                newGathering.setParticipant(participant: swiftArray)
             }
-            
+        
+            tableView.reloadData()
+        
         }
-        else{
-            print("error")
-        }
-
-    }
     
     
 }

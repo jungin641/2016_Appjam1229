@@ -12,28 +12,30 @@ class ContentViewController: UIViewController {
     
     @IBOutlet var containerView: UIView!
 
-    var pageIndex : Int!
-    
+    var childPageVC : UIViewController!
+    var pageIndex:Int!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(pageIndex == 0){
-           if  let vc = storyboard?.instantiateViewController(withIdentifier: "ContactsViewController"){
-                addChildViewController(vc)
-                view.addSubview(vc.view)
-            }
-        }else if(pageIndex == 1){
-          if  let vc = storyboard?.instantiateViewController(withIdentifier: "CalendarVC"){
-                addChildViewController(vc)
-                view.addSubview(vc.view)
-            }
-        }else if(pageIndex == 2){
-          if  let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController"){
-                addChildViewController(vc)
-                view.addSubview(vc.view)
-            }
-        }
+        addChildViewController(childPageVC)
+        view.addSubview(childPageVC.view)
+//        if(pageIndex == 0){
+//           if  let vc = storyboard?.instantiateViewController(withIdentifier: "ContactsViewController"){
+//                addChildViewController(vc)
+//                view.addSubview(vc.view)
+//            }
+//        }else if(pageIndex == 1){
+//          if  let vc = storyboard?.instantiateViewController(withIdentifier: "CalendarVC"){
+//                addChildViewController(vc)
+//                view.addSubview(vc.view)
+//            }
+//        }else if(pageIndex == 2){
+//          if  let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController"){
+//                addChildViewController(vc)
+//                view.addSubview(vc.view)
+//            }
+//        }
     
     }
     

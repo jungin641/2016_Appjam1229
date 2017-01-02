@@ -12,7 +12,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
 
     var pageViewController : UIPageViewController!
     var newGathering = GatheringVO()
-    
+    var vcs:Array<UIViewController>=[]
     @IBAction func CancelBtn(_ sender: AnyObject) {
         // 저장안하고 끄면 데이터 날라가야겠지?
         dismiss(animated: true)
@@ -27,10 +27,8 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
       //  let ContactsVC = viewControllers[0] as? ContactsViewController
        // print(ContactsVC)
         print(viewControllers.count)
-        let viewControllers2 = (viewControllers as ContentViewController).containerView as ContactsViewController {
-            
-        }
-        for vc in viewControllers{
+      
+        for vc in vcs{
             if let ContactsVC = vc as? ContactsViewController{
                  let friendList = ContactsVC.selectedArray
                 print(friendList)
@@ -48,6 +46,8 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
             }
         }
         
+        
+        
         print(newGathering.participant)
         print(newGathering.days)
         print(newGathering.position?.latitude)
@@ -58,11 +58,15 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        vcs.append(storyboard!.instantiateViewController(withIdentifier: "ContactsViewController"))
+        vcs.append(storyboard!.instantiateViewController(withIdentifier: "CalendarVC"))
+        vcs.append(storyboard!.instantiateViewController(withIdentifier: "MapViewController"))
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         
         let startVC = self.viewControllerAtIndex(0) as ContentViewController
         let viewControllers = NSArray(object: startVC)
+      
         
         self.pageViewController.setViewControllers(viewControllers as? [UIViewController] , direction: .forward, animated: true, completion: nil)
         self.pageViewController.view.frame = CGRect(x: 0,y: 30,width: self.view.frame.width, height: self.view.frame.height - 100)
@@ -79,8 +83,9 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     func viewControllerAtIndex (_ index : Int) -> ContentViewController {
         
         let vc : ContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
-        
+        print(vcs.count)
         vc.pageIndex = index
+        vc.childPageVC=vcs[index]
         
 //        print(">>> : " ,vc.titleText)
 //        
