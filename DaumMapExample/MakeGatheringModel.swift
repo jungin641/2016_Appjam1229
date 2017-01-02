@@ -27,7 +27,6 @@ class MakeGatheringModel: NetworkModel {
                             let fvo = FriendVO(name: item["name"].string,
                                                profile: item["profile"].string,
                                                id: item["id"].string)
-                            print(fvo.name)
                             tempList.append(fvo)
                         }
                         

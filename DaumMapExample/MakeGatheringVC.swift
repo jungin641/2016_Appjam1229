@@ -11,6 +11,7 @@ import UIKit
 class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
 
     var pageViewController : UIPageViewController!
+    var newGathering = GatheringVO()
     
     @IBAction func CancelBtn(_ sender: AnyObject) {
         // 저장안하고 끄면 데이터 날라가야겠지?
@@ -22,10 +23,10 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         dismiss(animated: true)
 
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var gathering : GatheringVO
-//        
+        
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         

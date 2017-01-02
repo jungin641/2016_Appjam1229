@@ -28,10 +28,17 @@ class PostModel: NetworkModel {
                     
                     if let loginResult = data["result"].string{
                         if loginResult == "SUCCESS" {
-                            self.userDefault.set(id, forKey: "id")
+                            let info = data["info"]
+                            
+                            self.userDefault.set(id, forKey: "ids")
+                            self.userDefault.set(info["name"].string, forKey: "name")
+                            self.userDefault.set(info["ph"].string, forKey: "ph")
+                            self.userDefault.set(info["home"].string, forKey: "home")
+                            self.userDefault.set(info["work"].string, forKey: "work")
+                            self.userDefault.set(info["profile"].string, forKey: "profile")
                             self.userDefault.synchronize()
                             print("로그인 성공")
-                            self.view.networkResult(resultData: 1, code: 0)
+                            self.view.networkResult(resultData: 1, code: 1)
                         }
                         else if loginResult == "FAIL"{
                             print("로그인 실패 - 아이디 비밀번호 확인")
@@ -40,8 +47,13 @@ class PostModel: NetworkModel {
                         
                     }
                     
-                    let info = data["info"]
-                    print(info)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                 }
                 break
@@ -64,16 +76,16 @@ class PostModel: NetworkModel {
                     
                     
                     if let idCheckResult = data["result"].string{
-                            print("\(idCheckResult)중복확인결과")
-                            if idCheckResult == "SUCCESS" {
-                                self.view.networkResult(resultData: "\(id)는 사용 가능합니다", code: 0)
-                            }
-                            else if idCheckResult == "FAIL" {
-                                self.view.networkResult(resultData: "\(id)는 이미 사용중입니다.\n다른 아이디를 입력해주세요", code: 0)
-                            }
+                        print("\(idCheckResult)중복확인결과")
+                        if idCheckResult == "SUCCESS" {
+                            self.view.networkResult(resultData: "\(id)는 사용 가능합니다", code: 1)
+                        }
+                        else if idCheckResult == "FAIL" {
+                            self.view.networkResult(resultData: "\(id)는 이미 사용중입니다.\n다른 아이디를 입력해주세요", code: 0)
+                        }
                         
                     }
-
+                    
                 }
                 break
                 
@@ -100,13 +112,13 @@ class PostModel: NetworkModel {
                     
                     
                     if let joinResult = data["result"].string{
-                         print("\(joinResult)회원가입결과")
+                        print("\(joinResult)회원가입결과")
                         if joinResult == "SUCCESS" {
                             self.view.networkResult(resultData: "회원가입이 완료되었습니다.", code: 0)
                         }
                     }
                 }
-
+                
                 break
             case .failure(let err) :
                 print(err)
@@ -115,10 +127,10 @@ class PostModel: NetworkModel {
             }
             
         }
-
+        
     }
     //사진회원가입
-    func joinWithPhoto(id: String, pw: String,ph:String,name:String,imageData: Data?) {
+    func joinWithPhoto(id: String, pw: String,ph:String,name:String,work : String, imageData: Data?,home : String) {
         
         let url = "\(baseURL)/join/"
         
@@ -126,7 +138,8 @@ class PostModel: NetworkModel {
         let pwData = pw.data(using: .utf8)!
         let phData = ph.data(using: .utf8)!
         let nameData = name.data(using: .utf8)!
-        
+        let homeData = home.data(using: .utf8)!
+        let workData = work.data(using: .utf8)!
         if imageData == nil {
         } else {
             Alamofire.upload(
@@ -134,8 +147,10 @@ class PostModel: NetworkModel {
                     multipartFormData.append(idData, withName:"id")
                     multipartFormData.append(pwData, withName:"pw")
                     multipartFormData.append(phData, withName:"ph")
+                    multipartFormData.append(homeData, withName:"home")
+                    multipartFormData.append(workData, withName:"work")
                     multipartFormData.append(nameData, withName:"name")
-                    multipartFormData.append(imageData!, withName: "profile", fileName: "image.jpg", mimeType: "image/png")
+                    multipartFormData.append(imageData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
                 },
                 to: url,
                 encodingCompletion: { encodingResult in
@@ -145,8 +160,9 @@ class PostModel: NetworkModel {
                             switch res.result {
                             case .success:
                                 DispatchQueue.main.async(execute: {
-                                    print("success-success")
-                                    self.view.networkResult(resultData: "", code: 0)
+                                    
+                                    self.view.networkResult(resultData: "회원가입이 완료되었습니다.", code: 2)
+                                    
                                 })
                             case .failure(let err):
                                 print("upload Error : \(err)")
@@ -163,9 +179,11 @@ class PostModel: NetworkModel {
     }
     // 개인방 목록 가져오기
     func getPrivate() {
-      //  let id = userDefault.string(forKey: "id")
-        let params1 = ["id" : "1"]
-  
+        //  let id = userDefault.string(forKey: "id")
+        let id = "1"
+       // let idValue = userDefault.string(forKey: "id")
+        let params1 = ["id" : id]
+        
         Alamofire.request("\(baseURL)/main", method: .post, parameters: params1, encoding: JSONEncoding.default).responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
             switch res.result {
             case .success :
@@ -199,22 +217,22 @@ class PostModel: NetworkModel {
     }
     // 전화번호 동기화
     func sync(friends_list: [FriendVO]) {
-        let id = userDefault.string(forKey: "id")
+        let id = userDefault.string(forKey: "ids")
         var friends = [[String : String]]()
         
         for friend in friends_list{
             let tempFriends_list = [
-            "ph" : gsno(friend.ph),
-            "name" : gsno(friend.name)
+                "ph" : gsno(friend.ph),
+                "name" : gsno(friend.name)
             ]
             print(tempFriends_list)
             friends.append(tempFriends_list)
         }
-      
+        
         let params = [
             "id" :  id,
             "friends_list" : friends
-        ] as [String : Any]
+            ] as [String : Any]
         
         Alamofire.request("\(baseURL)/main/sync", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
@@ -225,10 +243,10 @@ class PostModel: NetworkModel {
                     if let syncResult = data["result"].string{
                         print("\(syncResult)동기화성공")
                         if syncResult == "SUCCESS" {
-                           // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
+                            // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
                         }
                         else if syncResult == "FAIL" {
-                          //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
+                            //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
                         }
                     }
                 }

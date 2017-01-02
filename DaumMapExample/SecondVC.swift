@@ -10,6 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 class SecondVC : UIViewController, NetworkCallback {
+    
+    
+    
+    var ischecked = 0
+    
     internal func networkResult(resultData: Any, code: Int) {
         
         
@@ -17,16 +22,24 @@ class SecondVC : UIViewController, NetworkCallback {
         
         alert.addAction(btnOk)
         present(alert, animated: true , completion: nil)
+        
+        if code == 1{
+            ischecked = 1
+        }
+        else{
+            ischecked = 0
+        }
+        
     }
-
+    
     let btnOk = UIAlertAction(title: "확인", style: .default, handler: {_ in print("얍")})
- 
-  
+    
+    
     var IDdata = ""
     var PWdata = ""
     var Namedata = ""
     var Agedata = ""
-    var IsWoman = true
+    
     
     @IBAction func checkID(_ sender: AnyObject) {
         let model = PostModel(self)
@@ -35,39 +48,36 @@ class SecondVC : UIViewController, NetworkCallback {
         
     }
     @IBOutlet var CompleteBtn: UIButton!
-
-    @IBOutlet var imgContent: UIImageView!
-      @IBOutlet var IdTextField: UITextField!
-    @IBOutlet var PwTextField: UITextField!
-    @IBOutlet var NameTextField: UITextField!
-    @IBOutlet var AgeTextField: UITextField!
     
-
+    @IBOutlet var imgContent: UIImageView!
+    @IBOutlet var IdTextField: UITextField!
+    @IBOutlet var PwTextField: UITextField!
+    @IBOutlet var PwCheckText : UITextField!
+    @IBOutlet var PhTextField : UITextField!
+    @IBOutlet var liveTextfield : UITextField!
+    @IBOutlet var workTextField : UITextField!
+    @IBOutlet var nameTextField : UITextField!
+    
+    
     public var receivedinputIdData : String = ""
     public var receivedinputPasswdData : String = ""
-
+    
     let picker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
         // 포토 갤러리로 넘어가는거 구현
-
+        
         picker.allowsEditing = true
         picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
         
+        imgContent.image = UIImage(named: "ic_male")
+        imgContent.roundedBorder()
 
-//        maleImageToggleBtn.setBackgroundImage(maleImageClicked, for: UIControlState())
-//        maleImageToggleBtn.setBtnClickedImg(clickedImage: maleImageClicked!)
-//        maleImageToggleBtn.setBtnUnClickedImg(unClickedImage: maleImage!)
-//        
-//        femaleImageToggleBtn.setBackgroundImage(femaleImageClicked, for: UIControlState())
-//        femaleImageToggleBtn.setBtnClickedImg(clickedImage: femaleImageClicked!)
-//        femaleImageToggleBtn.setBtnUnClickedImg(unClickedImage: femaleImage!)
-        
         CompleteBtn.isEnabled = false
         CompleteBtn.backgroundColor = UIColor( red :177/255 , green : 181/255, blue : 192/255, alpha : 1)
         
-
-           }
+        
+    }
     @IBAction func selectPhoto(_ sender: AnyObject) {
         // 새로운 화면창을 띄운다
         // 10.0부터 사진첩 열 때 허락 받아야함 -> Info.plist 오른쪽클릭 -> open as -> source code한 뒤 <key>와 <string> 입력 (딕셔너리형태라고 생각하면 됨. 키와 밸류, 키와 밸류 ...)
@@ -75,10 +85,14 @@ class SecondVC : UIViewController, NetworkCallback {
     }
     
     @IBAction func ValueChanged(_ sender: AnyObject) {
-        if((IdTextField.text?.characters.count != 0) && (PwTextField.text?.characters.count != 0) && (NameTextField.text?.characters.count != 0) && (AgeTextField.text?.characters.count != 0) ){
+        if((IdTextField.text?.characters.count != 0) && (PwTextField.text == PwCheckText.text) && (PwCheckText.text?.characters.count != 0) && (PhTextField.text?.characters.count != 0) && (ischecked==1)){
             CompleteBtn.isEnabled = true
             CompleteBtn.backgroundColor = UIColor( red :238/255 , green : 203/255, blue : 44/255, alpha : 1)
             
+        }
+        else if(IdTextField.isEditing && (ischecked==1)){
+            CompleteBtn.isEnabled = false
+            CompleteBtn.backgroundColor = UIColor( red :177/255 , green : 181/255, blue : 192/255, alpha : 1)
         }
         else{
             CompleteBtn.isEnabled = false
@@ -98,34 +112,39 @@ class SecondVC : UIViewController, NetworkCallback {
     }
     @IBAction func FCompleteBtn(_ sender: AnyObject) {
         
+        let work = gsno(workTextField.text)
+        let home = gsno(liveTextfield.text)
+        
+        
+        
         let model = PostModel(self)
         let id = gsno(IdTextField.text)
         let pw = gsno(PwTextField.text)
-        let ph = gsno(AgeTextField.text)
-        let name = gsno(NameTextField.text)
+        let ph = gsno(PhTextField.text)
+        let name = gsno(nameTextField.text)
         if let image = imgContent.image{
             let imageData = UIImageJPEGRepresentation(image, 0.5) // (데이터로 바꿔준 이미지, 품질)
-            model.joinWithPhoto(id: id, pw: pw, ph: ph, name: name, imageData: imageData)
+            model.joinWithPhoto(id: id, pw: pw, ph: ph, name: name,work : work, imageData: imageData,home: home)
         }
         
-//            
-//            let noldamTransitionDelegate = NoldamTrasitionDelegate()
-//            transitioningDelegate = noldamTransitionDelegate
-//            let pvc = storyboard!.instantiateViewController(withIdentifier: "PopupVC") as! PopupVC
-//            pvc.modalPresentationStyle = .custom
-//            pvc.strDate = id
-//            pvc.transitioningDelegate = noldamTransitionDelegate
-//            present(pvc, animated: true)
+        //
+        //            let noldamTransitionDelegate = NoldamTrasitionDelegate()
+        //            transitioningDelegate = noldamTransitionDelegate
+        //            let pvc = storyboard!.instantiateViewController(withIdentifier: "PopupVC") as! PopupVC
+        //            pvc.modalPresentationStyle = .custom
+        //            pvc.strDate = id
+        //            pvc.transitioningDelegate = noldamTransitionDelegate
+        //            present(pvc, animated: true)
     }
-        
     
-
+    
+    
 }
 
 extension SecondVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     // 이미지 선택하려다 취소했을 때
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-         dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     // 사진 선택 관련 딜리게이트
@@ -142,7 +161,7 @@ extension SecondVC: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         } else {
             return
         }
-      
+        
         imgContent.image = newImage
         imgContent.roundedBorder()
         dismiss(animated: true, completion: nil) // present로 사진선택 들어왔기 때문에 dismiss 해주어야 함

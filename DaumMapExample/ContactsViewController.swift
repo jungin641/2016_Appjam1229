@@ -25,6 +25,11 @@ class ContactsViewController: UITableViewController, NetworkCallback {
         tableView.delegate = self
         tableView.dataSource = self
         
+//        if let parentVC = self.parent as? MakeGatheringVC {
+//            var newGathering = parentVC.newGathering
+//            newGathering.
+//        }
+        
     }
     internal func networkResult(resultData: Any, code: Int) {
         

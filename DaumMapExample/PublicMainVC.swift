@@ -10,7 +10,6 @@ import UIKit
 import KCFloatingActionButton
 import SwiftyJSON
 import Alamofire
-//import DigitsKit
 
 class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCallback{
     
@@ -20,23 +19,19 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
     internal func networkResult(resultData: Any, code: Int) {
         
         myGatheringList = resultData as! [GatheringVO]
-        
-        print("@@@@@@@@@")
-        print(myGatheringList.count)
-        
         tableView.reloadData()
         
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let searchController = UISearchController(searchResultsControllear: nil)
-//        
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-//        definesPresentationContext = true
-//        tableView.tableHeaderView = searchController.searchBar
-//        
+        let searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+
         let model = PostModel(self)
         
         model.getPrivate()

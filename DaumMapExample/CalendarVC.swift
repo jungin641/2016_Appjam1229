@@ -12,9 +12,12 @@ import FSCalendar
 class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { //Delegate랑 Datasource프로토콜은 거의 필수로 구현한다고 보시면 됩니다.
     
     @IBOutlet weak var calendar: FSCalendar!
+    var selectedDates = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        
         self.navigationController?.navigationBar.topItem?.title = "언제"
         self.calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
      
@@ -44,9 +47,9 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
         formatter.dateFormat = "yyyyMMdd"
         
         let dateString = formatter.string(from: date.xDays(+1))
-    
+        selectedDates.append(dateString)
         
-        print(dateString)
+        print(selectedDates)
         
         
     }
