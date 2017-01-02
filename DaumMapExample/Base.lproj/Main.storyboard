@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dK4-B1-Gpe">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,6 +26,7 @@
                                     <color key="titleColor" red="1" green="0.24175600650000001" blue="0.2499479798" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="ConfirmBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSZ-UD-5v7"/>
                                     <action selector="LocateSendBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mF6-p1-SUO"/>
                                 </connections>
                             </button>
@@ -704,13 +706,6 @@
                     <view key="view" contentMode="scaleToFill" id="etn-lG-kEy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLr-QE-JCf" customClass="MKMapView">
-                                <frame key="frameInset" minX="67" minY="218" width="240" height="191"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -854,14 +849,14 @@
                                         </connections>
                                     </segmentedControl>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-19-6c1">
-                                        <rect key="frame" x="12" y="454" width="363" height="272"/>
+                                        <rect key="frame" x="12" y="2158" width="1113" height="272"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="dPb-Ry-6wf" kind="embed" id="77m-vU-AZs"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-Jb-fBk">
-                                        <rect key="frame" x="12" y="431" width="355" height="295"/>
+                                        <rect key="frame" x="12" y="2135" width="1105" height="295"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="x2r-Jd-q7U" kind="embed" id="P07-P4-Z7d"/>
@@ -962,7 +957,7 @@
                         <viewControllerLayoutGuide type="bottom" id="guh-ed-QAG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AT-4C-ulW">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="295"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1105" height="295"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWk-iH-zmR">
@@ -993,7 +988,7 @@
                         <viewControllerLayoutGuide type="bottom" id="csd-k0-Vd5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ezZ-Np-BxO">
-                        <rect key="frame" x="0.0" y="0.0" width="363" height="272"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1113" height="272"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGd-4V-H9e">

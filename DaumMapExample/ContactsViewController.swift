@@ -90,12 +90,16 @@ class ContactsViewController: UITableViewController, NetworkCallback {
         }
         tableView.reloadData()
         
-        if let parentVC = self.parent as? MakeGatheringVC {
+        if let parentVC = self.parent?.parent as? MakeGatheringVC {
+            print("ok")
             let newGathering = parentVC.newGathering
             if let swiftArray = selectedArray as NSArray as? [String] {
                 newGathering.setParticipant(participant: swiftArray)
             }
             
+        }
+        else{
+            print("error")
         }
 
     }

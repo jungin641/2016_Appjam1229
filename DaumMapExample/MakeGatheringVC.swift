@@ -20,6 +20,37 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     }
     @IBAction func CompleteBtn(_ sender: AnyObject) {
         //확인창으로 넘어가기
+        let viewControllers = pageViewController.viewControllers! as [UIViewController]
+        print("@@@@@@@@@@@")
+        print(viewControllers)
+        
+      //  let ContactsVC = viewControllers[0] as? ContactsViewController
+       // print(ContactsVC)
+        print(viewControllers.count)
+        let viewControllers2 = (viewControllers as ContentViewController).containerView as ContactsViewController {
+            
+        }
+        for vc in viewControllers{
+            if let ContactsVC = vc as? ContactsViewController{
+                 let friendList = ContactsVC.selectedArray
+                print(friendList)
+                    if let swiftArray = friendList as NSArray as? [String] {
+                        newGathering.setParticipant(participant: swiftArray)
+                    }
+                    else{
+                        print("swiftArrayError")
+                    }
+                    
+            
+            }
+            if vc as? ContentViewController != nil{
+                print("???")
+            }
+        }
+        
+        print(newGathering.participant)
+        print(newGathering.days)
+        print(newGathering.position?.latitude)
         dismiss(animated: true)
 
     }

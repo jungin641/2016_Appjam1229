@@ -188,7 +188,7 @@ class MainVC: UITableViewController, NetworkCallback {
             let model = PostModel(self)
             print("연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화")
             
-            // model.sync(friends_list: friendList)
+             model.sync(friends_list: friendList)
             
             
             

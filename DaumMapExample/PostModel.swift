@@ -47,14 +47,6 @@ class PostModel: NetworkModel {
                         
                     }
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                 }
                 break
             case .failure(let err) :
@@ -144,7 +136,7 @@ class PostModel: NetworkModel {
                     }            })
         }
     }
-    // 개인방 목록 가져오기
+    // 개인방 목록 가져오기 수정가능
     func getPrivate() {
         //  let id = userDefault.string(forKey: "id")
         let id = "1"
@@ -184,7 +176,8 @@ class PostModel: NetworkModel {
     }
     // 전화번호 동기화
     func sync(friends_list: [FriendVO]) {
-        let id = userDefault.string(forKey: "ids")
+      //  let id = userDefault.string(forKey: "ids")
+        let id = "1"
         var friends = [[String : String]]()
         
         for friend in friends_list{
@@ -200,7 +193,7 @@ class PostModel: NetworkModel {
             "id" :  id,
             "friends_list" : friends
             ] as [String : Any]
-        
+        print(params)
         Alamofire.request("\(baseURL)/main/sync", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
             case .success :
