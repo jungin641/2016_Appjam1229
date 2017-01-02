@@ -9,7 +9,7 @@
 import UIKit
 
 class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
-
+    
     var pageViewController : UIPageViewController!
     var newGathering = GatheringVO()
     var vcs:Array<UIViewController>=[]
@@ -24,26 +24,32 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         print("@@@@@@@@@@@")
         print(viewControllers)
         
-      //  let ContactsVC = viewControllers[0] as? ContactsViewController
-       // print(ContactsVC)
+        //  let ContactsVC = viewControllers[0] as? ContactsViewController
+        // print(ContactsVC)
         print(viewControllers.count)
-      
+        
         for vc in vcs{
             if let ContactsVC = vc as? ContactsViewController{
-                 let friendList = ContactsVC.selectedArray
+                let friendList = ContactsVC.selectedArray
                 print(friendList)
-                    if let swiftArray = friendList as NSArray as? [String] {
-                        newGathering.setParticipant(participant: swiftArray)
-                    }
-                    else{
-                        print("swiftArrayError")
-                    }
-                    
+                if let swiftArray = friendList as NSArray as? [String] {
+                    newGathering.setParticipant(participant: swiftArray)
+                }
+                else{
+                    print("swiftArrayError")
+                }
+            }
+            if let CalendarVC = vc as? CalendarVC{
+                let days = CalendarVC.selectedDates
+                print(days)
+                    newGathering.setDays(days: days)
+            }
+            if let mapViewController = vc as? MapViewController{
+                let position = mapViewController.selectedPosition
+                print(position)
+                newGathering.setPosision(position: position)
+            }
             
-            }
-            if vc as? ContentViewController != nil{
-                print("???")
-            }
         }
         
         
@@ -52,7 +58,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         print(newGathering.days)
         print(newGathering.position?.latitude)
         dismiss(animated: true)
-
+        
     }
     
     override func viewDidLoad() {
@@ -66,7 +72,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         
         let startVC = self.viewControllerAtIndex(0) as ContentViewController
         let viewControllers = NSArray(object: startVC)
-      
+        
         
         self.pageViewController.setViewControllers(viewControllers as? [UIViewController] , direction: .forward, animated: true, completion: nil)
         self.pageViewController.view.frame = CGRect(x: 0,y: 30,width: self.view.frame.width, height: self.view.frame.height - 100)
@@ -78,8 +84,8 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     
     
     /**
-    * viewPageController 구성 함수
-    */
+     * viewPageController 구성 함수
+     */
     func viewControllerAtIndex (_ index : Int) -> ContentViewController {
         
         let vc : ContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
@@ -87,29 +93,29 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         vc.pageIndex = index
         vc.childPageVC=vcs[index]
         
-//        print(">>> : " ,vc.titleText)
-//        
+        //        print(">>> : " ,vc.titleText)
+        //
         return vc
     }
     
     
     
     /**
-    * 이전 ViewPageController 구성
-    */
+     * 이전 ViewPageController 구성
+     */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         let vc = viewController as! ContentViewController
         var index = vc.pageIndex as Int
-
+        
         if( index == 0 ) {
             return nil
         }
-//        
-//        if( index == 0 || index == NSNotFound) {
-//            return nil
-//        }
-//        
+        //
+        //        if( index == 0 || index == NSNotFound) {
+        //            return nil
+        //        }
+        //
         index -= 1
         
         return self.viewControllerAtIndex(index)
@@ -117,8 +123,8 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     
     
     /**
-    * 이후 ViewPageController 구성
-    */
+     * 이후 ViewPageController 구성
+     */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         let vc = viewController as! ContentViewController
@@ -140,19 +146,19 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     
     
     /**
-    * 인디케이터의 총 갯수
-    */
+     * 인디케이터의 총 갯수
+     */
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return 3
     }
     
     
     /**
-    * 인디케이터의 시작 포지션
-    */
+     * 인디케이터의 시작 포지션
+     */
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
-
+    
 }
 

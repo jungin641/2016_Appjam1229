@@ -9,9 +9,9 @@
 import UIKit
 
 class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate {
-    let userDefault = UserDefaults.standard
-
+    var selectedPosition = Position(place: "", longtitude: "37.4981688", latitude: "127.0484572")
     @IBAction func ConfirmBtn(_ sender: AnyObject) {
+        
         //GatheringVO객체에 추가
 //        if let parentVC = self.parent as? MakeGatheringVC {
 //            let newGathering = parentVC.newGathering
@@ -29,18 +29,18 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         mapView.daumMapApiKey = daumAPIKey
         mapView.delegate = self
         mapView.baseMapType = .standard
-        mapView.showCurrentLocationMarker = true
+        mapView.showCurrentLocationMarker = false
         mapView.currentLocationTrackingMode = .onWithoutHeading
         self.view.insertSubview(mapView, at: 0)
     }
     
     //현위치 트래킹
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        mapView.showCurrentLocationMarker = true
+        mapView.showCurrentLocationMarker = false
         let poiItem = MTMapPOIItem()
         poiItem.mapPoint = location
         mapView.add(poiItem)
-        //        mapView.currentLocationTrackingMode = .off
+                mapView.currentLocationTrackingMode = .off
         
         
     }
