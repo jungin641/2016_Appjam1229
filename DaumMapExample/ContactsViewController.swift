@@ -31,7 +31,6 @@ class ContactsViewController: UITableViewController, NetworkCallback {
     internal func networkResult(resultData: Any, code: Int) {
         
         friendList = resultData as! [FriendVO]
-        print(friendList.count)
         tableView.reloadData()
         
     }
@@ -76,9 +75,7 @@ class ContactsViewController: UITableViewController, NetworkCallback {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("!!!!!!!참여자id출력!!!!!!")
-        print(selectedArray.count)
-        print(selectedArray)
+     
     }
     
     

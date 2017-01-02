@@ -37,7 +37,6 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         
         mypoiItem.mapPoint = location
         mypoiItem.itemName = "여기로 지정"
-        mypoiItem.markerType = .redPin
         mypoiItem.draggable = true
         
     

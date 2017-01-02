@@ -24,32 +24,20 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     @IBAction func CompleteBtn(_ sender: AnyObject) {
         //확인창으로 넘어가기
         let viewControllers = pageViewController.viewControllers! as [UIViewController]
-        print("@@@@@@@@@@@")
-        print(viewControllers)
-        
-        //  let ContactsVC = viewControllers[0] as? ContactsViewController
-        // print(ContactsVC)
-        print(viewControllers.count)
-        
+    
         for vc in vcs{
             if let ContactsVC = vc as? ContactsViewController{
                 let friendList = ContactsVC.selectedArray
-                print(friendList)
                 if let swiftArray = friendList as NSArray as? [String] {
                     newGathering.setParticipant(participant: swiftArray)
-                }
-                else{
-                    print("swiftArrayError")
                 }
             }
             if let CalendarVC = vc as? CalendarVC{
                 let days = CalendarVC.selectedDates
-                print(days)
                 newGathering.setDays(days: days)
             }
             if let mapViewController = vc as? MapViewController{
                 let position = mapViewController.selectedPosition
-                print(position)
                 newGathering.setPosision(position: position)
             }
             
@@ -92,22 +80,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
      */
     func viewControllerAtIndex (_ index : Int) -> UIViewController {
         
-        //        if contentVC == nil {
-        //            contentVC = self.storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
-        //            print(vcs.count)
-        //            contentVC?.pageIndex = index
-        //            contentVC?.childPageVC = vcs[index]
-        //        } else {
-        //            contentVC?.pageIndex = index
-        //            contentVC?.childPageVC = vcs[index]
-        //        }
-        
-        
-        
-        
-        //        print(">>> : " ,vc.titleText)
-        //
-        return vcs[index]
+             return vcs[index]
     }
     
     
