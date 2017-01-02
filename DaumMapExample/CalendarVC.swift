@@ -49,8 +49,11 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
         let dateString = formatter.string(from: date.xDays(+1))
         selectedDates.append(dateString)
         
-        print(selectedDates)
-        
+        //GatheringVO객체에 추가
+        if let parentVC = self.parent as? MakeGatheringVC {
+            let newGathering = parentVC.newGathering
+                newGathering.setDays(days: selectedDates)
+        }
         
     }
 }

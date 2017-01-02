@@ -25,10 +25,6 @@ class ContactsViewController: UITableViewController, NetworkCallback {
         tableView.delegate = self
         tableView.dataSource = self
         
-//        if let parentVC = self.parent as? MakeGatheringVC {
-//            var newGathering = parentVC.newGathering
-//            newGathering.
-//        }
         
     }
     internal func networkResult(resultData: Any, code: Int) {
@@ -94,6 +90,14 @@ class ContactsViewController: UITableViewController, NetworkCallback {
         }
         tableView.reloadData()
         
+        if let parentVC = self.parent as? MakeGatheringVC {
+            let newGathering = parentVC.newGathering
+            if let swiftArray = selectedArray as NSArray as? [String] {
+                newGathering.setParticipant(participant: swiftArray)
+            }
+            
+        }
+
     }
     
     

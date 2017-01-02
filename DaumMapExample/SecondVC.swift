@@ -16,19 +16,35 @@ class SecondVC : UIViewController, NetworkCallback {
     var ischecked = 0
     
     internal func networkResult(resultData: Any, code: Int) {
-        
-        
-        let alert = UIAlertController(title: "", message: "\(resultData)", preferredStyle: .alert)
-        
-        alert.addAction(btnOk)
-        present(alert, animated: true , completion: nil)
-        
+        if( code == 0 || code == 1){
+            let alert = UIAlertController(title: "", message: "\(resultData)", preferredStyle: .alert)
+            
+            alert.addAction(self.btnOk)
+            present(alert, animated: true , completion: nil)
+        }
         if code == 1{
             ischecked = 1
         }
         else{
             ischecked = 0
         }
+        
+        if code == 2{
+            let noldamTransitionDelegate = NoldamTrasitionDelegate()
+            transitioningDelegate = noldamTransitionDelegate
+            let pvc = storyboard!.instantiateViewController(withIdentifier: "PopupVC") as! PopupVC
+            pvc.modalPresentationStyle = .custom
+            
+            pvc.transitioningDelegate = noldamTransitionDelegate
+            present(pvc, animated: true)
+            
+            
+            if let vc = presentingViewController as? SecondVC {
+                vc.dismiss(animated: true,completion : nil)
+                vc.popoverPresentationController
+            }
+        }
+        
         
     }
     

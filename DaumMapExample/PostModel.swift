@@ -95,40 +95,7 @@ class PostModel: NetworkModel {
             }
         }
     }
-    // 회원가입
-    func join(id: String, pw: String,ph:String,name:String,profileData:Data?) {
-        let params = [
-            "id" : id,
-            "pw" : pw,
-            "ph" : ph,
-            "name" : name
-        ]
-        
-        Alamofire.request("\(baseURL)/join", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
-            switch res.result {
-            case .success :
-                if let value = res.result.value {
-                    let data = JSON(value)
-                    
-                    
-                    if let joinResult = data["result"].string{
-                        print("\(joinResult)회원가입결과")
-                        if joinResult == "SUCCESS" {
-                            self.view.networkResult(resultData: "회원가입이 완료되었습니다.", code: 0)
-                        }
-                    }
-                }
-                
-                break
-            case .failure(let err) :
-                print(err)
-                print("회원가입실패\(err)")
-                self.view.networkFailed()
-            }
-            
-        }
-        
-    }
+
     //사진회원가입
     func joinWithPhoto(id: String, pw: String,ph:String,name:String,work : String, imageData: Data?,home : String) {
         

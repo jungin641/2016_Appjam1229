@@ -10,14 +10,6 @@ import UIKit
 
 class PopupVC: UIViewController {
     
-    var strDate = ""
-    
-    @IBOutlet var txtTest: UILabel!
-    
-    
-    override func viewDidLoad() {
-        txtTest.text = strDate
-    }
     
     
     @IBAction func exit(_ sender: Any) {

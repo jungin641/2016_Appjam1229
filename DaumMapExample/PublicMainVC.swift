@@ -22,7 +22,7 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         tableView.reloadData()
         
     }
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let searchController = UISearchController(searchResultsController: nil)
@@ -31,7 +31,7 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-
+        
         let model = PostModel(self)
         
         model.getPrivate()
@@ -62,7 +62,7 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
             
         }
     }
-
+    
     
     
     //검색창에 사용자가 입력할 때마다 위의 메소드 실행
@@ -78,10 +78,12 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         let cell = tableView.dequeueReusableCell(withIdentifier: "GatheringCell") as! GatheringCell
         let item = myGatheringList[indexPath.row]
         
+        cell.imgProfile.image = UIImage(named : "ic_male")
         if let profileImg = item.profileImg {
-            cell.imgProfile.image = UIImage(named: profileImg)
-            cell.imgProfile.contentMode = .scaleAspectFit
             
+            cell.imgProfile.imageFromUrl(profileImg, defaultImgPath: "ic_male")
+            cell.imgProfile.contentMode = .scaleAspectFit
+            cell.imgProfile.roundedBorder()
         }
         if let title = item.title {
             cell.txttitle.text = title
@@ -93,12 +95,12 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         }
         if let place = item.where_fix {
             if(place == 0){
-                 cell.txtplace.text = "미정"
+                cell.txtplace.text = "미정"
             }
             else if(place == 1){
                 cell.txtplace.text = "확정"
             }
-           
+            
         }
         
         if let date = item.where_fix {

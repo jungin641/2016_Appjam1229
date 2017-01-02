@@ -97,18 +97,5 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
     
             return item
         }
-    //    func poiItemMypin(name: String, latitude: Double, longitude: Double) -> MTMapPOIItem {
-    //
-    //        let item = MTMapPOIItem()
-    //        item.itemName = name
-    //
-    //        item.markerType = .redPin
-    //        item.markerSelectedType = .redPin
-    //        item.draggable = true
-    ////        item.mapPoint =
-    //        item.showAnimationType = .noAnimation
-    //        item.customImageAnchorPointOffset = .init(offsetX: 30, offsetY: 0)
-    //        
-    //        return item
-    //    }
+
 }

@@ -37,6 +37,19 @@ class GatheringVO{
         self.position = position
     }
     
+    // 방 만들기용 참여자 반영
+    func setParticipant(participant : [String]?){
+        self.participant = participant
+    }
+    // 방 만들기용 일자 선택
+    func setDays(days : [String]){
+        self.days = days
+    }
+    // 방 만들기용 위치 선택
+    func setPosision(position : Position?){
+        self.position = position
+    }
+    
     //상세보기용 생성자
 //    init(profileImg: String?, title:String?, name: String?,where_fix : Int? ,when_fix : Int?,participateNum : Int?){
 //        self.profileImg = profileImg

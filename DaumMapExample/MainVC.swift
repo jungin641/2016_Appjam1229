@@ -21,7 +21,7 @@ class MainVC: UITableViewController, NetworkCallback {
     override func viewDidLoad() {
         
         let model = PostModel(self)
-      
+        
         model.getPrivate()
         
         //+ 플로팅 버튼 생성
@@ -51,10 +51,10 @@ class MainVC: UITableViewController, NetworkCallback {
     func moveScene(VCname : String){
         if let vc = storyboard?.instantiateViewController(withIdentifier: VCname){
             present(vc, animated: true)
-           
+            
         }
     }
-
+    
     internal func networkResult(resultData: Any, code: Int) {
         
         myGatheringList = resultData as! [GatheringVO]
@@ -80,11 +80,12 @@ class MainVC: UITableViewController, NetworkCallback {
         //다운캐스팅
         let cell = tableView.dequeueReusableCell(withIdentifier: "GatheringCell") as! GatheringCell
         let item = myGatheringList[indexPath.row]
-        
+        cell.imgProfile.image = UIImage(named : "ic_male")
         if let profileImg = item.profileImg {
-            cell.imgProfile.image = UIImage(named: profileImg)
-            cell.imgProfile.contentMode = .scaleAspectFit
             
+            cell.imgProfile.imageFromUrl(profileImg, defaultImgPath: "ic_male")
+            cell.imgProfile.contentMode = .scaleAspectFit
+            cell.imgProfile.roundedBorder()
         }
         if let title = item.title {
             cell.txttitle.text = title
@@ -186,8 +187,8 @@ class MainVC: UITableViewController, NetworkCallback {
             
             let model = PostModel(self)
             print("연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화")
-
-           // model.sync(friends_list: friendList)
+            
+            // model.sync(friends_list: friendList)
             
             
             

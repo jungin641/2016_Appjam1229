@@ -22,67 +22,7 @@ class UserVO{
     init(){ //디폴트 생성자
         
     }
-    //회원가입시 쓰는 필수항목 생성자
-    init(id: String?, pw:String?, ph: String?,name : String?){
-        self.id = id
-        self.pw = pw
-        self.ph = name
-        self.name = name
-    }
-    //회원가입시 쓰는 선택항목1
-    init(id: String?, pw:String?, ph: String?,name : String?,profile : String?){
-        self.id = id
-        self.pw = pw
-        self.ph = name
-        self.name = name
-        self.profile = profile
-    }
-    //회원가입시 쓰는 선택항목2
-    init(id: String?, pw:String?, ph: String?,name : String?,home : String?){
-        self.id = id
-        self.pw = pw
-        self.ph = name
-        self.name = name
-        self.home = home
-    }
-    //회원가입시 쓰는 선택항목3
-    init(id: String?, pw:String?, ph: String?,name : String?,work : String?){
-        self.id = id
-        self.pw = pw
-        self.ph = name
-        self.name = name
-        self.work = work
-    }
-    //회원가입시 쓰는 선택항목3
-    init(id: String?, pw:String?, ph: String?,name : String?,work : String?,profile : String?){
-        self.id = id
-        self.pw = pw
-        self.ph = name
-        self.name = name
-        self.work = work
-        self.profile = profile
-    }
-
-    //회원가입시 쓰는 선택항목1-1
-    init(id: String?, pw:String?, ph: String?,name : String?,profile : String?,home : String?){
-        self.id = id
-        self.pw = pw
-        self.ph = name
-        self.name = name
-        self.profile = profile
-        self.home = home
-    }
-
-    //회원가입시 쓰는 선택항목2-1
-    init(id: String?, pw:String?, ph: String?,name : String?,home : String?,work : String?){
-        self.id = id
-        self.pw = pw
-        self.ph = name
-        self.name = name
-        self.home = home
-        self.work = work
-    }
-    
+  
     //회원가입시 쓰는 선택항목 all
     init(id: String?, pw:String?, ph: String?,name : String,work : String?,profile : String?,home : String){
         self.id = id
