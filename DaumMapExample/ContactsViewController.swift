@@ -20,9 +20,10 @@ class ContactsViewController: UITableViewController, NetworkCallback {
     override func viewDidLoad() {
         
         let model = MakeGatheringModel(self)
-       // tableView.setEditing(true, animated: <#T##Bool#>)
         model.getFriendsList()
         self.tableView.reloadData()
+        tableView.delegate = self
+        tableView.dataSource = self
         
     }
     internal func networkResult(resultData: Any, code: Int) {
@@ -34,6 +35,9 @@ class ContactsViewController: UITableViewController, NetworkCallback {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendList.count
@@ -56,46 +60,37 @@ class ContactsViewController: UITableViewController, NetworkCallback {
         
         if let id = item.id {
             cell.email.text = id
-            print("id출력")
-            print(id)
         }
+
         
-//      //  cell.checkBox.addTarget(self, action:#selector(ViewController.tickClicked(_:)), forControlEvents: .TouchUpInside)
-//        cell.checkBox.addTarget(self, action: #selector(ViewController.tickClicked(), for: .touchUpInside)
-//        
-//        cell.checkBox.tag=indexPath.row
-//        
-//        if selectedArray .containsObject(numberArray.objectAtIndex(indexPath.row)) {
-//            cell.checkBox.setBackgroundImage(UIImage(named:"Select.png"), forState: UIControlState.Normal)
-//        }
-//        else
-//        {
-//            cell.checkBox.setBackgroundImage(UIImage(named:"Diselect.png"), forState: UIControlState.Normal)
-//        }
-        return cell
+        cell.checkBox.temp = gsno(item.id)
+        cell.checkBox.addTarget(self, action: #selector(ContactsViewController.tickClicked(sender:)), for: .touchUpInside)
+        if selectedArray.contains(gsno(item.id)){
+            cell.checkBox.setBackgroundImage(maleImage, for: UIControlState.normal)
+        }else{
+            cell.checkBox.setBackgroundImage(femaleImage, for: UIControlState.normal)
+        }
+                return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("!!!!!!!참여자id출력!!!!!!")
+        print(selectedArray.count)
+        print(selectedArray)
+    }
+    
+    
+    func tickClicked(sender: CheckBox!){
+        let value = sender.temp
+        if selectedArray.contains(value){
+            selectedArray.remove(value)
+        }else{
+            selectedArray.add(value)
+        }
+        tableView.reloadData()
         
     }
-//    func tickClicked(sender: UIButton!)
-//    {
-//        let value = sender.tag;
-//        
-//        if selectedArray.containsObject(friendList.objectAtIndex(value))
-//        {
-//            selectedArray.removeObject(friendList.objectAtIndex(value))
-//        }
-//        else
-//        {
-//            selectedArray.addObject(numberArray.objectAtIndex(value))
-//        }
-//        
-//        print("Selecetd Array \(selectedArray)")
-//        
-//        objTable.reloadData()
-//        
-//    }
+    
     
 }
 

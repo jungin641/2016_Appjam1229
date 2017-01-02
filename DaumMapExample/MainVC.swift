@@ -176,9 +176,11 @@ class MainVC: UITableViewController, NetworkCallback {
                 let minusSlash = number?.stringValue.replacingOccurrences(of: "-", with: "")
                 let minusLeft = minusSlash?.replacingOccurrences(of: "(", with: "")
                 let minusRight = minusLeft?.replacingOccurrences(of: ")", with: "")
-                let final = minusRight?.replacingOccurrences(of: " ", with: "")
+                let minusGongBack = minusRight?.replacingOccurrences(of: " ", with: "")
+                let minusSlash2 = minusGongBack?.replacingOccurrences(of: "/", with: "")
+                let minusKorean = minusSlash2?.replacingOccurrences(of: "+82", with: "")
                 
-                friendList.append(FriendVO(name: gsno(friendname), ph: gsno(final)))
+                friendList.append(FriendVO(name: gsno(friendname), ph: gsno(minusKorean)))
                 
             }
             

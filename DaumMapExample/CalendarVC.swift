@@ -14,11 +14,7 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
     @IBOutlet weak var calendar: FSCalendar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-//        let dateComponents = NSDateComponents()
-//        let day = dateComponents.day
-//        let month = dateComponents.month
-//        
+       
         self.navigationController?.navigationBar.topItem?.title = "언제"
         self.calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
      
