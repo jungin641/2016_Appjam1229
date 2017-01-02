@@ -20,6 +20,7 @@ class ContentViewController: UIViewController {
         super.viewDidLoad()
         addChildViewController(childPageVC)
         view.addSubview(childPageVC.view)
+        
 //        if(pageIndex == 0){
 //           if  let vc = storyboard?.instantiateViewController(withIdentifier: "ContactsViewController"){
 //                addChildViewController(vc)

@@ -13,6 +13,9 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     var pageViewController : UIPageViewController!
     var newGathering = GatheringVO()
     var vcs:Array<UIViewController>=[]
+    var contentVC: ContentViewController?
+    
+    var index = 0
     @IBAction func CancelBtn(_ sender: AnyObject) {
         // 저장안하고 끄면 데이터 날라가야겠지?
         dismiss(animated: true)
@@ -42,7 +45,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
             if let CalendarVC = vc as? CalendarVC{
                 let days = CalendarVC.selectedDates
                 print(days)
-                    newGathering.setDays(days: days)
+                newGathering.setDays(days: days)
             }
             if let mapViewController = vc as? MapViewController{
                 let position = mapViewController.selectedPosition
@@ -53,10 +56,11 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         }
         
         
-        
+        //다 옵셔널로 프린트됨
         print(newGathering.participant)
         print(newGathering.days)
         print(newGathering.position?.latitude)
+        
         dismiss(animated: true)
         
     }
@@ -70,12 +74,12 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         
-        let startVC = self.viewControllerAtIndex(0) as ContentViewController
+        let startVC = self.viewControllerAtIndex(0)
         let viewControllers = NSArray(object: startVC)
         
         
         self.pageViewController.setViewControllers(viewControllers as? [UIViewController] , direction: .forward, animated: true, completion: nil)
-        self.pageViewController.view.frame = CGRect(x: 0,y: 30,width: self.view.frame.width, height: self.view.frame.height - 100)
+        self.pageViewController.view.frame = CGRect(x: 0,y: 30,width: self.view.frame.width, height: self.view.frame.height - 80)
         
         self.addChildViewController(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)
@@ -86,16 +90,24 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     /**
      * viewPageController 구성 함수
      */
-    func viewControllerAtIndex (_ index : Int) -> ContentViewController {
+    func viewControllerAtIndex (_ index : Int) -> UIViewController {
         
-        let vc : ContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
-        print(vcs.count)
-        vc.pageIndex = index
-        vc.childPageVC=vcs[index]
+        //        if contentVC == nil {
+        //            contentVC = self.storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
+        //            print(vcs.count)
+        //            contentVC?.pageIndex = index
+        //            contentVC?.childPageVC = vcs[index]
+        //        } else {
+        //            contentVC?.pageIndex = index
+        //            contentVC?.childPageVC = vcs[index]
+        //        }
+        
+        
+        
         
         //        print(">>> : " ,vc.titleText)
         //
-        return vc
+        return vcs[index]
     }
     
     
@@ -105,18 +117,17 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
      */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        let vc = viewController as! ContentViewController
-        var index = vc.pageIndex as Int
-        
-        if( index == 0 ) {
+        var index = 0
+        print("이전 : \(viewController)")
+        if viewController === vcs[0] {
+            return nil
+        } else if viewController === vcs[1] {
+            index = 0
+        } else if viewController === vcs[2] {
+            index = 1
+        } else {
             return nil
         }
-        //
-        //        if( index == 0 || index == NSNotFound) {
-        //            return nil
-        //        }
-        //
-        index -= 1
         
         return self.viewControllerAtIndex(index)
     }
@@ -127,17 +138,16 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
      */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        let vc = viewController as! ContentViewController
         
-        var index = vc.pageIndex as Int
-        
-        if( index == 3) {
+        var index = 0
+        print("이후 : \(viewController)")
+        if viewController === vcs[0] {
+            index = 1
+        } else if viewController === vcs[1] {
+            index = 2
+        } else if viewController === vcs[2] {
             return nil
-        }
-        
-        index += 1
-        
-        if (index == 3) {
+        } else {
             return nil
         }
         
@@ -161,4 +171,3 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     }
     
 }
-

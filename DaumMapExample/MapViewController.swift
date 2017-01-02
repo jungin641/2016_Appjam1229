@@ -9,14 +9,11 @@
 import UIKit
 
 class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate {
-    var selectedPosition = Position(place: "", longtitude: "37.4981688", latitude: "127.0484572")
+    var selectedPosition : Position?
+    let mypoiItem = MTMapPOIItem()
     @IBAction func ConfirmBtn(_ sender: AnyObject) {
         
-        //GatheringVO객체에 추가
-//        if let parentVC = self.parent as? MakeGatheringVC {
-//            let newGathering = parentVC.newGathering
-//            newGathering.setPosision(position: Position(place: "", longtitude: "37.4981688", latitude: "127.0484572"))
-//        }
+  selectedPosition = Position(place: "임시값", longtitude:"\(mypoiItem.mapPoint.mapPointGeo().latitude)", latitude: "\(mypoiItem.mapPoint.mapPointGeo().longitude)")
         
     }
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
@@ -37,10 +34,16 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
     //현위치 트래킹
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
         mapView.showCurrentLocationMarker = false
-        let poiItem = MTMapPOIItem()
-        poiItem.mapPoint = location
-        mapView.add(poiItem)
-                mapView.currentLocationTrackingMode = .off
+        
+        mypoiItem.mapPoint = location
+        mypoiItem.itemName = "여기로 지정"
+        mypoiItem.markerType = .redPin
+        mypoiItem.draggable = true
+        
+    
+        mapView.add(mypoiItem)
+ 
+        mapView.currentLocationTrackingMode = .off
         
         
     }
@@ -60,7 +63,7 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         item.markerType = .redPin
         item.markerSelectedType = .bluePin
         item.mapPoint = MTMapPoint(geoCoord: .init(latitude: latitude, longitude: longitude))
-        item.showAnimationType = .noAnimation
+        item.showAnimationType = .springFromGround
         item.customImageAnchorPointOffset = .init(offsetX: 30, offsetY: 0)
         
         return item

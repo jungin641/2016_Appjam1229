@@ -27,7 +27,6 @@
                                 </state>
                                 <connections>
                                     <action selector="ConfirmBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSZ-UD-5v7"/>
-                                    <action selector="LocateSendBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mF6-p1-SUO"/>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="검색할 위치를 입력하세요" translatesAutoresizingMaskIntoConstraints="NO" id="G6t-vu-MdW">
@@ -849,14 +848,14 @@
                                         </connections>
                                     </segmentedControl>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-19-6c1">
-                                        <rect key="frame" x="12" y="2158" width="1113" height="272"/>
+                                        <rect key="frame" x="12" y="3010" width="1488" height="272"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="dPb-Ry-6wf" kind="embed" id="77m-vU-AZs"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-Jb-fBk">
-                                        <rect key="frame" x="12" y="2135" width="1105" height="295"/>
+                                        <rect key="frame" x="12" y="2987" width="1480" height="295"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="x2r-Jd-q7U" kind="embed" id="P07-P4-Z7d"/>
@@ -957,7 +956,7 @@
                         <viewControllerLayoutGuide type="bottom" id="guh-ed-QAG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AT-4C-ulW">
-                        <rect key="frame" x="0.0" y="0.0" width="1105" height="295"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1480" height="295"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWk-iH-zmR">
@@ -988,7 +987,7 @@
                         <viewControllerLayoutGuide type="bottom" id="csd-k0-Vd5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ezZ-Np-BxO">
-                        <rect key="frame" x="0.0" y="0.0" width="1113" height="272"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1488" height="272"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGd-4V-H9e">
