@@ -40,7 +40,13 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
     //
     // 특정 날짜를 선택했을 때, 발생하는 이벤트는 이 곳에서 처리할 수 있겠네요.
     func calendar(_ calendar: FSCalendar, didSelect date: Date) {
-        print("선택 날짜\(date.xDays(+1))")
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        let dateString = formatter.string(from: date.xDays(+1))
+    
+        
+        print(dateString)
         
         
     }
