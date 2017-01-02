@@ -14,11 +14,18 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
     
     //mymapview생성
     lazy var myMapView: MTMapView = MTMapView(frame: CGRect(x: 0, y: 100, width: self.view.frame.size.width, height: self.view.frame.size.height-200))
+    let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
     var currentLocationLongtitude : Double?
     var currentLocationLatitude : Double?
     var myPlace : MTMapPOIItem?
     
+    var pvc : UIPageViewController?
     
+    func tapAction(_ sender: UITapGestureRecognizer) {
+        print("아아")
+        print(pvc)
+        pvc?.view.isUserInteractionEnabled = false
+    }
     
     @IBAction func LocateSendBtn(_ sender: AnyObject) {
         print(myPlace?.mapPoint.mapPointGeo().latitude)
@@ -26,7 +33,6 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.navigationController?.navigationBar.topItem?.title = "어디"
         myMapView.daumMapApiKey = daumAPIKey
         myMapView.delegate = self
         myMapView.baseMapType = .standard
@@ -34,17 +40,37 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         
         self.view.insertSubview(myMapView, at: 0)
     }
-
+    
     //현위치 트래킹
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        let currentLocationPointGeo = location.mapPointGeo
-        currentLocationLongtitude = currentLocationPointGeo().longitude
-        currentLocationLatitude = currentLocationPointGeo().longitude
         mapView.currentLocationTrackingMode = .off
-         myPlace = poiItem(name: "둘", latitude: currentLocationLongtitude!, longitude: currentLocationLatitude!)
         
-
     }
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//         self.navigationController?.navigationBar.topItem?.title = "어디"
+//        
+//        myMapView.daumMapApiKey = daumAPIKey
+//        myMapView.delegate = self
+//        myMapView.baseMapType = .standard
+//        myMapView.currentLocationTrackingMode = .onWithoutHeading
+//        pvc = parent?.parent as? UIPageViewController
+//        myMapView.addGestureRecognizer(tap)
+//        print(myMapView.gestureRecognizers)
+//        self.view.insertSubview(myMapView, at: 0)
+//    }
+//
+//    //현위치 트래킹
+//    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
+//        let currentLocationPointGeo = location.mapPointGeo
+//        currentLocationLongtitude = currentLocationPointGeo().longitude
+//        currentLocationLatitude = currentLocationPointGeo().longitude
+//     
+//         myPlace = poiItem(name: "둘", latitude: currentLocationLongtitude!, longitude: currentLocationLatitude!)
+//           mapView.currentLocationTrackingMode = .off
+//
+//    }
         override func viewDidAppear(_ animated: Bool) {
             var items = [MTMapPOIItem]()
        

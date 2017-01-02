@@ -15,12 +15,12 @@ class FriendVO{
         
     }
     
-    init(name : String, profile : String, id : String){
+    init(name : String?, profile : String?, id : String?){
         self.name = name
         self.profile = profile
         self.id = id
     }
-    init(name : String, ph : String){
+    init(name : String?, ph : String?){
         self.name = name
         self.ph = ph
 

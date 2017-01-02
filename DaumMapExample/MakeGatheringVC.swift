@@ -11,7 +11,7 @@ import UIKit
 class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
 
     var pageViewController : UIPageViewController!
-   
+    
     @IBAction func CancelBtn(_ sender: AnyObject) {
         // 저장안하고 끄면 데이터 날라가야겠지?
         dismiss(animated: true)
@@ -24,9 +24,9 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+//        var gathering : GatheringVO
+//        
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! UIPageViewController
-        
         self.pageViewController.dataSource = self
         
         let startVC = self.viewControllerAtIndex(0) as ContentViewController
@@ -49,10 +49,6 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         let vc : ContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
         
         vc.pageIndex = index
-        
-        
-//        vc.imageFile = self.pageImages[index] as! String
-//        vc.titleText = self.pageTitles[index] as! String
         
 //        print(">>> : " ,vc.titleText)
 //        

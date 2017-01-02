@@ -13,8 +13,7 @@ class ContentViewController: UIViewController {
     @IBOutlet var containerView: UIView!
 
     var pageIndex : Int!
-    var titleText : String!
-    var imgageView : String!
+
     
     
     override func viewDidLoad() {

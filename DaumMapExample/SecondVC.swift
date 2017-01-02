@@ -20,16 +20,7 @@ class SecondVC : UIViewController, NetworkCallback {
     }
 
     let btnOk = UIAlertAction(title: "확인", style: .default, handler: {_ in print("얍")})
-
-//    let maleImage = UIImage(named: "ic_male")
-//    let femaleImage  = UIImage(named: "ic_female")
-//    let maleImageClicked = UIImage(named: "ic_male_check")
-//    let femaleImageClicked  = UIImage(named: "ic_female_check")
-    
-    let maleImage = UIImage(named: "icon")
-    let femaleImage  = UIImage(named: "icon")
-    let maleImageClicked = UIImage(named: "icon")
-    let femaleImageClicked  = UIImage(named: "icon")
+ 
   
     var IDdata = ""
     var PWdata = ""
@@ -51,8 +42,6 @@ class SecondVC : UIViewController, NetworkCallback {
     @IBOutlet var NameTextField: UITextField!
     @IBOutlet var AgeTextField: UITextField!
     
-    @IBOutlet var maleImageToggleBtn: ToggleImageBtn!
-    @IBOutlet var femaleImageToggleBtn: ToggleImageBtn!
 
     public var receivedinputIdData : String = ""
     public var receivedinputPasswdData : String = ""
@@ -118,9 +107,6 @@ class SecondVC : UIViewController, NetworkCallback {
             let imageData = UIImageJPEGRepresentation(image, 0.5) // (데이터로 바꿔준 이미지, 품질)
             model.joinWithPhoto(id: id, pw: pw, ph: ph, name: name, imageData: imageData)
         }
-        //model.joinWithPhoto(id: id, pw: pw, ph: ph, name: name, imageData: <#T##Data?#>)
-      //  model.join(id: id, pw: pw, ph: ph, name: name,)
-        
         
 //            
 //            let noldamTransitionDelegate = NoldamTrasitionDelegate()
@@ -132,23 +118,14 @@ class SecondVC : UIViewController, NetworkCallback {
 //            present(pvc, animated: true)
     }
         
-        
-
-
-        
-        
     
-    func IsFemale(){
-        if(maleImageToggleBtn.Btnstate == 1 && femaleImageToggleBtn.Btnstate == 0){
-            IsWoman = true}
-        else if (maleImageToggleBtn.Btnstate == 0 && femaleImageToggleBtn.Btnstate == 1){
-            IsWoman = false}
-    }
+
 }
 
 extension SecondVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     // 이미지 선택하려다 취소했을 때
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+         dismiss(animated: true, completion: nil)
     }
     
     // 사진 선택 관련 딜리게이트
@@ -165,8 +142,9 @@ extension SecondVC: UINavigationControllerDelegate, UIImagePickerControllerDeleg
         } else {
             return
         }
-        imgContent.roundedBorder()
+      
         imgContent.image = newImage
+        imgContent.roundedBorder()
         dismiss(animated: true, completion: nil) // present로 사진선택 들어왔기 때문에 dismiss 해주어야 함
     }
 }

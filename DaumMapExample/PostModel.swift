@@ -30,9 +30,11 @@ class PostModel: NetworkModel {
                         if loginResult == "SUCCESS" {
                             self.userDefault.set(id, forKey: "id")
                             self.userDefault.synchronize()
+                            print("로그인 성공")
                             self.view.networkResult(resultData: 1, code: 0)
                         }
                         else if loginResult == "FAIL"{
+                            print("로그인 실패 - 아이디 비밀번호 확인")
                             self.view.networkResult(resultData: 0, code: 0)
                         }
                         
@@ -129,11 +131,11 @@ class PostModel: NetworkModel {
         } else {
             Alamofire.upload(
                 multipartFormData: { multipartFormData in
-                    multipartFormData.append(imageData!, withName: "profile", fileName: "image.jpg", mimeType: "image/png")
                     multipartFormData.append(idData, withName:"id")
                     multipartFormData.append(pwData, withName:"pw")
                     multipartFormData.append(phData, withName:"ph")
                     multipartFormData.append(nameData, withName:"name")
+                    multipartFormData.append(imageData!, withName: "profile", fileName: "image.jpg", mimeType: "image/png")
                 },
                 to: url,
                 encodingCompletion: { encodingResult in
@@ -143,8 +145,8 @@ class PostModel: NetworkModel {
                             switch res.result {
                             case .success:
                                 DispatchQueue.main.async(execute: {
-                                    print("사진회원가입 성공")
-                                    self.view.networkResult(resultData: "success", code: 0)
+                                    print("success-success")
+                                    self.view.networkResult(resultData: "", code: 0)
                                 })
                             case .failure(let err):
                                 print("upload Error : \(err)")
@@ -156,14 +158,13 @@ class PostModel: NetworkModel {
                     case .failure(let err):
                         print("network Error : \(err)")
                         self.view.networkFailed()
-                    }
-            })
+                    }            })
         }
     }
     // 개인방 목록 가져오기
     func getPrivate() {
-        let id = userDefault.string(forKey: "id")
-        let params1 = ["id" : gsno(id)]
+      //  let id = userDefault.string(forKey: "id")
+        let params1 = ["id" : "1"]
   
         Alamofire.request("\(baseURL)/main", method: .post, parameters: params1, encoding: JSONEncoding.default).responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
             switch res.result {
@@ -211,7 +212,7 @@ class PostModel: NetworkModel {
         }
       
         let params = [
-            "id" :  gsno(id),
+            "id" :  id,
             "friends_list" : friends
         ] as [String : Any]
         
@@ -223,9 +224,12 @@ class PostModel: NetworkModel {
                     
                     if let syncResult = data["result"].string{
                         print("\(syncResult)동기화성공")
-//                        if joinResult == "SUCCESS" {
-//                            self.view.networkResult(resultData: "회원가입이 완료되었습니다.", code: 0)
-//                        }
+                        if syncResult == "SUCCESS" {
+                           // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
+                        }
+                        else if syncResult == "FAIL" {
+                          //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
+                        }
                     }
                 }
                 

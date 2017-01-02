@@ -9,19 +9,22 @@
 /* Begin PBXBuildFile section */
 		0273E61EBC8D10E920D64291 /* Pods_DaumMapExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */; };
 		2617976D1E16735700CF785E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617976C1E16735700CF785E /* MainVC.swift */; };
-		2645485E1E1695AD0084C865 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645485C1E1695AD0084C865 /* ToggleBtn.swift */; };
-		2645485F1E1695AD0084C865 /* ToggleImageBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645485D1E1695AD0084C865 /* ToggleImageBtn.swift */; };
 		264548631E175C550084C865 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548611E175C550084C865 /* ViewController.swift */; };
 		264548641E175C550084C865 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548621E175C550084C865 /* SecondVC.swift */; };
 		264548671E175D080084C865 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548651E175D080084C865 /* NetworkModel.swift */; };
 		264548681E175D080084C865 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548661E175D080084C865 /* PostModel.swift */; };
 		2645486A1E178B0D0084C865 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264548691E178B0D0084C865 /* KakaoOpenSDK.framework */; };
 		2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645486C1E17B3C50084C865 /* SplashVC.swift */; };
+		267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A31E1A16A8001BE5DC /* PublicResult.swift */; };
+		267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A51E1A17C3001BE5DC /* MySetting.swift */; };
 		26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA41E166E7500327375 /* MakeGatheringVC.swift */; };
 		26816FA71E166E7500327375 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA51E166E7500327375 /* ContentViewController.swift */; };
 		269173331E17B6CF000788AF /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173321E17B6CF000788AF /* UserVO.swift */; };
 		269173351E17C981000788AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173341E17C981000788AF /* FriendCell.swift */; };
 		26D1E0631E181C4500201341 /* FriendVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E0621E181C4500201341 /* FriendVO.swift */; };
+		26D471D81E191303008BB01E /* MakeGatheringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471D71E191303008BB01E /* MakeGatheringModel.swift */; };
+		26D471DC1E193594008BB01E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471DB1E193594008BB01E /* Position.swift */; };
+		26D471DE1E193993008BB01E /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471DD1E193993008BB01E /* Meeting.swift */; };
 		26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77C81E161701000FEDF2 /* NetworkCallback.swift */; };
 		26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */; };
 		26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */; };
@@ -78,8 +81,6 @@
 
 /* Begin PBXFileReference section */
 		2617976C1E16735700CF785E /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		2645485C1E1695AD0084C865 /* ToggleBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
-		2645485D1E1695AD0084C865 /* ToggleImageBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleImageBtn.swift; sourceTree = "<group>"; };
 		264548611E175C550084C865 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		264548621E175C550084C865 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		264548651E175D080084C865 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
@@ -87,11 +88,16 @@
 		264548691E178B0D0084C865 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		2645486B1E178BA70084C865 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
 		2645486C1E17B3C50084C865 /* SplashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		267AC3A31E1A16A8001BE5DC /* PublicResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicResult.swift; sourceTree = "<group>"; };
+		267AC3A51E1A17C3001BE5DC /* MySetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySetting.swift; sourceTree = "<group>"; };
 		26816FA41E166E7500327375 /* MakeGatheringVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringVC.swift; sourceTree = "<group>"; };
 		26816FA51E166E7500327375 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		269173321E17B6CF000788AF /* UserVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
 		269173341E17C981000788AF /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		26D1E0621E181C4500201341 /* FriendVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendVO.swift; sourceTree = "<group>"; };
+		26D471D71E191303008BB01E /* MakeGatheringModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringModel.swift; sourceTree = "<group>"; };
+		26D471DB1E193594008BB01E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		26D471DD1E193993008BB01E /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		26DC77C81E161701000FEDF2 /* NetworkCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicMainVC.swift; sourceTree = "<group>"; };
 		26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamAnimatedTransitioning.swift; sourceTree = "<group>"; };
@@ -179,7 +185,6 @@
 				26B75DDB1E17DD0E002FD67E /* Cell */,
 				264548601E175C4D0084C865 /* Login */,
 				26B75DDA1E17DCFA002FD67E /* MainTabbar */,
-				2645485B1E1695810084C865 /* ToggleBtn */,
 				26816FA31E166E5D00327375 /* MakeGathering */,
 			);
 			name = ViewController;
@@ -188,8 +193,6 @@
 		2645485B1E1695810084C865 /* ToggleBtn */ = {
 			isa = PBXGroup;
 			children = (
-				2645485C1E1695AD0084C865 /* ToggleBtn.swift */,
-				2645485D1E1695AD0084C865 /* ToggleImageBtn.swift */,
 			);
 			name = ToggleBtn;
 			sourceTree = "<group>";
@@ -221,6 +224,8 @@
 			children = (
 				2617976C1E16735700CF785E /* MainVC.swift */,
 				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
+				267AC3A31E1A16A8001BE5DC /* PublicResult.swift */,
+				267AC3A51E1A17C3001BE5DC /* MySetting.swift */,
 			);
 			name = MainTabbar;
 			sourceTree = "<group>";
@@ -232,6 +237,15 @@
 				269173341E17C981000788AF /* FriendCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		26D471D91E193577008BB01E /* GatheringSubObject */ = {
+			isa = PBXGroup;
+			children = (
+				26D471DB1E193594008BB01E /* Position.swift */,
+				26D471DD1E193993008BB01E /* Meeting.swift */,
+			);
+			name = GatheringSubObject;
 			sourceTree = "<group>";
 		};
 		26DC77BF1E16154F000FEDF2 /* Storyboard */ = {
@@ -267,6 +281,7 @@
 			children = (
 				264548651E175D080084C865 /* NetworkModel.swift */,
 				264548661E175D080084C865 /* PostModel.swift */,
+				26D471D71E191303008BB01E /* MakeGatheringModel.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -275,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				26F1ED1D1E14F2B10069971A /* GatheringVO.swift */,
+				26D471D91E193577008BB01E /* GatheringSubObject */,
 				269173321E17B6CF000788AF /* UserVO.swift */,
 				26D1E0621E181C4500201341 /* FriendVO.swift */,
 			);
@@ -284,6 +300,7 @@
 		26DC77C41E1615A6000FEDF2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2645485B1E1695810084C865 /* ToggleBtn */,
 				26F1ED1F1E14F2B10069971A /* UITabbar_custom.swift */,
 			);
 			name = UI;
@@ -447,6 +464,7 @@
 				TargetAttributes = {
 					3C36EF5D1DE5BF7300B3F1B4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RFXGE2J65W;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -570,8 +588,9 @@
 				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
 				264548631E175C550084C865 /* ViewController.swift in Sources */,
 				2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */,
+				267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */,
+				26D471DC1E193594008BB01E /* Position.swift in Sources */,
 				264548681E175D080084C865 /* PostModel.swift in Sources */,
-				2645485E1E1695AD0084C865 /* ToggleBtn.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
@@ -581,15 +600,17 @@
 				264548641E175C550084C865 /* SecondVC.swift in Sources */,
 				26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */,
 				26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */,
-				2645485F1E1695AD0084C865 /* ToggleImageBtn.swift in Sources */,
 				26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */,
 				2617976D1E16735700CF785E /* MainVC.swift in Sources */,
 				26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */,
 				3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */,
 				269173331E17B6CF000788AF /* UserVO.swift in Sources */,
+				267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */,
+				26D471DE1E193993008BB01E /* Meeting.swift in Sources */,
 				26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */,
 				26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */,
 				26DC77D71E164984000FEDF2 /* PopupVC.swift in Sources */,
+				26D471D81E191303008BB01E /* MakeGatheringModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +735,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RFXGE2J65W;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DaumMap.embeddedframework",
@@ -755,6 +779,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RFXGE2J65W;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DaumMap.embeddedframework",

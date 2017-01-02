@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Jungin/SwiftStudy/Appjam1229/Huddle.xcodeproj">
+      location = "group:Huddle.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -1,134 +1,101 @@
-//
+
 //  ViewController.swift
-//  ContactList
+//  Appjam_1
 //
-//  Created by  noldam on 2016. 12. 29..
-//  Copyright © 2016년 Pumpa. All rights reserved.
+//  Created by YuJungin on 2016. 12. 27..
+//  Copyright © 2016년 jungining. All rights reserved.
 //
+
 
 import UIKit
-import Contacts
 
-class ContactsViewController: UITableViewController, NetworkCallback  {
-    internal func networkResult(resultData: Any, code: Int) {
-        print(resultData)
-    }
-
+class ContactsViewController: UITableViewController, NetworkCallback {
     
-    var contactList = [CNContact]()
     var friendList = [FriendVO]()
+    var selectedArray = NSMutableArray()
+    
     let maleImage = UIImage(named: "ic_male")
-    let femaleImage  = UIImage(named: "ic_female")
+    let femaleImage  = UIImage(named: "ic_male_check")
     
     override func viewDidLoad() {
-         self.navigationController?.navigationBar.topItem?.title = "누구"
-//        let userDefault = UserDefaults.standard
-//        userDefault.string(forKey: "어쭈구")
-        super.viewDidLoad()
-        print("1")
-        hideKeyboardWhenTappedAround()
-        print("2")
-        initViews()
-        print("3")
-        initModels()
-        print("4")
-       
+        
+        let model = MakeGatheringModel(self)
+       // tableView.setEditing(true, animated: <#T##Bool#>)
+        model.getFriendsList()
+        self.tableView.reloadData()
+        
     }
-
-    func initViews() {
-////        searchController.searchResultsUpdater = self
-////        searchController.dimsBackgroundDuringPresentation = false
-//        definesPresentationContext = true
-//        tableView.tableHeaderView = searchController.searchBar
+    internal func networkResult(resultData: Any, code: Int) {
+        
+        friendList = resultData as! [FriendVO]
+        print(friendList.count)
+        tableView.reloadData()
+        
     }
     
-    func initModels() {
-        getContacts()
-    }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactList.count
+        return friendList.count
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = contactList[indexPath.row]
+        
+        //다운캐스팅
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
-        let formatter = CNContactFormatter()
+        let item = friendList[indexPath.row]
+        if let profile = item.profile {
+        if let url = URL(string: profile){
+            cell.imgProfile.kf.setImage(with: url)
+            cell.imgProfile.contentMode = .scaleAspectFit
+            
+            }
+        }
+        if let name = item.name{
+            cell.txtname.text = name
+        }
         
-        let friendname = formatter.string(from: item)
-        cell.txtname.text = friendname
-        let number = item.phoneNumbers.first?.value
+        if let id = item.id {
+            cell.email.text = id
+            print("id출력")
+            print(id)
+        }
         
-        let friendPh = number?.stringValue.asPhoneFormat
-        cell.email.text = friendPh
-        
-        cell.checkBox.setBackgroundImage(maleImage,for: UIControlState())
-        cell.checkBox.setBtnUnClickedImg(unClickedImage: maleImage!)
-        cell.checkBox.setBtnClickedImg(clickedImage: femaleImage!)
-        
-        friendList.append(FriendVO(name: friendname!, ph: friendPh!))
-       
+//      //  cell.checkBox.addTarget(self, action:#selector(ViewController.tickClicked(_:)), forControlEvents: .TouchUpInside)
+//        cell.checkBox.addTarget(self, action: #selector(ViewController.tickClicked(), for: .touchUpInside)
+//        
+//        cell.checkBox.tag=indexPath.row
+//        
+//        if selectedArray .containsObject(numberArray.objectAtIndex(indexPath.row)) {
+//            cell.checkBox.setBackgroundImage(UIImage(named:"Select.png"), forState: UIControlState.Normal)
+//        }
+//        else
+//        {
+//            cell.checkBox.setBackgroundImage(UIImage(named:"Diselect.png"), forState: UIControlState.Normal)
+//        }
         return cell
     }
     
-    //연락처 정보 가져오는 메소드
-    func getContacts() {
-        let store = CNContactStore()
-        
-        //현재 디바이스에서 해당 앱이 연락처에 접근하는걸 승인했는지 아닌지 체크하는 메소드
-        if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
-            store.requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: Error?) -> Void in
-                if authorized {
-                    self.retrieveContactsWithStore(store)
-                }
-            })
-        } else if CNContactStore.authorizationStatus(for: .contacts) == .authorized {
-            retrieveContactsWithStore(store)
-        }
-    }
-    
-    //디바이스에 저장된 연락처를 가져와 [CNContact] 배열에 저장하는 메소드
-    func retrieveContactsWithStore(_ store: CNContactStore) {
-        do {
-            let contactIDs = try store.defaultContainerIdentifier()
-            
-            let predicate = CNContact.predicateForContactsInContainer(withIdentifier: contactIDs)
-            
-            //각각의 정보마다(전화번호, 이메일, 이름 등) 고유키가 있고 이 키를 지정해주지 않으면 해당 정보를 가져올 수 없다. 여기서는 전화번호를 가져오기 위해 CNContactPhoneNumbersKey를 사용
-            let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey] as [Any]
-            let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
-            contactList = contacts
-    
-            DispatchQueue.main.async(execute: { () -> Void in
-                self.tableView.reloadData()
-            })
-            for item in contactList {
-
-            let formatter = CNContactFormatter()
-            
-            let friendname = formatter.string(from: item)
-            let number = item.phoneNumbers.first?.value
-            let friendPh = number?.stringValue.asPhoneFormat
-           
-            
-            friendList.append(FriendVO(name: gsno(friendname), ph: gsno(friendPh)))
-                
-            }
-            
-            let model = PostModel(self)
-            print("연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화연락처동기화")
-            print(friendList[2].ph!)
-            model.sync(friends_list: friendList)
-
-
-            
-            
-        } catch {
-            print(error)
-        }
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-
+//    func tickClicked(sender: UIButton!)
+//    {
+//        let value = sender.tag;
+//        
+//        if selectedArray.containsObject(friendList.objectAtIndex(value))
+//        {
+//            selectedArray.removeObject(friendList.objectAtIndex(value))
+//        }
+//        else
+//        {
+//            selectedArray.addObject(numberArray.objectAtIndex(value))
+//        }
+//        
+//        print("Selecetd Array \(selectedArray)")
+//        
+//        objTable.reloadData()
+//        
+//    }
+    
 }
 

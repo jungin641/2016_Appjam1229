@@ -15,24 +15,26 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
+//        let dateComponents = NSDateComponents()
+//        let day = dateComponents.day
+//        let month = dateComponents.month
+//        
         self.navigationController?.navigationBar.topItem?.title = "언제"
         self.calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
      
         calendar.delegate = self
         calendar.dataSource = self
         calendar.clipsToBounds = false
-    
-        
+        calendar.appearance.headerMinimumDissolvedAlpha = 0.0
+       
         
     }
-//    
-//    // 각 날짜에 특정 문자열을 표시할 수 있습니다. 이미지를 표시하는 메소드도 있으니 API를 참조하세요.
-//    func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
-//        return "W"
-//    }
-//    
+    
+    // 각 날짜에 특정 문자열을 표시할 수 있습니다. 이미지를 표시하는 메소드도 있으니 API를 참조하세요.
+    func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
+        return "1"
+    }
+    
 
     
     // 스와이프를 통해서 다른 달(month)의 달력으로 넘어갈 때 발생하는 이벤트를 이 곳에서 처리할 수 있겠네요.
