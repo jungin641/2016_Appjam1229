@@ -82,13 +82,13 @@ class SecondVC : UIViewController, NetworkCallback {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 포토 갤러리로 넘어가는거 구현
-        hideKeyboardWhenTappedAround()
+        
         picker.allowsEditing = true
         picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
         
-        imgContent.image = UIImage(named: "ic_male")
+        imgContent.image = UIImage(named: "human_big")
         imgContent.roundedBorder()
-
+        
         CompleteBtn.isEnabled = false
         CompleteBtn.backgroundColor = UIColor( red :177/255 , green : 181/255, blue : 192/255, alpha : 1)
         
@@ -103,7 +103,7 @@ class SecondVC : UIViewController, NetworkCallback {
     @IBAction func ValueChanged(_ sender: AnyObject) {
         if((IdTextField.text?.characters.count != 0) && (PwTextField.text == PwCheckText.text) && (PwCheckText.text?.characters.count != 0) && (PhTextField.text?.characters.count != 0) && (ischecked==1)){
             CompleteBtn.isEnabled = true
-            CompleteBtn.backgroundColor = UIColor( red :238/255 , green : 203/255, blue : 44/255, alpha : 1)
+            CompleteBtn.backgroundColor = UIColor( red :225/255 , green : 54/255, blue : 74/255, alpha : 1)
             
         }
         else if(IdTextField.isEditing && (ischecked==1)){

@@ -33,7 +33,7 @@ class MySetting : UIViewController{
         ph?.text = phValue
         home?.text = homeValue
         work?.text = workValue
-        profile?.imageFromUrl(imgValue, defaultImgPath: "ic_male")
+        profile?.imageFromUrl(imgValue, defaultImgPath: "human_big")
         profile?.roundedBorder()
     }
     

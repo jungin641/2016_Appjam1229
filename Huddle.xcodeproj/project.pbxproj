@@ -22,6 +22,7 @@
 		26816FA71E166E7500327375 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA51E166E7500327375 /* ContentViewController.swift */; };
 		269173331E17B6CF000788AF /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173321E17B6CF000788AF /* UserVO.swift */; };
 		269173351E17C981000788AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173341E17C981000788AF /* FriendCell.swift */; };
+		269E50821E1B7EEA00ED9F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */; };
 		26D1E0631E181C4500201341 /* FriendVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E0621E181C4500201341 /* FriendVO.swift */; };
 		26D471D81E191303008BB01E /* MakeGatheringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471D71E191303008BB01E /* MakeGatheringModel.swift */; };
 		26D471DC1E193594008BB01E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471DB1E193594008BB01E /* Position.swift */; };
@@ -42,7 +43,6 @@
 		3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */; };
 		3C36EF671DE5BF7300B3F1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */; };
 		3C36EF691DE5BF7300B3F1B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */; };
-		3C36EF6C1DE5BF7300B3F1B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF6A1DE5BF7300B3F1B4 /* LaunchScreen.storyboard */; };
 		3C36EFE81DE5C9D800B3F1B4 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36EFCB1DE5C9D800B3F1B4 /* DaumMap.framework */; };
 		3C36EFE91DE5C9D800B3F1B4 /* copyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EFCD1DE5C9D800B3F1B4 /* copyright.png */; };
 		3C36EFEA1DE5C9D800B3F1B4 /* daum_copyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EFCE1DE5C9D800B3F1B4 /* daum_copyright.png */; };
@@ -96,6 +96,7 @@
 		26816FA51E166E7500327375 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		269173321E17B6CF000788AF /* UserVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
 		269173341E17C981000788AF /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26D1E0621E181C4500201341 /* FriendVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendVO.swift; sourceTree = "<group>"; };
 		26D471D71E191303008BB01E /* MakeGatheringModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringModel.swift; sourceTree = "<group>"; };
 		26D471DB1E193594008BB01E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
@@ -118,7 +119,6 @@
 		3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3C36EF661DE5BF7300B3F1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3C36EF6B1DE5BF7300B3F1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C36EF6D1DE5BF7300B3F1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C36EFCB1DE5C9D800B3F1B4 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		3C36EFCD1DE5C9D800B3F1B4 /* copyright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copyright.png; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */,
-				3C36EF6A1DE5BF7300B3F1B4 /* LaunchScreen.storyboard */,
+				269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -499,9 +499,9 @@
 				3C36EFEE1DE5C9D800B3F1B4 /* info_box_tail.png in Resources */,
 				3C36EFFE1DE5C9D800B3F1B4 /* map_present_tracking.png in Resources */,
 				3C36EFEA1DE5C9D800B3F1B4 /* daum_copyright.png in Resources */,
+				269E50821E1B7EEA00ED9F87 /* LaunchScreen.storyboard in Resources */,
 				3C36EFEF1DE5C9D800B3F1B4 /* map_pin.png in Resources */,
 				3C36EFF41DE5C9D800B3F1B4 /* map_pin_red@3x.png in Resources */,
-				3C36EF6C1DE5BF7300B3F1B4 /* LaunchScreen.storyboard in Resources */,
 				3C36EFFC1DE5C9D800B3F1B4 /* map_present_background_update.png in Resources */,
 				3C36F0001DE5C9D800B3F1B4 /* noimage256.png in Resources */,
 				3C36EFEB1DE5C9D800B3F1B4 /* daum_th_line.png in Resources */,
@@ -627,14 +627,6 @@
 				3C36EF661DE5BF7300B3F1B4 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3C36EF6A1DE5BF7300B3F1B4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C36EF6B1DE5BF7300B3F1B4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
