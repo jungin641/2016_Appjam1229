@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0273E61EBC8D10E920D64291 /* Pods_DaumMapExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */; };
 		2617976D1E16735700CF785E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617976C1E16735700CF785E /* MainVC.swift */; };
+		262EC5301E1BE34F00025D58 /* PublicResultCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262EC52F1E1BE34F00025D58 /* PublicResultCalendarVC.swift */; };
+		262EC5321E1BE36D00025D58 /* PublicMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262EC5311E1BE36D00025D58 /* PublicMapVC.swift */; };
+		2635D6141E1C0B9300D86891 /* EditPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635D6131E1C0B9300D86891 /* EditPopupVC.swift */; };
+		2635D6161E1C0C3B00D86891 /* MakeRoomResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635D6151E1C0C3B00D86891 /* MakeRoomResult.swift */; };
 		264548631E175C550084C865 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548611E175C550084C865 /* ViewController.swift */; };
 		264548641E175C550084C865 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548621E175C550084C865 /* SecondVC.swift */; };
 		264548671E175D080084C865 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548651E175D080084C865 /* NetworkModel.swift */; };
@@ -82,6 +86,10 @@
 
 /* Begin PBXFileReference section */
 		2617976C1E16735700CF785E /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		262EC52F1E1BE34F00025D58 /* PublicResultCalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicResultCalendarVC.swift; sourceTree = "<group>"; };
+		262EC5311E1BE36D00025D58 /* PublicMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicMapVC.swift; sourceTree = "<group>"; };
+		2635D6131E1C0B9300D86891 /* EditPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPopupVC.swift; sourceTree = "<group>"; };
+		2635D6151E1C0C3B00D86891 /* MakeRoomResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeRoomResult.swift; sourceTree = "<group>"; };
 		264548611E175C550084C865 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		264548621E175C550084C865 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		264548651E175D080084C865 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
@@ -192,6 +200,16 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		262EC52E1E1BE0B200025D58 /* PublicResult */ = {
+			isa = PBXGroup;
+			children = (
+				267AC3A31E1A16A8001BE5DC /* PublicResult.swift */,
+				262EC52F1E1BE34F00025D58 /* PublicResultCalendarVC.swift */,
+				262EC5311E1BE36D00025D58 /* PublicMapVC.swift */,
+			);
+			name = PublicResult;
+			sourceTree = "<group>";
+		};
 		2645485B1E1695810084C865 /* ToggleBtn */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +236,7 @@
 				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
 				26F1ED1C1E14F2B10069971A /* CalendarVC.swift */,
 				3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */,
+				2635D6151E1C0C3B00D86891 /* MakeRoomResult.swift */,
 			);
 			name = MakeGathering;
 			sourceTree = "<group>";
@@ -225,9 +244,9 @@
 		26B75DDA1E17DCFA002FD67E /* MainTabbar */ = {
 			isa = PBXGroup;
 			children = (
+				262EC52E1E1BE0B200025D58 /* PublicResult */,
 				2617976C1E16735700CF785E /* MainVC.swift */,
 				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
-				267AC3A31E1A16A8001BE5DC /* PublicResult.swift */,
 				267AC3A51E1A17C3001BE5DC /* MySetting.swift */,
 			);
 			name = MainTabbar;
@@ -325,6 +344,7 @@
 				26DC77D11E164984000FEDF2 /* NoldamPresentationController.swift */,
 				26DC77D21E164984000FEDF2 /* NoldamTrasitionDelegate.swift */,
 				26DC77D31E164984000FEDF2 /* PopupVC.swift */,
+				2635D6131E1C0B9300D86891 /* EditPopupVC.swift */,
 			);
 			name = PopUp;
 			sourceTree = "<group>";
@@ -586,12 +606,14 @@
 			files = (
 				26F1ED231E14F2B10069971A /* UITabbar_custom.swift in Sources */,
 				26D1E0631E181C4500201341 /* FriendVO.swift in Sources */,
+				262EC5321E1BE36D00025D58 /* PublicMapVC.swift in Sources */,
 				26DC77D51E164984000FEDF2 /* NoldamPresentationController.swift in Sources */,
 				264548671E175D080084C865 /* NetworkModel.swift in Sources */,
 				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
 				264548631E175C550084C865 /* ViewController.swift in Sources */,
 				2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */,
 				267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */,
+				262EC5301E1BE34F00025D58 /* PublicResultCalendarVC.swift in Sources */,
 				26D471DC1E193594008BB01E /* Position.swift in Sources */,
 				264548681E175D080084C865 /* PostModel.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
@@ -605,8 +627,10 @@
 				26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */,
 				26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */,
 				2617976D1E16735700CF785E /* MainVC.swift in Sources */,
+				2635D6141E1C0B9300D86891 /* EditPopupVC.swift in Sources */,
 				26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */,
 				3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */,
+				2635D6161E1C0C3B00D86891 /* MakeRoomResult.swift in Sources */,
 				269173331E17B6CF000788AF /* UserVO.swift in Sources */,
 				267AC3A81E1A2E9F001BE5DC /* CheckBox.swift in Sources */,
 				267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */,

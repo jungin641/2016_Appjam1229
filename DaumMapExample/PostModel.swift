@@ -87,7 +87,7 @@ class PostModel: NetworkModel {
             }
         }
     }
-
+    
     //사진회원가입
     func joinWithPhoto(id: String, pw: String,ph:String,name:String,work : String, imageData: Data?,home : String) {
         
@@ -110,7 +110,7 @@ class PostModel: NetworkModel {
                     multipartFormData.append(workData, withName:"work")
                     multipartFormData.append(nameData, withName:"name")
                     multipartFormData.append(imageData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
-                },
+            },
                 to: url,
                 encodingCompletion: { encodingResult in
                     switch encodingResult {
@@ -142,7 +142,7 @@ class PostModel: NetworkModel {
         
         // let idValue = userDefault.string(forKey: "id")
         let params1 = ["id" : idValue]
-      
+        
         Alamofire.request("\(baseURL)/main", method: .post, parameters: params1, encoding: JSONEncoding.default).responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
             switch res.result {
             case .success :
@@ -174,10 +174,59 @@ class PostModel: NetworkModel {
             }
         }
     }
+    
+    //회원정보수정
+    func setMyInfo(name: String,ph:String, home:String,work : String, profileData : Data?){
+        let idValue = userDefault.string(forKey: "id")
+        let url = "\(baseURL)/main/edit/"
+        
+        let idData = idValue?.data(using: .utf8)!
+        let phData = ph.data(using: .utf8)!
+        let nameData = name.data(using: .utf8)!
+        let homeData = home.data(using: .utf8)!
+        let workData = work.data(using: .utf8)!
+        if profileData == nil {
+        } else {
+            Alamofire.upload(
+                multipartFormData: { multipartFormData in
+                    if let id = idData{
+                        multipartFormData.append(id, withName:"id")
+
+                    }
+                    multipartFormData.append(phData, withName:"ph")
+                    multipartFormData.append(homeData, withName:"home")
+                    multipartFormData.append(workData, withName:"work")
+                    multipartFormData.append(nameData, withName:"name")
+                    multipartFormData.append(profileData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
+            },
+                to: url,
+                encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        upload.responseData { res in
+                            switch res.result {
+                            case .success:
+                                DispatchQueue.main.async(execute: {
+                                   print("회원정보수정 완료")
+                                })
+                            case .failure(let err):
+                                print("upload Error : \(err)")
+                                DispatchQueue.main.async(execute: {
+                                    
+                                })
+                            }
+                        }
+                    case .failure(let err):
+                        print("network Error : \(err)")
+                        self.view.networkFailed()
+                    }            })
+        }
+    }
+    
     // 전화번호 동기화
     func sync(friends_list: [FriendVO]) {
         let id = userDefault.string(forKey: "id")
-      //  let id = "1"
+        //  let id = "1"
         var friends = [[String : String]]()
         
         for friend in friends_list{

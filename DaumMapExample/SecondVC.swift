@@ -39,10 +39,11 @@ class SecondVC : UIViewController, NetworkCallback {
             present(pvc, animated: true)
             
             
-            if let vc = presentingViewController as? SecondVC {
-                vc.dismiss(animated: true,completion : nil)
-                vc.popoverPresentationController
-            }
+            //self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
+            // if let vc = presentingViewController as? SecondVC {
+            //   vc.dismiss(animated: true,completion : nil)
+            //}
         }
         
         
@@ -82,7 +83,7 @@ class SecondVC : UIViewController, NetworkCallback {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 포토 갤러리로 넘어가는거 구현
-        
+        hideKeyboardWhenTappedAround()//화면 누르면 키보드 내림
         picker.allowsEditing = true
         picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
         
@@ -153,7 +154,11 @@ class SecondVC : UIViewController, NetworkCallback {
         //            present(pvc, animated: true)
     }
     
-    
+    @IBAction func backBtn(_ sender: AnyObject){
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
     
 }
 
