@@ -664,6 +664,7 @@
         <!--Public Result-->
         <scene sceneID="WR6-SF-Wvx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V6L-fa-baC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PublicResult" id="JkH-09-pbN" customClass="PublicResult" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xz8-9N-U2l"/>
@@ -834,13 +835,13 @@
                         <outlet property="thirdView" destination="dbG-pk-g1A" id="0sz-gV-bc5"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V6L-fa-baC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4338.4057971014499" y="614.67391304347836"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CRN-Te-TQ8">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DSY-Oh-13L" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="tMJ-0e-TVd" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kE2-qx-14L"/>
@@ -867,13 +868,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="365" height="295"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DSY-Oh-13L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4055.7971014492755" y="53.396739130434788"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="v7j-7v-4Z0">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x2X-Mc-bVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="JoU-Ij-nyc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hYs-Xg-Y09"/>
@@ -900,14 +901,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="365" height="272"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x2X-Mc-bVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4049" y="1290"/>
         </scene>
         <!--로그인-->
         <scene sceneID="UzO-zU-5KI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eab-pL-WYb" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FirstVC" title="로그인" id="Ccf-sP-IvK" customClass="ViewController" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nPC-ba-P7D"/>
@@ -979,13 +978,13 @@
                         <outlet property="txtPasswd" destination="nAh-ft-nHI" id="QF7-LV-2jZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eab-pL-WYb" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2852.1739130434785" y="225.81521739130437"/>
+            <point key="canvasLocation" x="-1897" y="589"/>
         </scene>
         <!--Item-->
         <scene sceneID="FbT-fM-xcR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2dQ-ii-2YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MDD-Bm-jBV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JMy-oZ-lOE"/>
                     <toolbarItems/>
@@ -998,13 +997,13 @@
                         <segue destination="Ccf-sP-IvK" kind="relationship" relationship="rootViewController" id="dyr-eQ-2X5"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dQ-ii-2YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3791" y="227"/>
+            <point key="canvasLocation" x="-2836" y="589"/>
         </scene>
         <!--회원가입-->
         <scene sceneID="4BB-24-v6Z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0zR-n2-3PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SecondVC" title="회원가입" id="lyF-gK-alJ" customClass="SecondVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JeS-HU-edx"/>
@@ -1015,7 +1014,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  이메일 입력" textAlignment="natural" minimumFontSize="17" background="dong" translatesAutoresizingMaskIntoConstraints="NO" id="ifk-pZ-nCR">
-                                <rect key="frame" x="99" y="240" width="217" height="30"/>
+                                <rect key="frame" x="99" y="240" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1044,14 +1043,6 @@
                                     <action selector="ValueChanged:" destination="lyF-gK-alJ" eventType="editingChanged" id="RsZ-9C-Cqa"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwB-Ko-Y7R">
-                                <rect key="frame" x="260" y="242" width="55" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="gggg"/>
-                                <connections>
-                                    <action selector="checkID:" destination="lyF-gK-alJ" eventType="touchUpInside" id="Itt-tn-pKj"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="upH-ei-eHG">
                                 <rect key="frame" x="139" y="78" width="143" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1116,6 +1107,14 @@
                                     <action selector="FCompleteBtn:" destination="lyF-gK-alJ" eventType="touchUpInside" id="H3o-zV-U4Q"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwB-Ko-Y7R">
+                                <rect key="frame" x="261" y="242" width="55" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="gggg"/>
+                                <connections>
+                                    <action selector="checkID:" destination="lyF-gK-alJ" eventType="touchUpInside" id="Itt-tn-pKj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1131,13 +1130,13 @@
                         <outlet property="workTextField" destination="XWN-ds-XIu" id="wTd-AH-kjT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zR-n2-3PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2156.521739130435" y="225.81521739130437"/>
+            <point key="canvasLocation" x="-1201.449275362319" y="587.77173913043487"/>
         </scene>
         <!--PopupVC-->
         <scene sceneID="6Ls-W6-I8v">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RXl-fa-80I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PopupVC" id="qzf-mj-jis" customClass="PopupVC" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g7u-or-VRZ"/>
@@ -1183,8 +1182,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="500"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXl-fa-80I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1259" y="226"/>
+            <point key="canvasLocation" x="-304" y="589"/>
         </scene>
     </scenes>
     <resources>
