@@ -56,6 +56,13 @@ extension UIViewController {
             return 0
         }
     }
+    func gdno(_ value: Double?) -> Double {
+        if let value_ = value {
+            return value_
+        } else {
+            return 0
+        }
+    }
     var today: Date {
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale(identifier: "ko-kr")

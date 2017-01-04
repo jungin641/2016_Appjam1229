@@ -19,21 +19,35 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
         mapView.daumMapApiKey = daumAPIKey
         mapView.delegate = self
         mapView.baseMapType = .standard
-     
+       // items.append(poiItem(name: "넷", latitude: 37.5037539, longitude: 127.0426469))
+        
+        //샘플 데이터
+        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
         self.view.insertSubview(mapView, at: 0)
     }
    
 
     override func viewDidAppear(_ animated: Bool) {
-                var items = [MTMapPOIItem]()
-//        
-//        let selectedPositionLatitude = selectedPosition?.latitude{
-//            selectedPositionLatitude
-//        }
-//                items.append(poiItem(name: "하나", latitude:  Double(selectedPosition?.latitude), longitude:  Double(selectedPosition?.longtitude)))
-//       
-                mapView.addPOIItems(items)
-                mapView.fitAreaToShowAllPOIItems()
+        var items = [MTMapPOIItem]()
+        items.append(poiItem(name: "넷", latitude: 37.5027529, longitude: 127.0436479))
+        print(items[0].mapPoint.mapPointGeo().longitude)
+        print(items[0].mapPoint.mapPointGeo().latitude)
+        if let mySelectedPosition = selectedPosition{
+            items.append(
+                poiItem(
+                    //gdno extensionControl에 추가!
+                    name: gsno(mySelectedPosition.place),
+                    latitude:  gdno(Double(gsno(mySelectedPosition.latitude))),
+                    longitude:  gdno(Double(gsno(mySelectedPosition.longtitude)))
+            ))
+            print(items[1].mapPoint.mapPointGeo().longitude)
+            print(items[1].mapPoint.mapPointGeo().latitude)
+            var doubledata = gdno(Double(gsno(mySelectedPosition.latitude)))
+            print("gdnodoubledata : \(doubledata)")
+        }
+        
+        mapView.addPOIItems(items)
+        mapView.fitAreaToShowAllPOIItems()
     }
     
     func poiItem(name: String, latitude: Double, longitude: Double) -> MTMapPOIItem {
@@ -43,7 +57,7 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
         item.markerType = .redPin
         item.markerSelectedType = .bluePin
         item.mapPoint = MTMapPoint(geoCoord: .init(latitude: latitude, longitude: longitude))
-        item.showAnimationType = .springFromGround
+        item.showAnimationType = .noAnimation
         item.customImageAnchorPointOffset = .init(offsetX: 30, offsetY: 0)
         
         return item
