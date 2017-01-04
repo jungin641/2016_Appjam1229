@@ -30,10 +30,18 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
     }
     
     // 각 날짜에 특정 문자열을 표시할 수 있습니다. 이미지를 표시하는 메소드도 있으니 API를 참조하세요.
-    func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         return "1"
     }
-    
+//    // 특정 날짜를 선택했을 때, 발생하는 이벤트는 이 곳에서 처리할 수 있겠네요.
+//    func calendar(_ calendar: FSCalendar, didSelect date: Date) {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyyMMdd"
+//        
+//        let dateString = formatter.string(from: date.xDays(+1))
+//        selectedDates.append(dateString)
+//        
+//    }
     
     
     // 스와이프를 통해서 다른 달(month)의 달력으로 넘어갈 때 발생하는 이벤트를 이 곳에서 처리할 수 있겠네요.

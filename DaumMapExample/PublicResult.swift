@@ -25,6 +25,15 @@ class PublicResult : UIViewController, NetworkCallback{
     @IBOutlet var thirdView : UIView!
     @IBOutlet var tableView : UITableView!
     
+    @IBAction func kakaoShare(_ sender: AnyObject) {
+        let text = KakaoTalkLinkObject.createLabel("테스트입니다.")
+        let image = KakaoTalkLinkObject.createImage("https://s3.ap-northeast-2.amazonaws.com/noldam/sitter/certificate/pokemon1.png", width: 164, height: 198)
+        let appAction = KakaoTalkLinkAction.createAppAction(.IOS, devicetype: .phone, marketparamString: "itms-apps://itunes.apple.com/kr/app/noldam/id1137715307?mt=8", execparamString: "")!
+        //        let appAction2 = KakaoTalkLinkAction.createApac
+        //설치되어있으면 거기로 감 안되어있으면 아이튠즈 링크 뜸
+        let link = KakaoTalkLinkObject.createAppButton("눌러보세요!!", actions: [appAction])
+        KOAppCall.openKakaoTalkAppLink([text!, image!, link!])
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
