@@ -67,10 +67,10 @@ extension UIViewController {
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale(identifier: "ko-kr")
         calendar.timeZone = TimeZone(identifier: "UTC")!
-    
+        
         let tempToday = calendar.date(byAdding: .hour, value: 9, to: Date())
         let today = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: tempToday!)
-//        let eee = calendar.date(byAdding: .day, value: 7, to: today!)
+        //        let eee = calendar.date(byAdding: .day, value: 7, to: today!)
         return today!
     }
     
@@ -84,7 +84,7 @@ extension UIViewController {
     func networkFailed() {
         simpleAlert(title: "네트워크 오류", msg: "인터넷 연결을 확인해주세요.")
     }
-
+    
     //화면 클릭시 키보드 내리는 메소드
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
@@ -114,3 +114,23 @@ extension UIImageView {
         }
     }
 }
+
+//    Usage:
+//
+//    var color = UIColor(red: 0xFF, green: 0xFF, blue: 0xFF)
+//    var color2 = UIColor(netHex:0xFFFFFF)
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
+}
+
+
