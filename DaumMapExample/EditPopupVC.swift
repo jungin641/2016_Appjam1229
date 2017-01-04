@@ -32,15 +32,12 @@ class EditPopupVC : UIViewController,NetworkCallback{
     var countLoaded = 0
     override func viewDidLoad() {
         hideKeyboardWhenTappedAround()//화면 누르면 키보드 내림
+        picker.allowsEditing = true
+        picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
         
-        if(countLoaded == 0){
-            let imgurl = userDefault.string(forKey: "profile")
-            profile?.imageFromUrl(imgurl, defaultImgPath: "human_big")
-            profile?.roundedBorder()
-        }
-        else { }
-        countLoaded+=1
-        
+        let imgValue = userDefault.string(forKey: "profile")
+        profile?.imageFromUrl(imgValue, defaultImgPath: "human_big")
+        profile?.roundedBorder()
         IDtxt?.text = userDefault.string(forKey: "id")
         nameTxt?.text = userDefault.string(forKey: "name")
         phTxt?.text = userDefault.string(forKey: "ph")

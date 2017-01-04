@@ -13,10 +13,10 @@ import SwiftyJSON
 class MakeGatheringModel: NetworkModel {
     let userDefault = UserDefaults.standard
     // 방 만들기 ( +버튼 눌러서 공개 비공개 중 선택해서 클릭 했을 때)
-    func getFriendsList() {
-     //   let id = userDefault.string(forKey: "id")
-        let id = "1"
-        Alamofire.request("\(baseURL)/room/create/\(id)").responseJSON()   { res in
+   func getFriendsList() {
+    let my_ids = userDefault.string(forKey: "id")
+    
+        Alamofire.request("\(baseURL)/room/create/\(gsno(my_ids))").responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
             switch res.result {
             case .success :
                 if let value = res.result.value {
@@ -33,9 +33,12 @@ class MakeGatheringModel: NetworkModel {
                         self.view.networkResult(resultData: tempList, code: 0)
                     }
                 }
+                
+      
                 break
                 
-            case .failure :
+            case .failure(let err) :
+                print(err)
                 self.view.networkFailed()
             }
         }

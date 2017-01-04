@@ -187,27 +187,34 @@ class PostModel: NetworkModel {
         let workData = work.data(using: .utf8)!
         if profileData == nil {
         } else {
-            Alamofire.upload(
-                multipartFormData: { multipartFormData in
-                    if let id = idData{
-                        multipartFormData.append(id, withName:"id")
+            
+            /// - parameter multipartFormData:       The closure used to append body parts to the `MultipartFormData`.
+            /// - parameter encodingMemoryThreshold: The encoding memory threshold in bytes.
+            ///                                      `multipartFormDataEncodingMemoryThreshold` by default.
+            /// - parameter url:                     The URL.
+            /// - parameter method:                  The HTTP method. `.post` by default.
+            /// - parameter headers:                 The HTTP headers. `nil` by default.
+            /// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
 
-                    }
-                    multipartFormData.append(phData, withName:"ph")
-                    multipartFormData.append(homeData, withName:"home")
-                    multipartFormData.append(workData, withName:"work")
-                    multipartFormData.append(nameData, withName:"name")
-                    multipartFormData.append(profileData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
-            },
-                to: url,
-                encodingCompletion: { encodingResult in
+            Alamofire.upload(multipartFormData:  { multipartFormData in
+                if let id = idData{
+                multipartFormData.append(id, withName:"id")
+                
+                }
+                multipartFormData.append(phData, withName:"ph")
+                multipartFormData.append(homeData, withName:"home")
+                multipartFormData.append(workData, withName:"work")
+                multipartFormData.append(nameData, withName:"name")
+                multipartFormData.append(profileData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
+                },
+                usingThreshold: 0,  to: url, method: .put, headers: nil,   encodingCompletion: { encodingResult in
                     switch encodingResult {
                     case .success(let upload, _, _):
                         upload.responseData { res in
                             switch res.result {
                             case .success:
                                 DispatchQueue.main.async(execute: {
-                                   print("회원정보수정 완료")
+                                    print("회원정보수정 완료")
                                 })
                             case .failure(let err):
                                 print("upload Error : \(err)")
@@ -220,6 +227,7 @@ class PostModel: NetworkModel {
                         print("network Error : \(err)")
                         self.view.networkFailed()
                     }            })
+        
         }
     }
     
@@ -271,5 +279,6 @@ class PostModel: NetworkModel {
         
     }
     
+ 
 }
 

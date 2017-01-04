@@ -26,7 +26,7 @@ class MySetting : UIViewController{
         let phValue = userDefault.string(forKey: "ph")
         let homeValue = userDefault.string(forKey: "home")
         let workValue = userDefault.string(forKey: "work")
-        let imgValue = userDefault.string(forKey: "profile")
+        let imgValue = userDefault.string(forKey: "profile1")
         id?.text = stringValue
         name?.text = nameValue
         ph?.text = phValue
