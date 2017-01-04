@@ -18,32 +18,46 @@ class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
 //    }]
 //    
     var testDate : Date?
-    
+    private let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //sample data
+        selectedDates = ["20170118","20170122","20170126","20170103"]
         
         calendar.delegate = self
         calendar.dataSource = self
         calendar.clipsToBounds = false
+        calendar.allowsMultipleSelection = true
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
-        calendar.allowsSelection = false
+        
+        calendar.appearance.selectionColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        calendar.appearance.borderSelectionColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+   
         
         calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
        // calendar.appearance.today // 오늘 색 변경
-
+        
+        // 이미지 표시하기
+        for date in selectedDates{
+            
+            calendar.select(self.formatter.date(from : date)?.xDays(+1))
+            print(self.formatter.date(from : date)!)
+        }
+      
+        //사용자 선택 막기, 꼭 맨 밑에 있어야 함
+        calendar.allowsSelection = false
     }
 
-    // 각 날짜에 특정 문자열을 표시할 수 있습니다. 이미지를 표시하는 메소드도 있으니 API를 참조하세요.
+    // 각 날짜에 특정 문자열을 표시할 수 있습니다.
     func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
         return "1"
     }
     
-    
-    
-    // 스와이프를 통해서 다른 달(month)의 달력으로 넘어갈 때 발생하는 이벤트를 이 곳에서 처리할 수 있겠네요.
-    func calendarCurrentMonthDidChange(calendar: FSCalendar) {
-        print(calendar)
-    }
     //
     // 특정 날짜를 선택했을 때, 발생하는 이벤트는 이 곳에서 처리할 수 있겠네요.
     func calendar(_ calendar: FSCalendar, didSelect date: Date) {
