@@ -562,6 +562,9 @@
                                             <constraint firstAttribute="height" constant="30" id="IKe-XF-WLW"/>
                                         </constraints>
                                         <state key="normal" title="방사진수정"/>
+                                        <connections>
+                                            <action selector="selectPhoto:" destination="Xsq-fu-hBV" eventType="touchUpInside" id="a94-cR-Wgw"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R1C-3D-kfk">
                                         <rect key="frame" x="252" y="180" width="36" height="17"/>
@@ -623,7 +626,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="298" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QfI-RL-dhR" id="I2d-Sy-ytn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="298" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="298" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -695,9 +698,12 @@
                                 <rect key="frame" x="0.0" y="695" width="414" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.43441106797142925" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="입력하기">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="CompleteBtn:" destination="Xsq-fu-hBV" eventType="touchUpInside" id="Izi-a2-Sos"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -712,6 +718,11 @@
                     <size key="freeformSize" width="414" height="829"/>
                     <connections>
                         <outlet property="firstView" destination="MHa-YP-8Le" id="eNf-7g-xsp"/>
+                        <outlet property="hostname" destination="JDu-kE-95y" id="643-Is-N9j"/>
+                        <outlet property="hostprofileImage" destination="wDs-i2-XpW" id="5se-MS-sRp"/>
+                        <outlet property="roomContent" destination="9Dn-TE-zcW" id="sil-7b-S4k"/>
+                        <outlet property="roomImage" destination="1X8-Tx-muj" id="eGq-qb-l36"/>
+                        <outlet property="roomTitle" destination="z4x-ze-UNL" id="om0-rW-yjj"/>
                         <outlet property="secondView" destination="ZlB-di-JHV" id="1fr-bR-Ad7"/>
                         <outlet property="tableView" destination="wQb-Nj-xyh" id="3kf-C9-EPd"/>
                         <outlet property="thirdView" destination="HvA-JM-ycV" id="VTr-NR-JY3"/>
@@ -1334,7 +1345,7 @@
         <!--Make Room Result-->
         <scene sceneID="kxt-tJ-AN3">
             <objects>
-                <viewController id="HzP-Bw-kG1" customClass="makeRoomResult" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MakeRoomResult" id="HzP-Bw-kG1" customClass="MakeRoomResult" customModule="Huddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8ve-9S-UMh"/>
                         <viewControllerLayoutGuide type="bottom" id="ow8-MS-mTd"/>

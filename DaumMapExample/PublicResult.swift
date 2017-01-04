@@ -19,11 +19,19 @@ class PublicResult : UIViewController, NetworkCallback{
     
     let maleImage = UIImage(named: "ic_male")
     let femaleImage  = UIImage(named: "ic_male_check")
+    let picker = UIImagePickerController()
     
     @IBOutlet var firstView : UIView!
     @IBOutlet var secondView : UIView!
     @IBOutlet var thirdView : UIView!
     @IBOutlet var tableView : UITableView!
+    @IBOutlet var roomImage : UIImageView!
+    @IBOutlet var hostprofileImage : UIImageView!
+    @IBOutlet var hostname : UILabel!
+    @IBOutlet var roomTitle : UILabel!
+    @IBOutlet var roomContent : UILabel!
+    
+    
     
     @IBAction func kakaoShare(_ sender: AnyObject) {
         let text = KakaoTalkLinkObject.createLabel("테스트입니다.")
@@ -34,10 +42,21 @@ class PublicResult : UIViewController, NetworkCallback{
         let link = KakaoTalkLinkObject.createAppButton("눌러보세요!!", actions: [appAction])
         KOAppCall.openKakaoTalkAppLink([text!, image!, link!])
     }
+    @IBAction func selectPhoto(_ sender: AnyObject) {
+        // 새로운 화면창을 띄운다
+        // 10.0부터 사진첩 열 때 허락 받아야함 -> Info.plist 오른쪽클릭 -> open as -> source code한 뒤 <key>와 <string> 입력 (딕셔너리형태라고 생각하면 됨. 키와 밸류, 키와 밸류 ...)
+        present(picker, animated: true)
+    }
     
+    @IBAction func CompleteBtn(_ sender: Any) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        picker.allowsEditing = true
+        picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
+        
         firstView.isHidden = false
         secondView.isHidden = true
         thirdView.isHidden = true
@@ -115,5 +134,32 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
 //            cell.checkBox.setBackgroundImage(femaleImage, for: UIControlState.normal)
 //        }
         return cell
+    }
+}
+
+extension PublicResult: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+    // 이미지 선택하려다 취소했을 때
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // 사진 선택 관련 딜리게이트
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("선택완료")
+        // 새로운 이미지 프로퍼티를 만들어주고
+        var newImage: UIImage
+        
+        //인자로 받은 info 딕셔너리 안에 만들어져 있는 거
+        if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage{ // 크롭된 이미지
+            newImage = possibleImage
+        } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage { // 크롭 안 된 원본 이미지
+            newImage = possibleImage
+        } else {
+            return
+        }
+        
+        hostprofileImage.image = newImage
+        hostprofileImage.roundedBorder()
+        dismiss(animated: true, completion: nil) // present로 사진선택 들어왔기 때문에 dismiss 해주어야 함
     }
 }
