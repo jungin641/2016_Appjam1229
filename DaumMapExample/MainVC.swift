@@ -124,19 +124,15 @@ class MainVC: UITableViewController, NetworkCallback {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let item = myGatheringList[indexPath.row]
+        if let svc = storyboard?.instantiateViewController(withIdentifier: "PublicResult") as? PublicResult{
+            
+            svc.meeting_id = item.meeting_id
+            // 화면전환
+            navigationController?.pushViewController(svc, animated: true)
+        }
     }
-    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //  //      let item = myGatheringList[indexPath.row]
-    ////
-    ////        let vc = storyboard?.instantiateViewController(withIdentifier: "PokemonInfoVC") as! PokemonInfoVC
-    ////        vc.pokemon = item
-    //
-    ////        navigationController?.pushViewController(vc, animated: true)
-    //
-    //    }
-    
-    
+ 
     //연락처 정보 가져오는 메소드
     func getContacts() {
         let store = CNContactStore()

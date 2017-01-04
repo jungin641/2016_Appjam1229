@@ -30,7 +30,7 @@ class PostModel: NetworkModel {
                         if loginResult == "SUCCESS" {
                             let info = data["info"]
                             
-                            self.userDefault.set(id, forKey: "id")
+                            self.userDefault.set(info["id"].string, forKey: "id")
                             self.userDefault.set(info["name"].string, forKey: "name")
                             self.userDefault.set(info["ph"].string, forKey: "ph")
                             self.userDefault.set(info["home"].string, forKey: "home")
@@ -147,6 +147,8 @@ class PostModel: NetworkModel {
             switch res.result {
             case .success :
                 
+//                    meeting_id : int , //방 번호
+//                    is_open : int, (0: 비공개방, 1: 공개방)
                 if let value = res.result.value {
                     let data = JSON(value)
                     var tempList = [GatheringVO]()
@@ -158,7 +160,10 @@ class PostModel: NetworkModel {
                                 name: item["host_name"].string,
                                 where_fix: item["where_fix"].int,
                                 when_fix: item["when_fix"].int,
-                                participateNum: item["member"].int)
+                                participateNum: item["member"].int,
+                                meeting_id :item["meeting_id"].int,
+                                is_open : item["is_open"].int)
+                            
                             tempList.append(gvo)
                         }
                         

@@ -11,13 +11,14 @@ import FSCalendar
 
 class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarDataSource{
     @IBOutlet var calendar : FSCalendar!
-    var selectedDates = [String]()
+    var selectedDates = [Dates]()
+    var selectedDatesDate = [String]()
 //    dates : [{
 //    date: string
 //    count: int //해당date에 투표한 사람수
 //    }]
 //    
-    var testDate : Date?
+    
     private let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
@@ -26,8 +27,10 @@ class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //sample data
-        selectedDates = ["20170118","20170122","20170126","20170103"]
+        for i in selectedDates {
+            selectedDatesDate.append(gsno(i.date))
+        }
+
         
         calendar.delegate = self
         calendar.dataSource = self
@@ -43,9 +46,9 @@ class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
        // calendar.appearance.today // 오늘 색 변경
         
         // 이미지 표시하기
-        for date in selectedDates{
+        for date in selectedDatesDate{
             
-            calendar.select(self.formatter.date(from : date)?.xDays(+1))
+            calendar.select(self.formatter.date(from : date)?.xDays(0))
             print(self.formatter.date(from : date)!)
         }
       
@@ -59,15 +62,7 @@ class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
     }
     
     //
-    // 특정 날짜를 선택했을 때, 발생하는 이벤트는 이 곳에서 처리할 수 있겠네요.
-    func calendar(_ calendar: FSCalendar, didSelect date: Date) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        
-        let dateString = formatter.string(from: date.xDays(+1))
-        selectedDates.append(dateString)
-    
-    }
+   
 
 }
 extension Date {

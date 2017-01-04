@@ -120,12 +120,6 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = myGatheringList[indexPath.row]
-        
-        var vc = storyboard?.instantiateViewController(withIdentifier: "PublicResult") as! PublicResult
-        vc.myGatheringList = [item]
-        //
-        navigationController?.pushViewController(vc, animated: true)
         //
     }
     

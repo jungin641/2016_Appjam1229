@@ -24,13 +24,16 @@
 		267AC3A81E1A2E9F001BE5DC /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A71E1A2E9F001BE5DC /* CheckBox.swift */; };
 		26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA41E166E7500327375 /* MakeGatheringVC.swift */; };
 		26816FA71E166E7500327375 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26816FA51E166E7500327375 /* ContentViewController.swift */; };
+		2682D34E1E1D8A4300191E1D /* PRFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682D34D1E1D8A4300191E1D /* PRFriendCell.swift */; };
+		268811A31E1D3A3400A6C2B0 /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268811A21E1D3A3400A6C2B0 /* Participants.swift */; };
+		268811A51E1D3DDE00A6C2B0 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */; };
+		268811A71E1D5EDD00A6C2B0 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268811A61E1D5EDD00A6C2B0 /* Dates.swift */; };
 		269173331E17B6CF000788AF /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173321E17B6CF000788AF /* UserVO.swift */; };
 		269173351E17C981000788AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173341E17C981000788AF /* FriendCell.swift */; };
 		269E50821E1B7EEA00ED9F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */; };
 		26D1E0631E181C4500201341 /* FriendVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E0621E181C4500201341 /* FriendVO.swift */; };
 		26D471D81E191303008BB01E /* MakeGatheringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471D71E191303008BB01E /* MakeGatheringModel.swift */; };
 		26D471DC1E193594008BB01E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471DB1E193594008BB01E /* Position.swift */; };
-		26D471DE1E193993008BB01E /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471DD1E193993008BB01E /* Meeting.swift */; };
 		26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77C81E161701000FEDF2 /* NetworkCallback.swift */; };
 		26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */; };
 		26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */; };
@@ -102,13 +105,16 @@
 		267AC3A71E1A2E9F001BE5DC /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		26816FA41E166E7500327375 /* MakeGatheringVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringVC.swift; sourceTree = "<group>"; };
 		26816FA51E166E7500327375 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		2682D34D1E1D8A4300191E1D /* PRFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRFriendCell.swift; sourceTree = "<group>"; };
+		268811A21E1D3A3400A6C2B0 /* Participants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participants.swift; sourceTree = "<group>"; };
+		268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
+		268811A61E1D5EDD00A6C2B0 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		269173321E17B6CF000788AF /* UserVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
 		269173341E17C981000788AF /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26D1E0621E181C4500201341 /* FriendVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendVO.swift; sourceTree = "<group>"; };
 		26D471D71E191303008BB01E /* MakeGatheringModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringModel.swift; sourceTree = "<group>"; };
 		26D471DB1E193594008BB01E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		26D471DD1E193993008BB01E /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		26DC77C81E161701000FEDF2 /* NetworkCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicMainVC.swift; sourceTree = "<group>"; };
 		26DC77D01E164984000FEDF2 /* NoldamAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamAnimatedTransitioning.swift; sourceTree = "<group>"; };
@@ -233,19 +239,27 @@
 			children = (
 				26816FA41E166E7500327375 /* MakeGatheringVC.swift */,
 				26816FA51E166E7500327375 /* ContentViewController.swift */,
-				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
-				26F1ED1C1E14F2B10069971A /* CalendarVC.swift */,
-				3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */,
+				268811A81E1D627700A6C2B0 /* MakeGatheringSubVC */,
 				2635D6151E1C0C3B00D86891 /* MakeRoomResult.swift */,
 			);
 			name = MakeGathering;
 			sourceTree = "<group>";
 		};
+		268811A81E1D627700A6C2B0 /* MakeGatheringSubVC */ = {
+			isa = PBXGroup;
+			children = (
+				26F1ED261E14FCDF0069971A /* ContactsViewController.swift */,
+				26F1ED1C1E14F2B10069971A /* CalendarVC.swift */,
+				3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */,
+			);
+			name = MakeGatheringSubVC;
+			sourceTree = "<group>";
+		};
 		26B75DDA1E17DCFA002FD67E /* MainTabbar */ = {
 			isa = PBXGroup;
 			children = (
-				262EC52E1E1BE0B200025D58 /* PublicResult */,
 				2617976C1E16735700CF785E /* MainVC.swift */,
+				262EC52E1E1BE0B200025D58 /* PublicResult */,
 				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
 				267AC3A51E1A17C3001BE5DC /* MySetting.swift */,
 			);
@@ -257,6 +271,7 @@
 			children = (
 				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
 				269173341E17C981000788AF /* FriendCell.swift */,
+				2682D34D1E1D8A4300191E1D /* PRFriendCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -265,7 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				26D471DB1E193594008BB01E /* Position.swift */,
-				26D471DD1E193993008BB01E /* Meeting.swift */,
+				268811A21E1D3A3400A6C2B0 /* Participants.swift */,
+				268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */,
+				268811A61E1D5EDD00A6C2B0 /* Dates.swift */,
 			);
 			name = GatheringSubObject;
 			sourceTree = "<group>";
@@ -606,15 +623,18 @@
 			files = (
 				26F1ED231E14F2B10069971A /* UITabbar_custom.swift in Sources */,
 				26D1E0631E181C4500201341 /* FriendVO.swift in Sources */,
+				268811A31E1D3A3400A6C2B0 /* Participants.swift in Sources */,
 				262EC5321E1BE36D00025D58 /* PublicMapVC.swift in Sources */,
 				26DC77D51E164984000FEDF2 /* NoldamPresentationController.swift in Sources */,
 				264548671E175D080084C865 /* NetworkModel.swift in Sources */,
 				3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */,
+				2682D34E1E1D8A4300191E1D /* PRFriendCell.swift in Sources */,
 				264548631E175C550084C865 /* ViewController.swift in Sources */,
 				2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */,
 				267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */,
 				262EC5301E1BE34F00025D58 /* PublicResultCalendarVC.swift in Sources */,
 				26D471DC1E193594008BB01E /* Position.swift in Sources */,
+				268811A71E1D5EDD00A6C2B0 /* Dates.swift in Sources */,
 				264548681E175D080084C865 /* PostModel.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
@@ -634,10 +654,10 @@
 				269173331E17B6CF000788AF /* UserVO.swift in Sources */,
 				267AC3A81E1A2E9F001BE5DC /* CheckBox.swift in Sources */,
 				267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */,
-				26D471DE1E193993008BB01E /* Meeting.swift in Sources */,
 				26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */,
 				26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */,
 				26DC77D71E164984000FEDF2 /* PopupVC.swift in Sources */,
+				268811A51E1D3DDE00A6C2B0 /* RoomInfo.swift in Sources */,
 				26D471D81E191303008BB01E /* MakeGatheringModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
