@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6Ao-vW-ZC0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m4y-RG-bpa">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -988,6 +988,8 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="ValueChanged:" destination="TGu-Vb-O7U" eventType="editingChanged" id="pM9-Hi-exQ"/>
+                                    <action selector="endEdit:" destination="TGu-Vb-O7U" eventType="editingDidEnd" id="emB-bn-E7E"/>
+                                    <action selector="startEdit:" destination="TGu-Vb-O7U" eventType="editingDidBegin" id="vUu-5T-pKC"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j43-9A-fsj">
