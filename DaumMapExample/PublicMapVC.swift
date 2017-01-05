@@ -61,6 +61,8 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
 
     }
     
+    
+    
     func poiItem(name: String, latitude: Double, longitude: Double) -> MTMapPOIItem {
         let item = MTMapPOIItem()
         item.itemName = name

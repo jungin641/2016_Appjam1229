@@ -85,6 +85,7 @@ class MakeGatheringModel: NetworkModel {
                         //나중에 저장해두고 필요할 때 보내주기만 하면 됨
                         // 약속관계 key
                         self.userDefault.set(my_meeting_id, forKey: "my_meeting_id")
+                      
                         
                     }
                     let roomDetail = GatheringVO(participants: participantsTempList, roomInfo: roomInfoTempList, dates: datesTempList)
