@@ -39,8 +39,6 @@ class MySetting : UIViewController  ,NetworkCallback{
         profile?.imageFromUrl(imgValue, defaultImgPath: "human_big")
         profile?.roundedBorder()
         
-        print("$$$$$$$$$$$@!#@@!#@!#@!#")
-        print(userDefault.string(forKey: "name"))
     }
     
     internal func networkResult(resultData: Any, code: Int) {

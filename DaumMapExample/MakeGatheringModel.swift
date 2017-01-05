@@ -66,7 +66,7 @@ class MakeGatheringModel: NetworkModel {
                     }
                     if let room_info = data["room_info"].array{
                         for item in room_info{
-                            let rvo = RoomInfo(title: item["title"].string, text: item["text"].string, is_open: item["text"].int, when_fix: item["when_fix"].int, where_fix: item["where_fix"].int, room_image: item["room_image"].string, host: item["host"].string)
+                            let rvo = RoomInfo(title: item["title"].string, text: item["text"].string, is_open: item["text"].int, when_fix: item["when_fix"].int, where_fix: item["where_fix"].int, room_image: item["room_image"].string, host: item["host"].string,hostprofile: item["host_profile"].string)
                             roomInfoTempList.append(rvo)
                         }
                         

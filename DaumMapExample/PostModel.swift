@@ -282,6 +282,45 @@ class PostModel: NetworkModel {
         
     }
     
-    
+    //11번통신
+    func getWhoInfo(my_meeting_id : String) {
+        
+        // let idValue = userDefault.string(forKey: "id")
+        let params1 = ["id" : my_meeting_id]
+        
+        Alamofire.request("\(baseURL)/room/vote_my_opinion", method: .get, parameters: params1, encoding: JSONEncoding.default).responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
+            switch res.result {
+            case .success :
+                //name : String?, is_input : String?, place : String?, longitude : String?, latitude : String?, profile : String?
+                //                    meeting_id : int , //방 번호
+                //                    is_open : int, (0: 비공개방, 1: 공개방)
+                if let value = res.result.value {
+                    let data = JSON(value)
+                    var tempList = [GatheringVO]()
+                    if let array = data["result"].array{
+                        for item in array{
+                            let gvo = GatheringVO(
+                                
+                                name : item["name"].string,
+                                profileImg : item["profileImg"].string
+                                
+                                
+                                
+                            )
+                            tempList.append(gvo)
+                        }
+                        
+                        self.view.networkResult(resultData: tempList, code: 0)
+                    }
+                    
+                    
+                }
+                break
+                
+            case .failure :
+                self.view.networkFailed()
+            }
+        }
+    }
 }
 

@@ -14,11 +14,12 @@ class RoomInfo{
     var where_fix : Int?// ( 0: 장소 미정, 1: 장소 확정)
     var room_image : String? //방의 사진 URL
     var host : String? //호스트의 이름
+    var hostprofile : String? //호스트 사지 ㄴURL
     
     init(){
         
     }
-    init(title : String?, text : String?,is_open : Int?,when_fix : Int?,where_fix : Int?, room_image : String?, host : String?){
+    init(title : String?, text : String?,is_open : Int?,when_fix : Int?,where_fix : Int?, room_image : String?, host : String?,hostprofile : String?){
         self.title = title
         self.text = text
         self.is_open = is_open
@@ -26,5 +27,6 @@ class RoomInfo{
         self.where_fix = where_fix
         self.room_image = room_image
         self.host = host
+        self.hostprofile = hostprofile
     }
 }

@@ -57,6 +57,11 @@ class GatheringVO{
         self.position = position
     }
     
-    
+    init(name : String? , profileImg : String?)
+    {
+        self.name = name
+        self.profileImg = profileImg
+        
+    }
     
 }

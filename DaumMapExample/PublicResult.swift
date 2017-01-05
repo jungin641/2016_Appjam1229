@@ -13,14 +13,15 @@ import Alamofire
 
 class PublicResult : UIViewController, NetworkCallback {
     
-    var roomInfo = GatheringVO()
-    var friendList = [FriendVO]()
-    var selectedArray = [FriendVO]()
+    var prRoomInfo = GatheringVO()
+    var friendsParticipate = [Participants]()
+    var selectedArray = [Participants]()
     
     var meeting_id : Int?
     
-    let maleImage = UIImage(named: "ic_male")
-    let femaleImage  = UIImage(named: "ic_male_check")
+    let checked = UIImage(named: "checkbox")
+    let nochecked  = UIImage(named: "nochecked")
+    
     let picker = UIImagePickerController()
     
     @IBOutlet var firstView : UIView!
@@ -35,25 +36,41 @@ class PublicResult : UIViewController, NetworkCallback {
     
     internal func networkResult(resultData: Any, code: Int) {
         if let thisRoomInfo = resultData as? GatheringVO{
-            roomInfo = thisRoomInfo
+            prRoomInfo = thisRoomInfo
             print("networkResultnetworkResultnetworkResultnetworkResult")
-           
+            
         }
         if let prc = childViewControllers[1] as? PublicResultCalendarVC {
-            prc.selectedDates =  roomInfo.dates!
+            prc.selectedDates =  prRoomInfo.dates!
             prc.selectView()
             
         }
         
         if let pmc = childViewControllers[0] as? PublicMapVC {
             
-            for p in roomInfo.participants!{
+            pmc.selectedPosition = [Position]()
+            for p in prRoomInfo.participants!{
                 pmc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
-               
+                
             }
-             pmc.putPoiItem()
+            
+            pmc.putPoiItem()
         }
-      
+        
+        hostname.text = prRoomInfo.roomInfo?[0].host
+        roomTitle.text = prRoomInfo.roomInfo?[0].title
+        roomContent.text = prRoomInfo.roomInfo?[0].text
+        if let roomimg = prRoomInfo.roomInfo?[0].room_image{
+            roomImage.imageFromUrl(roomimg, defaultImgPath: "mountain")
+        }
+        if let hostimg = prRoomInfo.roomInfo?[0].hostprofile{
+            hostprofileImage.imageFromUrl(hostimg, defaultImgPath: "bighuman")
+            hostprofileImage.roundedBorder()
+        }
+        for p in prRoomInfo.participants!{
+            friendsParticipate.append(p)
+        }
+       tableView.reloadData()
         
     }
     
@@ -87,7 +104,7 @@ class PublicResult : UIViewController, NetworkCallback {
         self.tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
-        
+         tableView.reloadData()
     }
     
     
@@ -118,7 +135,7 @@ class PublicResult : UIViewController, NetworkCallback {
 extension PublicResult: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendList.count
+        return friendsParticipate.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,22 +143,27 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
         //다운캐스팅
         let cell = tableView.dequeueReusableCell(withIdentifier: "PRFriendCell") as! PRFriendCell
         
-        //        if let name = item.name{
-        //            cell.txtname.text = name
-        //        }
-        //
-        //        if let id = item.id {
-        //            cell.email.text = id
-        //        }
-        //
-        //
-        //        cell.checkBox.temp = gsno(item.id)
         
-        //        if selectedArray.contains(where: gsno(item.id)){
-        //            cell.checkBox.setBackgroundImage(maleImage, for: UIControlState.normal)
-        //        }else{
-        //            cell.checkBox.setBackgroundImage(femaleImage, for: UIControlState.normal)
-        //        }
+        
+        
+        let item = friendsParticipate[indexPath.row]
+        
+        if let name = item.name{
+            cell.txtname.text = name
+        }
+        
+      
+        for p in friendsParticipate{
+            if p.is_input == "1" {
+               cell.checkBox.image = checked
+            }
+            else if p.is_input == "0"{
+                cell.checkBox.image = nochecked
+
+            }
+            
+        }
+        
         return cell
     }
     @IBAction func kakaoShare(_ sender: AnyObject) {
@@ -153,6 +175,8 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
         let link = KakaoTalkLinkObject.createAppButton("눌러보세요!!", actions: [appAction])
         KOAppCall.openKakaoTalkAppLink([text!, image!, link!])
     }
+    
+ 
 }
 
 extension PublicResult: UINavigationControllerDelegate, UIImagePickerControllerDelegate{

@@ -11,5 +11,5 @@ import UIKit
 class PRFriendCell : UITableViewCell{
   
     @IBOutlet var txtname : UILabel!
-    @IBOutlet var checkBox : CheckBox!
+    @IBOutlet var checkBox : UIImageView!
 }
