@@ -39,26 +39,22 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
         
 
         var items = [MTMapPOIItem]()
-         items.append(poiItem(name: "넷", latitude: 126, longitude: 38))
-         items.append(poiItem(name: "넷", latitude: 127.1722, longitude: 37.5665))
-         items.append(poiItem(name: "넷", latitude: 126.920757, longitude: 37.623885))
-         items.append(poiItem(name: "넷", latitude: 126.927032, longitude: 37.4873488))
+     
+
+        if let mySelectedPosition = selectedPosition{
+            for sp in mySelectedPosition{
+                print("latitude \(sp.latitude) longtitude \(sp.longtitude)")
+                items.append(
+                    poiItem(
+                        //gdno extensionControl에 추가!
+                        name: gsno(sp.place),
+                        latitude:  gdno(Double(gsno(sp.latitude))),
+                        longitude:  gdno(Double(gsno(sp.longtitude)))
+                ))
+            }
+            
+        }
         
-//
-//        if let mySelectedPosition = selectedPosition{
-//            for sp in mySelectedPosition{
-//                print("latitude \(sp.latitude) longtitude \(sp.longtitude)")
-//                items.append(
-//                    poiItem(
-//                        //gdno extensionControl에 추가!
-//                        name: gsno(sp.place),
-//                        latitude:  gdno(Double(gsno(sp.latitude))),
-//                        longitude:  gdno(Double(gsno(sp.longtitude)))
-//                ))
-//            }
-//            
-//        }
-//        
         mapView.addPOIItems(items)
         mapView.fitAreaToShowAllPOIItems()
         self.view.insertSubview(mapView, at: 0)

@@ -48,6 +48,14 @@ class SecondVC : UIViewController, NetworkCallback {
         
         
     }
+    @IBAction func startEdit(_ sender: AnyObject) {
+        keyboardWillShow()
+        
+    }
+    @IBAction func endEdit(_ sender: AnyObject) {
+        keyboardWillHide()
+        
+    }
     
     let btnOk = UIAlertAction(title: "확인", style: .default, handler: {_ in print("얍")})
     
@@ -163,6 +171,21 @@ class SecondVC : UIViewController, NetworkCallback {
         
         self.dismiss(animated: true, completion: nil)
         
+    }
+    func keyboardWillShow() {
+        
+       
+            if view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 200
+            }
+        
+    }
+    
+    func keyboardWillHide() {
+  
+            if view.frame.origin.y != 0 {
+                self.view.frame.origin.y += 200
+            }
     }
     
 }

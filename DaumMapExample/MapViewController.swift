@@ -28,6 +28,7 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         mapView.baseMapType = .standard
         mapView.showCurrentLocationMarker = false
         mapView.currentLocationTrackingMode = .onWithoutHeading
+
         self.view.insertSubview(mapView, at: 0)
     }
     
@@ -43,7 +44,7 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         mapView.add(mypoiItem)
         
         mapView.currentLocationTrackingMode = .off
-        
+        mapView.fitAreaToShowAllPOIItems()
         
     }
     

@@ -22,7 +22,9 @@ class GatheringVO{
     var dates : [Dates]?
     var meeting_id : Int?
     var is_open : Int?
-    
+    var  place : String?
+    var longitude : String?
+    var latitude : String?
     init(){ //디폴트 생성자
         
     }
@@ -57,11 +59,15 @@ class GatheringVO{
         self.position = position
     }
     
-    init(name : String? , profileImg : String?)
+    // 방에 참여했을때 정보받아오기 & 투표
+    init(name : String? , profileImg : String?, place : String?, longitude : String?, latitude : String?, days : [String]?)
     {
         self.name = name
         self.profileImg = profileImg
+        self.place = place
+        self.longitude = longitude
+        self.latitude = latitude
+        self.days = days
         
     }
-    
 }
