@@ -24,11 +24,11 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     @IBAction func CompleteBtn(_ sender: AnyObject) {
         //확인창으로 넘어가기
         let viewControllers = pageViewController.viewControllers! as [UIViewController]
-    
+        
         for vc in vcs{
             if let ContactsVC = vc as? ContactsViewController{
                 let friendList = ContactsVC.selectedArray
-                if let swiftArray = friendList as NSArray as? [String] {
+                if let swiftArray = friendList as NSArray as? [Int] {
                     newGathering.setParticipant(participant: swiftArray)
                 }
             }
@@ -80,7 +80,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
      */
     func viewControllerAtIndex (_ index : Int) -> UIViewController {
         
-             return vcs[index]
+        return vcs[index]
     }
     
     

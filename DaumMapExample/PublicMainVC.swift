@@ -41,19 +41,32 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         fab.paddingY = 70
         fab.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
         
+        
         let item = KCFloatingActionButtonItem()
+        let item1 = KCFloatingActionButtonItem()
+        
         item.title = "공개방"
-        item.icon = UIImage(named: "oepnroom")
+        item.buttonColor = UIColor(hex: 0xf0144b, alpha: 1.0)
+        item.size = 10.0
+        item.icon = UIImage(named: "openroom")
         item.handler = { item in
             self.moveScene(VCname: "NavMakeGatheringVC")
             
         }
         
-        fab.addItem("비공개방", icon: UIImage(named: "openroom")) { item in
+        item1.title = "비공개방"
+        item1.buttonColor = UIColor(hex: 0xf0144b, alpha: 1.0)
+        item1.icon = UIImage(named: "noopenroom")
+        item1.handler = { item1 in
             self.moveScene(VCname: "NavMakeGatheringVC")
+            
         }
+        
+        
         fab.addItem(item: item)
+        fab.addItem(item: item1)
         fab.buttonImage = UIImage(named:"pulus")
+
         
         self.view.addSubview(fab)
         

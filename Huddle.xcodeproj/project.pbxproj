@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0273E61EBC8D10E920D64291 /* Pods_DaumMapExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD81FE5D6383F179173788D /* Pods_DaumMapExample.framework */; };
+		15B4B5F21E1E3ADA0071F472 /* EditPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4B5F11E1E3ADA0071F472 /* EditPopupVC.swift */; };
+		15B4B5F41E1E496E0071F472 /* NoSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4B5F31E1E496E0071F472 /* NoSelectPopUp.swift */; };
+		15B4B5F61E1E4A050071F472 /* RoomMakedPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4B5F51E1E4A050071F472 /* RoomMakedPopUp.swift */; };
 		2617976D1E16735700CF785E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617976C1E16735700CF785E /* MainVC.swift */; };
 		262EC5301E1BE34F00025D58 /* PublicResultCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262EC52F1E1BE34F00025D58 /* PublicResultCalendarVC.swift */; };
 		262EC5321E1BE36D00025D58 /* PublicMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262EC5311E1BE36D00025D58 /* PublicMapVC.swift */; };
-		2635D6141E1C0B9300D86891 /* EditPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635D6131E1C0B9300D86891 /* EditPopupVC.swift */; };
 		2635D6161E1C0C3B00D86891 /* MakeRoomResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635D6151E1C0C3B00D86891 /* MakeRoomResult.swift */; };
 		264548631E175C550084C865 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548611E175C550084C865 /* ViewController.swift */; };
 		264548641E175C550084C865 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548621E175C550084C865 /* SecondVC.swift */; };
@@ -20,7 +22,7 @@
 		2645486A1E178B0D0084C865 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264548691E178B0D0084C865 /* KakaoOpenSDK.framework */; };
 		2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645486C1E17B3C50084C865 /* SplashVC.swift */; };
 		26586B231E1DE0D200AE44A1 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586B221E1DE0D200AE44A1 /* Dates.swift */; };
-		2676AAF01E1E27E800AA15B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2676AAEF1E1E27E800AA15B4 /* Assets.xcassets */; };
+		2676AAF41E1E7D6A00AA15B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2676AAF31E1E7D6A00AA15B4 /* Assets.xcassets */; };
 		267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A31E1A16A8001BE5DC /* PublicResult.swift */; };
 		267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A51E1A17C3001BE5DC /* MySetting.swift */; };
 		267AC3A81E1A2E9F001BE5DC /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A71E1A2E9F001BE5DC /* CheckBox.swift */; };
@@ -88,10 +90,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15B4B5F11E1E3ADA0071F472 /* EditPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPopupVC.swift; sourceTree = "<group>"; };
+		15B4B5F31E1E496E0071F472 /* NoSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSelectPopUp.swift; sourceTree = "<group>"; };
+		15B4B5F51E1E4A050071F472 /* RoomMakedPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomMakedPopUp.swift; sourceTree = "<group>"; };
 		2617976C1E16735700CF785E /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		262EC52F1E1BE34F00025D58 /* PublicResultCalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicResultCalendarVC.swift; sourceTree = "<group>"; };
 		262EC5311E1BE36D00025D58 /* PublicMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicMapVC.swift; sourceTree = "<group>"; };
-		2635D6131E1C0B9300D86891 /* EditPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPopupVC.swift; sourceTree = "<group>"; };
 		2635D6151E1C0C3B00D86891 /* MakeRoomResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeRoomResult.swift; sourceTree = "<group>"; };
 		264548611E175C550084C865 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		264548621E175C550084C865 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
@@ -101,7 +105,7 @@
 		2645486B1E178BA70084C865 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
 		2645486C1E17B3C50084C865 /* SplashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		26586B221E1DE0D200AE44A1 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
-		2676AAEF1E1E27E800AA15B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2676AAF31E1E7D6A00AA15B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		267AC3A31E1A16A8001BE5DC /* PublicResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicResult.swift; sourceTree = "<group>"; };
 		267AC3A51E1A17C3001BE5DC /* MySetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySetting.swift; sourceTree = "<group>"; };
 		267AC3A71E1A2E9F001BE5DC /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
@@ -361,7 +365,9 @@
 				26DC77D11E164984000FEDF2 /* NoldamPresentationController.swift */,
 				26DC77D21E164984000FEDF2 /* NoldamTrasitionDelegate.swift */,
 				26DC77D31E164984000FEDF2 /* PopupVC.swift */,
-				2635D6131E1C0B9300D86891 /* EditPopupVC.swift */,
+				15B4B5F11E1E3ADA0071F472 /* EditPopupVC.swift */,
+				15B4B5F31E1E496E0071F472 /* NoSelectPopUp.swift */,
+				15B4B5F51E1E4A050071F472 /* RoomMakedPopUp.swift */,
 			);
 			name = PopUp;
 			sourceTree = "<group>";
@@ -396,8 +402,8 @@
 		3C36EF601DE5BF7300B3F1B4 /* DaumMapExample */ = {
 			isa = PBXGroup;
 			children = (
+				2676AAF31E1E7D6A00AA15B4 /* Assets.xcassets */,
 				3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */,
-				2676AAEF1E1E27E800AA15B4 /* Assets.xcassets */,
 				26DC77BF1E16154F000FEDF2 /* Storyboard */,
 				26DC77D81E16498F000FEDF2 /* PopUp */,
 				26151F2B1E152EBE00F38CAA /* ViewController */,
@@ -537,7 +543,7 @@
 				3C36EFFE1DE5C9D800B3F1B4 /* map_present_tracking.png in Resources */,
 				3C36EFEA1DE5C9D800B3F1B4 /* daum_copyright.png in Resources */,
 				269E50821E1B7EEA00ED9F87 /* LaunchScreen.storyboard in Resources */,
-				2676AAF01E1E27E800AA15B4 /* Assets.xcassets in Resources */,
+				2676AAF41E1E7D6A00AA15B4 /* Assets.xcassets in Resources */,
 				3C36EFEF1DE5C9D800B3F1B4 /* map_pin.png in Resources */,
 				3C36EFF41DE5C9D800B3F1B4 /* map_pin_red@3x.png in Resources */,
 				3C36EFFC1DE5C9D800B3F1B4 /* map_present_background_update.png in Resources */,
@@ -631,6 +637,7 @@
 				2682D34E1E1D8A4300191E1D /* PRFriendCell.swift in Sources */,
 				264548631E175C550084C865 /* ViewController.swift in Sources */,
 				2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */,
+				15B4B5F61E1E4A050071F472 /* RoomMakedPopUp.swift in Sources */,
 				267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */,
 				262EC5301E1BE34F00025D58 /* PublicResultCalendarVC.swift in Sources */,
 				26D471DC1E193594008BB01E /* Position.swift in Sources */,
@@ -645,9 +652,9 @@
 				264548641E175C550084C865 /* SecondVC.swift in Sources */,
 				26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */,
 				26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */,
+				15B4B5F41E1E496E0071F472 /* NoSelectPopUp.swift in Sources */,
 				26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */,
 				2617976D1E16735700CF785E /* MainVC.swift in Sources */,
-				2635D6141E1C0B9300D86891 /* EditPopupVC.swift in Sources */,
 				26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */,
 				3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */,
 				2635D6161E1C0C3B00D86891 /* MakeRoomResult.swift in Sources */,
@@ -655,6 +662,7 @@
 				267AC3A81E1A2E9F001BE5DC /* CheckBox.swift in Sources */,
 				267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */,
 				26DC77CF1E163DAD000FEDF2 /* PublicMainVC.swift in Sources */,
+				15B4B5F21E1E3ADA0071F472 /* EditPopupVC.swift in Sources */,
 				26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */,
 				26DC77D71E164984000FEDF2 /* PopupVC.swift in Sources */,
 				268811A51E1D3DDE00A6C2B0 /* RoomInfo.swift in Sources */,

@@ -24,13 +24,11 @@ class PostModel: NetworkModel {
             case .success :
                 if let value = res.result.value {
                     let data = JSON(value)
-                    
-                    
                     if let loginResult = data["result"].string{
                         if loginResult == "SUCCESS" {
-                            let info = data["info"]
                             
-                            self.userDefault.set(info["id"].string, forKey: "id")
+                            let info = data["info"]
+                            self.userDefault.set(info["id"].int, forKey: "id")
                             self.userDefault.set(info["name"].string, forKey: "name")
                             self.userDefault.set(info["ph"].string, forKey: "ph")
                             self.userDefault.set(info["home"].string, forKey: "home")
@@ -147,8 +145,8 @@ class PostModel: NetworkModel {
             switch res.result {
             case .success :
                 
-//                    meeting_id : int , //방 번호
-//                    is_open : int, (0: 비공개방, 1: 공개방)
+                //                    meeting_id : int , //방 번호
+                //                    is_open : int, (0: 비공개방, 1: 공개방)
                 if let value = res.result.value {
                     let data = JSON(value)
                     var tempList = [GatheringVO]()
@@ -200,45 +198,45 @@ class PostModel: NetworkModel {
             /// - parameter method:                  The HTTP method. `.post` by default.
             /// - parameter headers:                 The HTTP headers. `nil` by default.
             /// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
-
+            
             Alamofire.upload(multipartFormData:  { multipartFormData in
                 if let id = idData{
-                multipartFormData.append(id, withName:"id")
-                
+                    multipartFormData.append(id, withName:"id")
+                    
                 }
                 multipartFormData.append(phData, withName:"ph")
                 multipartFormData.append(homeData, withName:"home")
                 multipartFormData.append(workData, withName:"work")
                 multipartFormData.append(nameData, withName:"name")
                 multipartFormData.append(profileData!, withName: "image", fileName: "image.jpg", mimeType: "image/png")
-                },
-                usingThreshold: 0,  to: url, method: .put, headers: nil,   encodingCompletion: { encodingResult in
-                    switch encodingResult {
-                    case .success(let upload, _, _):
-                        upload.responseData { res in
-                            switch res.result {
-                            case .success:
-                                DispatchQueue.main.async(execute: {
-                                    print("회원정보수정 완료")
-                                })
-                            case .failure(let err):
-                                print("upload Error : \(err)")
-                                DispatchQueue.main.async(execute: {
-                                    
-                                })
-                            }
-                        }
-                    case .failure(let err):
-                        print("network Error : \(err)")
-                        self.view.networkFailed()
-                    }            })
-        
+            },
+                             usingThreshold: 0,  to: url, method: .put, headers: nil,   encodingCompletion: { encodingResult in
+                                switch encodingResult {
+                                case .success(let upload, _, _):
+                                    upload.responseData { res in
+                                        switch res.result {
+                                        case .success:
+                                            DispatchQueue.main.async(execute: {
+                                                print("회원정보수정 완료")
+                                            })
+                                        case .failure(let err):
+                                            print("upload Error : \(err)")
+                                            DispatchQueue.main.async(execute: {
+                                                
+                                            })
+                                        }
+                                    }
+                                case .failure(let err):
+                                    print("network Error : \(err)")
+                                    self.view.networkFailed()
+                                }            })
+            
         }
     }
     
     // 전화번호 동기화
     func sync(friends_list: [FriendVO]) {
-        let id = userDefault.string(forKey: "id")
+        let id = userDefault.data(forKey: "id")
         //  let id = "1"
         var friends = [[String : String]]()
         
@@ -284,6 +282,6 @@ class PostModel: NetworkModel {
         
     }
     
- 
+    
 }
 

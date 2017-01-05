@@ -12,6 +12,9 @@ class UITabbar_custom: UITabBarController { //두번째 탭을 시작탭으로 �
         super.viewDidLoad()
         
         self.selectedIndex = 1; //첫번째 탭 시작탭으로 지정
+        
+    
+    
     }
    override func viewWillAppear(_ animated: Bool) {
         self.selectedIndex = 0; //두번째 탭 시작탭으로 지정

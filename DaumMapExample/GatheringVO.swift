@@ -14,7 +14,7 @@ class GatheringVO{
     var when_fix : Int?
     var where_fix : Int?
     var participateNum: Int?
-    var participant : [String]?
+    var participant : [Int]?
     var days : [String]?
     var position : Position?
     var participants : [Participants]?
@@ -37,12 +37,7 @@ class GatheringVO{
         self.meeting_id = meeting_id
         self.is_open = is_open
     }
-    //만들기/편집용 생성자
-    init(participant : [String]?,days : [String]?,position : Position?){
-        self.participant = participant
-        self.days = days
-        self.position = position
-    }
+    
     //내 방 상세보기용 생성자
     init(participants : [Participants]? , roomInfo : [RoomInfo]?, dates : [Dates]?){
         self.participants = participants
@@ -50,7 +45,7 @@ class GatheringVO{
         self.dates = dates
     }
     // 방 만들기용 참여자 반영
-    func setParticipant(participant : [String]?){
+    func setParticipant(participant : [Int]?){
         self.participant = participant
     }
     // 방 만들기용 일자 선택
@@ -62,6 +57,6 @@ class GatheringVO{
         self.position = position
     }
     
-   
+    
     
 }

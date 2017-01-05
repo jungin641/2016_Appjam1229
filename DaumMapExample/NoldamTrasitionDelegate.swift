@@ -10,7 +10,7 @@ import UIKit
 
 class NoldamTrasitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
-    var height: CGFloat = 470
+    var height: CGFloat = 338
     
     override init() {
         super.init()

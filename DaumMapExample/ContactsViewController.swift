@@ -11,7 +11,7 @@ import UIKit
 
 class ContactsViewController: UITableViewController, NetworkCallback {
     let userDefault = UserDefaults.standard
-
+    
     var friendList = [FriendVO]()
     var selectedArray = NSMutableArray()
     
@@ -49,33 +49,29 @@ class ContactsViewController: UITableViewController, NetworkCallback {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
         let item = friendList[indexPath.row]
         if let profile = item.profile {
-        if let url = URL(string: profile){
-            cell.imgProfile.kf.setImage(with: url)
-            cell.imgProfile.contentMode = .scaleAspectFit
-            
+            if let url = URL(string: profile){
+                cell.imgProfile.kf.setImage(with: url)
+                cell.imgProfile.contentMode = .scaleAspectFit
+                
             }
         }
         if let name = item.name{
             cell.txtname.text = name
         }
         
-        if let id = item.id {
-            cell.email.text = id
-        }
-
         
-        cell.checkBox.temp = gsno(item.id)
+        cell.checkBox.temp = gino(item.id)
         cell.checkBox.addTarget(self, action: #selector(ContactsViewController.tickClicked(sender:)), for: .touchUpInside)
-        if selectedArray.contains(gsno(item.id)){
+        if selectedArray.contains(gino(item.id)){
             cell.checkBox.setBackgroundImage(maleImage, for: UIControlState.normal)
         }else{
             cell.checkBox.setBackgroundImage(femaleImage, for: UIControlState.normal)
         }
-                return cell
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
+        
     }
     
     
@@ -85,11 +81,11 @@ class ContactsViewController: UITableViewController, NetworkCallback {
             selectedArray.remove(value)
         }else{
             selectedArray.add(value)
-            }
-        
-            tableView.reloadData()
-        
         }
+        
+        tableView.reloadData()
+        
+    }
     
     
 }

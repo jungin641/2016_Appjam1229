@@ -37,7 +37,7 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate{
     
     
     
-   
+    
     @IBAction func isConfirm1(_ sender: Any) {
         ischeck1 += 1
         if (ischeck1 % 2) == 1{
@@ -47,9 +47,9 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate{
             btn1?.setImage(UIImage(named:"pikachu128"), for: UIControlState.normal)
         }
     }
-   
+    
     @IBAction func isConfirm2(_ sender: Any) {
-     ischeck2 += 1
+        ischeck2 += 1
         if (ischeck2 % 2) == 1{
             btn1?.setImage(UIImage(named:"info_box_tail"), for: UIControlState.normal)
         }

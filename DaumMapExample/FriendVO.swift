@@ -9,13 +9,13 @@
 class FriendVO{
     var name : String?
     var profile : String?
-    var id : String?
+    var id : Int?
     var ph : String?
     init(){
         
     }
     
-    init(name : String?, profile : String?, id : String?){
+    init(name : String?, profile : String?, id : Int?){
         self.name = name
         self.profile = profile
         self.id = id
@@ -23,11 +23,11 @@ class FriendVO{
     init(name : String?, ph : String?){
         self.name = name
         self.ph = ph
-
+        
     }
 }
 ////ex
 //friends_list: [
-//{ name : 종식 profile : null id : whdtlr } ,
+//{ name : 종식 profㅁle : null id : whdtlr } ,
 //{ name : 정민 profile: null id: wjdals }
 //]

@@ -13,9 +13,9 @@ import SwiftyJSON
 class MakeGatheringModel: NetworkModel {
     let userDefault = UserDefaults.standard
     // 방 만들기 ( +버튼 눌러서 공개 비공개 중 선택해서 클릭 했을 때)
-   func getFriendsList() {
-    let my_id = userDefault.string(forKey: "id")
-    
+    func getFriendsList() {
+        let my_id = userDefault.string(forKey: "id")
+        
         Alamofire.request("\(baseURL)/room/create/\(gsno(my_id))").responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
             switch res.result {
             case .success :
@@ -26,7 +26,7 @@ class MakeGatheringModel: NetworkModel {
                         for item in array{
                             let fvo = FriendVO(name: item["name"].string,
                                                profile: item["profile"].string,
-                                               id: item["id"].string)
+                                               id: item["id"].int)
                             tempList.append(fvo)
                         }
                         
@@ -34,7 +34,7 @@ class MakeGatheringModel: NetworkModel {
                     }
                 }
                 
-      
+                
                 break
                 
             case .failure(let err) :
@@ -62,7 +62,7 @@ class MakeGatheringModel: NetworkModel {
                             participantsTempList.append(participants)
                         }
                         
-                      
+                        
                     }
                     if let room_info = data["room_info"].array{
                         for item in room_info{
@@ -70,7 +70,7 @@ class MakeGatheringModel: NetworkModel {
                             roomInfoTempList.append(rvo)
                         }
                         
-                       
+                        
                     }
                     if let dates = data["dates"].array{
                         for item in dates{
@@ -80,7 +80,7 @@ class MakeGatheringModel: NetworkModel {
                         
                         //self.view.networkResult(resultData: "", code: 0)
                     }
-                  
+                    
                     if let my_meeting_id = data["my_meeting_id"].int{
                         //나중에 저장해두고 필요할 때 보내주기만 하면 됨
                         // 약속관계 key
@@ -101,5 +101,5 @@ class MakeGatheringModel: NetworkModel {
     }
     
     
-
+    
 }

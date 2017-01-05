@@ -47,8 +47,8 @@ class EditPopupVC : UIViewController,NetworkCallback{
         
     }
     
-    
     @IBAction func backToSet(_ sender: Any) {
+        
         let model = PostModel(self)
         
         let nameValue = gsno(nameTxt.text)
@@ -67,11 +67,12 @@ class EditPopupVC : UIViewController,NetworkCallback{
             let imageData = UIImageJPEGRepresentation(image, 0.5) // (데이터로 바꿔준 이미지, 품질)
             model.setMyInfo(name: nameValue, ph: phValue, home: homeValue, work: workValue, profileData: imageData)
         }
-
-        presentingViewController?.viewDidLoad()
-        presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        self.dismiss(animated: true, completion: nil)
         
     }
+    
+    
     @IBAction func selectPhoto(_ sender: AnyObject) {
         // 새로운 화면창을 띄운다
         // 10.0부터 사진첩 열 때 허락 받아야함 -> Info.plist 오른쪽클릭 -> open as -> source code한 뒤 <key>와 <string> 입력 (딕셔너리형태라고 생각하면 됨. 키와 밸류, 키와 밸류 ...)

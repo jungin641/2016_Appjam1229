@@ -10,7 +10,7 @@ import UIKit
 
 class NoldamPresentationController: UIPresentationController, UIAdaptivePresentationControllerDelegate {
     
-    var height: CGFloat = 470
+    var height: CGFloat = 338
     var chromeView: UIView = UIView()
     
     init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController!, height: CGFloat) {
@@ -38,14 +38,14 @@ class NoldamPresentationController: UIPresentationController, UIAdaptivePresenta
         let parentView = presentingViewController.view!
         let containerBounds = containerView?.bounds
         presentedViewFrame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: (containerBounds?.size)!)
-        presentedViewFrame.origin.x = parentView.center.x - (parentView.frame.width - 40)/2.0
+        presentedViewFrame.origin.x = parentView.center.x - 280/2.0
         presentedViewFrame.origin.y = parentView.center.y - height/2
         
         return presentedViewFrame
     }
     
     override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSize(width: parentSize.width - 40, height: height)
+        return CGSize(width: 280, height: height)
     }
     
     override func presentationTransitionWillBegin() {

@@ -11,7 +11,7 @@ import UIKit
 class ContentViewController: UIViewController {
     
     @IBOutlet var containerView: UIView!
-
+    
     var childPageVC : UIViewController!
     var pageIndex:Int!
     
@@ -21,7 +21,7 @@ class ContentViewController: UIViewController {
         addChildViewController(childPageVC)
         view.addSubview(childPageVC.view)
         
-    
+        
     }
     
 }

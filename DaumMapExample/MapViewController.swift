@@ -13,7 +13,7 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
     let mypoiItem = MTMapPOIItem()
     @IBAction func ConfirmBtn(_ sender: AnyObject) {
         
-  selectedPosition = Position(place: "임시값", longtitude:"\(mypoiItem.mapPoint.mapPointGeo().latitude)", latitude: "\(mypoiItem.mapPoint.mapPointGeo().longitude)")
+        selectedPosition = Position(place: "임시값", longtitude:"\(mypoiItem.mapPoint.mapPointGeo().latitude)", latitude: "\(mypoiItem.mapPoint.mapPointGeo().longitude)")
         
     }
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
@@ -39,9 +39,9 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         mypoiItem.itemName = "여기로 지정"
         mypoiItem.draggable = true
         
-    
+        
         mapView.add(mypoiItem)
- 
+        
         mapView.currentLocationTrackingMode = .off
         
         

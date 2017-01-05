@@ -24,6 +24,6 @@ class Participants {
         self.latitude = latitude
         
     }
- 
+    
     
 }

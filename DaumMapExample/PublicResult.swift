@@ -33,6 +33,32 @@ class PublicResult : UIViewController, NetworkCallback {
     @IBOutlet var roomTitle : UILabel!
     @IBOutlet var roomContent : UILabel!
     
+    internal func networkResult(resultData: Any, code: Int) {
+        if let thisRoomInfo = resultData as? GatheringVO{
+            roomInfo = thisRoomInfo
+            print("networkResultnetworkResultnetworkResultnetworkResult")
+            print(roomInfo.dates)
+        }
+        if let prc = childViewControllers[1] as? PublicResultCalendarVC {
+            prc.selectedDates =  roomInfo.dates!
+            
+            
+        }
+        
+        if let prc = childViewControllers[0] as? PublicMapVC {
+            
+            for p in roomInfo.participants!{
+                prc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
+            }
+            
+            
+            
+            
+        }
+        
+        
+    }
+    
     
     
     @IBAction func selectPhoto(_ sender: AnyObject) {
@@ -50,23 +76,6 @@ class PublicResult : UIViewController, NetworkCallback {
         let model = MakeGatheringModel(self)
         
         model.roomDetail(meeting_id: gino(meeting_id))
-        print("roomDetailroomDetailroomDetailroomDetailroomDetailroomDetailroomDetail")
-        
-//        if let prc = childViewControllers[1] as? PublicResultCalendarVC {
-//                prc.selectedDates =  roomInfo.dates!
-//                
-//        
-//        }
-//        if let prc = childViewControllers[0] as? PublicMapVC {
-//      
-//                for p in roomInfo.participants!{
-//                    prc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
-//                }
-//            
-//           
-//            
-//          
-//        }
         
         picker.allowsEditing = true
         picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
@@ -83,15 +92,6 @@ class PublicResult : UIViewController, NetworkCallback {
         
     }
     
-    internal func networkResult(resultData: Any, code: Int) {
-        if let thisRoomInfo = resultData as? GatheringVO{
-            roomInfo = thisRoomInfo
-        }
-        //        friendList = resultData as! [FriendVO]
-        //        tableView.reloadData()
-        
-    }
-    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()

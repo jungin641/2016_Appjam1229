@@ -12,12 +12,13 @@ import FSCalendar
 class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarDataSource{
     @IBOutlet var calendar : FSCalendar!
     var selectedDates = [Dates]()
+    var dateList = [Date]()
     var selectedDatesDate = [String]()
-//    dates : [{
-//    date: string
-//    count: int //해당date에 투표한 사람수
-//    }]
-//    
+    //    dates : [{
+    //    date: string
+    //    count: int //해당date에 투표한 사람수
+    //    }]
+    //
     
     private let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -30,7 +31,7 @@ class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
         for i in selectedDates {
             selectedDatesDate.append(gsno(i.date))
         }
-
+        
         
         calendar.delegate = self
         calendar.dataSource = self
@@ -40,30 +41,40 @@ class PublicResultCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
         
         calendar.appearance.selectionColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         calendar.appearance.borderSelectionColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-   
+        
         
         calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
-       // calendar.appearance.today // 오늘 색 변경
+        // calendar.appearance.today // 오늘 색 변경
         
         // 이미지 표시하기
         for date in selectedDatesDate{
-            
+            let myDate = self.formatter.date(from : date)!.xDays(0)
+            dateList.append(myDate)
             calendar.select(self.formatter.date(from : date)?.xDays(0))
             print(self.formatter.date(from : date)!)
         }
-      
+        
         //사용자 선택 막기, 꼭 맨 밑에 있어야 함
         calendar.allowsSelection = false
     }
-
-    // 각 날짜에 특정 문자열을 표시할 수 있습니다.
-    func calendar(calendar: FSCalendar, subtitleForDate date: NSDate) -> String? {
-        return "1"
+    
+    //숫자 표시하기
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+        var count : String?
+        for myDate in dateList {
+            let result = myDate.compare(date)
+            switch result {
+            case .orderedSame:
+                count =  "11"
+            default:
+                count =  nil
+            }
+        }
+        return count
     }
     
-    //
-   
-
+    
+    
 }
 extension Date {
     func xDays(_ x: Int) -> Date {

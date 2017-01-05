@@ -8,6 +8,6 @@
 
 import UIKit
 class CheckBox : UIButton{
-    var temp = ""
+    var temp = 0
     
 }

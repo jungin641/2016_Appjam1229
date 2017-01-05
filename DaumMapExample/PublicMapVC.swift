@@ -19,14 +19,14 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
         mapView.daumMapApiKey = daumAPIKey
         mapView.delegate = self
         mapView.baseMapType = .standard
-       // items.append(poiItem(name: "넷", latitude: 37.5037539, longitude: 127.0426469))
+        // items.append(poiItem(name: "넷", latitude: 37.5037539, longitude: 127.0426469))
         
-//        //샘플 데이터
-//        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
+        //        //샘플 데이터
+        //        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
         self.view.insertSubview(mapView, at: 0)
     }
-   
-
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         var items = [MTMapPOIItem]()
         if let mySelectedPosition = selectedPosition{
