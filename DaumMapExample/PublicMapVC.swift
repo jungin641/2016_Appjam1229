@@ -18,19 +18,27 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
         super.viewDidLoad()
         mapView.daumMapApiKey = daumAPIKey
         mapView.delegate = self
-        mapView.baseMapType = .standard
-        // items.append(poiItem(name: "넷", latitude: 37.5037539, longitude: 127.0426469))
         
-        //        //샘플 데이터
-        //        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
-        self.view.insertSubview(mapView, at: 0)
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
+       
+    }
+    func putPoiItem(){
+        print("PublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVC")
+         mapView.baseMapType = .standard
+        // items.append(poiItem(name: "넷", latitude: 37.5037539, longitude: 127.0426469))
+        
+        //        //샘플 데이터
+        //        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
+        
+
         var items = [MTMapPOIItem]()
         if let mySelectedPosition = selectedPosition{
+            print(mySelectedPosition)
             for sp in mySelectedPosition{
+                print(sp)
                 items.append(
                     poiItem(
                         //gdno extensionControl에 추가!
@@ -44,6 +52,8 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
         
         mapView.addPOIItems(items)
         mapView.fitAreaToShowAllPOIItems()
+        self.view.insertSubview(mapView, at: 0)
+
     }
     
     func poiItem(name: String, latitude: Double, longitude: Double) -> MTMapPOIItem {

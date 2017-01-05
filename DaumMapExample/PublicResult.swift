@@ -37,25 +37,23 @@ class PublicResult : UIViewController, NetworkCallback {
         if let thisRoomInfo = resultData as? GatheringVO{
             roomInfo = thisRoomInfo
             print("networkResultnetworkResultnetworkResultnetworkResult")
-            print(roomInfo.dates)
+           
         }
         if let prc = childViewControllers[1] as? PublicResultCalendarVC {
             prc.selectedDates =  roomInfo.dates!
-            
+            prc.selectView()
             
         }
         
-        if let prc = childViewControllers[0] as? PublicMapVC {
+        if let pmc = childViewControllers[0] as? PublicMapVC {
             
             for p in roomInfo.participants!{
-                prc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
+                pmc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
+               
             }
-            
-            
-            
-            
+             pmc.putPoiItem()
         }
-        
+      
         
     }
     
