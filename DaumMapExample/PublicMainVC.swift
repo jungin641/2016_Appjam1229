@@ -43,17 +43,20 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
         
         let item = KCFloatingActionButtonItem()
         item.title = "공개방"
+        item.icon = UIImage(named: "oepnroom")
         item.handler = { item in
             self.moveScene(VCname: "NavMakeGatheringVC")
+            
         }
         
-        fab.addItem("비공개방", icon: UIImage(named: "icMap")) { item in
+        fab.addItem("비공개방", icon: UIImage(named: "openroom")) { item in
             self.moveScene(VCname: "NavMakeGatheringVC")
         }
         fab.addItem(item: item)
-        
+        fab.buttonImage = UIImage(named:"pulus")
         
         self.view.addSubview(fab)
+        
         
     }
     func moveScene(VCname : String){

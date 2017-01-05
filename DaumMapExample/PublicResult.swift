@@ -33,8 +33,8 @@ class PublicResult : UIViewController, NetworkCallback {
     @IBOutlet var roomTitle : UILabel!
     @IBOutlet var roomContent : UILabel!
     
-
- 
+    
+    
     @IBAction func selectPhoto(_ sender: AnyObject) {
         // 새로운 화면창을 띄운다
         // 10.0부터 사진첩 열 때 허락 받아야함 -> Info.plist 오른쪽클릭 -> open as -> source code한 뒤 <key>와 <string> 입력 (딕셔너리형태라고 생각하면 됨. 키와 밸류, 키와 밸류 ...)
@@ -50,16 +50,23 @@ class PublicResult : UIViewController, NetworkCallback {
         let model = MakeGatheringModel(self)
         
         model.roomDetail(meeting_id: gino(meeting_id))
-        print(parent!.childViewControllers[0].child)
+        print("roomDetailroomDetailroomDetailroomDetailroomDetailroomDetailroomDetail")
         
-        if parent!.childViewControllers.count == 2 {
-            if let prc = parent?.childViewControllers[0] as? PublicResultCalendarVC {
-                if let thisRoomSelectedDates = roomInfo.dates{
-                    prc.selectedDates = thisRoomSelectedDates
-                    
-                }
-            }
-        }
+//        if let prc = childViewControllers[1] as? PublicResultCalendarVC {
+//                prc.selectedDates =  roomInfo.dates!
+//                
+//        
+//        }
+//        if let prc = childViewControllers[0] as? PublicMapVC {
+//      
+//                for p in roomInfo.participants!{
+//                    prc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
+//                }
+//            
+//           
+//            
+//          
+//        }
         
         picker.allowsEditing = true
         picker.delegate = self // 딜리게이트구현. 지금처럼 하지 말고 extension 이용해서 딜리게이트 상속받기
@@ -69,23 +76,23 @@ class PublicResult : UIViewController, NetworkCallback {
         thirdView.isHidden = true
         firstView.reloadInputViews()
         reloadInputViews()
-
+        
         self.tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
-       
+        
     }
     
     internal func networkResult(resultData: Any, code: Int) {
         if let thisRoomInfo = resultData as? GatheringVO{
             roomInfo = thisRoomInfo
         }
-//        friendList = resultData as! [FriendVO]
-//        tableView.reloadData()
+        //        friendList = resultData as! [FriendVO]
+        //        tableView.reloadData()
         
     }
     //    }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -120,24 +127,24 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
         
         //다운캐스팅
         let cell = tableView.dequeueReusableCell(withIdentifier: "PRFriendCell") as! PRFriendCell
-      
-//        if let name = item.name{
-//            cell.txtname.text = name
-//        }
-//        
-//        if let id = item.id {
-//            cell.email.text = id
-//        }
-//        
-//        
-//        cell.checkBox.temp = gsno(item.id)
         
-//        if selectedArray.contains(where: gsno(item.id)){
-//            cell.checkBox.setBackgroundImage(maleImage, for: UIControlState.normal)
-//        }else{
-//            cell.checkBox.setBackgroundImage(femaleImage, for: UIControlState.normal)
-//        }
-       return cell
+        //        if let name = item.name{
+        //            cell.txtname.text = name
+        //        }
+        //
+        //        if let id = item.id {
+        //            cell.email.text = id
+        //        }
+        //
+        //
+        //        cell.checkBox.temp = gsno(item.id)
+        
+        //        if selectedArray.contains(where: gsno(item.id)){
+        //            cell.checkBox.setBackgroundImage(maleImage, for: UIControlState.normal)
+        //        }else{
+        //            cell.checkBox.setBackgroundImage(femaleImage, for: UIControlState.normal)
+        //        }
+        return cell
     }
     @IBAction func kakaoShare(_ sender: AnyObject) {
         let text = KakaoTalkLinkObject.createLabel("테스트입니다.")

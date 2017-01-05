@@ -19,6 +19,8 @@
 		264548681E175D080084C865 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264548661E175D080084C865 /* PostModel.swift */; };
 		2645486A1E178B0D0084C865 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264548691E178B0D0084C865 /* KakaoOpenSDK.framework */; };
 		2645486D1E17B3C50084C865 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645486C1E17B3C50084C865 /* SplashVC.swift */; };
+		26586B231E1DE0D200AE44A1 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26586B221E1DE0D200AE44A1 /* Dates.swift */; };
+		2676AAF01E1E27E800AA15B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2676AAEF1E1E27E800AA15B4 /* Assets.xcassets */; };
 		267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A31E1A16A8001BE5DC /* PublicResult.swift */; };
 		267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A51E1A17C3001BE5DC /* MySetting.swift */; };
 		267AC3A81E1A2E9F001BE5DC /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AC3A71E1A2E9F001BE5DC /* CheckBox.swift */; };
@@ -27,7 +29,6 @@
 		2682D34E1E1D8A4300191E1D /* PRFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682D34D1E1D8A4300191E1D /* PRFriendCell.swift */; };
 		268811A31E1D3A3400A6C2B0 /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268811A21E1D3A3400A6C2B0 /* Participants.swift */; };
 		268811A51E1D3DDE00A6C2B0 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */; };
-		268811A71E1D5EDD00A6C2B0 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268811A61E1D5EDD00A6C2B0 /* Dates.swift */; };
 		269173331E17B6CF000788AF /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173321E17B6CF000788AF /* UserVO.swift */; };
 		269173351E17C981000788AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173341E17C981000788AF /* FriendCell.swift */; };
 		269E50821E1B7EEA00ED9F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */; };
@@ -49,7 +50,6 @@
 		3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */; };
 		3C36EF641DE5BF7300B3F1B4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */; };
 		3C36EF671DE5BF7300B3F1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF651DE5BF7300B3F1B4 /* Main.storyboard */; };
-		3C36EF691DE5BF7300B3F1B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */; };
 		3C36EFE81DE5C9D800B3F1B4 /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36EFCB1DE5C9D800B3F1B4 /* DaumMap.framework */; };
 		3C36EFE91DE5C9D800B3F1B4 /* copyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EFCD1DE5C9D800B3F1B4 /* copyright.png */; };
 		3C36EFEA1DE5C9D800B3F1B4 /* daum_copyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C36EFCE1DE5C9D800B3F1B4 /* daum_copyright.png */; };
@@ -100,6 +100,8 @@
 		264548691E178B0D0084C865 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		2645486B1E178BA70084C865 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
 		2645486C1E17B3C50084C865 /* SplashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		26586B221E1DE0D200AE44A1 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		2676AAEF1E1E27E800AA15B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		267AC3A31E1A16A8001BE5DC /* PublicResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicResult.swift; sourceTree = "<group>"; };
 		267AC3A51E1A17C3001BE5DC /* MySetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySetting.swift; sourceTree = "<group>"; };
 		267AC3A71E1A2E9F001BE5DC /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
@@ -108,7 +110,6 @@
 		2682D34D1E1D8A4300191E1D /* PRFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRFriendCell.swift; sourceTree = "<group>"; };
 		268811A21E1D3A3400A6C2B0 /* Participants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participants.swift; sourceTree = "<group>"; };
 		268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
-		268811A61E1D5EDD00A6C2B0 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		269173321E17B6CF000788AF /* UserVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
 		269173341E17C981000788AF /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C36EF631DE5BF7300B3F1B4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3C36EF661DE5BF7300B3F1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C36EF6D1DE5BF7300B3F1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C36EFCB1DE5C9D800B3F1B4 /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		3C36EFCD1DE5C9D800B3F1B4 /* copyright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copyright.png; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 				26D471DB1E193594008BB01E /* Position.swift */,
 				268811A21E1D3A3400A6C2B0 /* Participants.swift */,
 				268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */,
-				268811A61E1D5EDD00A6C2B0 /* Dates.swift */,
+				26586B221E1DE0D200AE44A1 /* Dates.swift */,
 			);
 			name = GatheringSubObject;
 			sourceTree = "<group>";
@@ -397,11 +397,11 @@
 			isa = PBXGroup;
 			children = (
 				3C36EF611DE5BF7300B3F1B4 /* AppDelegate.swift */,
+				2676AAEF1E1E27E800AA15B4 /* Assets.xcassets */,
 				26DC77BF1E16154F000FEDF2 /* Storyboard */,
 				26DC77D81E16498F000FEDF2 /* PopUp */,
 				26151F2B1E152EBE00F38CAA /* ViewController */,
 				26DC77C01E161582000FEDF2 /* Utils */,
-				3C36EF681DE5BF7300B3F1B4 /* Assets.xcassets */,
 				3C36EF6D1DE5BF7300B3F1B4 /* Info.plist */,
 				3C36F0121DE5CFC300B3F1B4 /* DaumMapExample-Bridging-Header.h */,
 			);
@@ -537,6 +537,7 @@
 				3C36EFFE1DE5C9D800B3F1B4 /* map_present_tracking.png in Resources */,
 				3C36EFEA1DE5C9D800B3F1B4 /* daum_copyright.png in Resources */,
 				269E50821E1B7EEA00ED9F87 /* LaunchScreen.storyboard in Resources */,
+				2676AAF01E1E27E800AA15B4 /* Assets.xcassets in Resources */,
 				3C36EFEF1DE5C9D800B3F1B4 /* map_pin.png in Resources */,
 				3C36EFF41DE5C9D800B3F1B4 /* map_pin_red@3x.png in Resources */,
 				3C36EFFC1DE5C9D800B3F1B4 /* map_present_background_update.png in Resources */,
@@ -554,7 +555,6 @@
 				3C36EFF61DE5C9D800B3F1B4 /* map_pin_shadow@3x.png in Resources */,
 				3C36EFF81DE5C9D800B3F1B4 /* map_pinup@3x.png in Resources */,
 				3C36EFF21DE5C9D800B3F1B4 /* map_pin_custom@3x.png in Resources */,
-				3C36EF691DE5BF7300B3F1B4 /* Assets.xcassets in Resources */,
 				3C36EFFD1DE5C9D800B3F1B4 /* map_present_direction.png in Resources */,
 				3C36EF671DE5BF7300B3F1B4 /* Main.storyboard in Resources */,
 				3C36EFF51DE5C9D800B3F1B4 /* map_pin_shadow.png in Resources */,
@@ -634,11 +634,11 @@
 				267AC3A41E1A16A8001BE5DC /* PublicResult.swift in Sources */,
 				262EC5301E1BE34F00025D58 /* PublicResultCalendarVC.swift in Sources */,
 				26D471DC1E193594008BB01E /* Position.swift in Sources */,
-				268811A71E1D5EDD00A6C2B0 /* Dates.swift in Sources */,
 				264548681E175D080084C865 /* PostModel.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
+				26586B231E1DE0D200AE44A1 /* Dates.swift in Sources */,
 				269173351E17C981000788AF /* FriendCell.swift in Sources */,
 				26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */,
 				26816FA71E166E7500327375 /* ContentViewController.swift in Sources */,

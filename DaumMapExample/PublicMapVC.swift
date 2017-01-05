@@ -11,7 +11,7 @@ import UIKit
 class PublicMapVC: UIViewController, MTMapViewDelegate {
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
     
-    var selectedPosition : Position?
+    var selectedPosition : [Position]?
     
     @IBOutlet var mapView : MTMapView!
     override func viewDidLoad() {
@@ -21,29 +21,25 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
         mapView.baseMapType = .standard
        // items.append(poiItem(name: "넷", latitude: 37.5037539, longitude: 127.0426469))
         
-        //샘플 데이터
-        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
+//        //샘플 데이터
+//        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
         self.view.insertSubview(mapView, at: 0)
     }
    
 
     override func viewDidAppear(_ animated: Bool) {
         var items = [MTMapPOIItem]()
-        items.append(poiItem(name: "넷", latitude: 37.5027529, longitude: 127.0436479))
-        print(items[0].mapPoint.mapPointGeo().longitude)
-        print(items[0].mapPoint.mapPointGeo().latitude)
         if let mySelectedPosition = selectedPosition{
-            items.append(
-                poiItem(
-                    //gdno extensionControl에 추가!
-                    name: gsno(mySelectedPosition.place),
-                    latitude:  gdno(Double(gsno(mySelectedPosition.latitude))),
-                    longitude:  gdno(Double(gsno(mySelectedPosition.longtitude)))
-            ))
-            print(items[1].mapPoint.mapPointGeo().longitude)
-            print(items[1].mapPoint.mapPointGeo().latitude)
-            var doubledata = gdno(Double(gsno(mySelectedPosition.latitude)))
-            print("gdnodoubledata : \(doubledata)")
+            for sp in mySelectedPosition{
+                items.append(
+                    poiItem(
+                        //gdno extensionControl에 추가!
+                        name: gsno(sp.place),
+                        latitude:  gdno(Double(gsno(sp.latitude))),
+                        longitude:  gdno(Double(gsno(sp.longtitude)))
+                ))
+            }
+            
         }
         
         mapView.addPOIItems(items)

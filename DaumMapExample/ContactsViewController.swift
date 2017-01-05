@@ -15,8 +15,8 @@ class ContactsViewController: UITableViewController, NetworkCallback {
     var friendList = [FriendVO]()
     var selectedArray = NSMutableArray()
     
-    let maleImage = UIImage(named: "ic_male")
-    let femaleImage  = UIImage(named: "ic_male_check")
+    let maleImage = UIImage(named: "vv")
+    let femaleImage  = UIImage(named: "v")
     
     override func viewDidLoad() {
         

@@ -91,7 +91,7 @@ class SecondVC : UIViewController, NetworkCallback {
         imgContent.roundedBorder()
         
         CompleteBtn.isEnabled = false
-        CompleteBtn.backgroundColor = UIColor( red :177/255 , green : 181/255, blue : 192/255, alpha : 1)
+        CompleteBtn.setImage(UIImage(named: "joinoff"), for: UIControlState.normal)
         
         
     }
@@ -104,16 +104,21 @@ class SecondVC : UIViewController, NetworkCallback {
     @IBAction func ValueChanged(_ sender: AnyObject) {
         if((IdTextField.text?.characters.count != 0) && (PwTextField.text == PwCheckText.text) && (PwCheckText.text?.characters.count != 0) && (PhTextField.text?.characters.count != 0) && (ischecked==1)){
             CompleteBtn.isEnabled = true
-            CompleteBtn.backgroundColor = UIColor( red :225/255 , green : 54/255, blue : 74/255, alpha : 1)
+            CompleteBtn.setImage(UIImage(named: "joinon"), for: UIControlState.normal)
+            
             
         }
         else if(IdTextField.isEditing && (ischecked==1)){
             CompleteBtn.isEnabled = false
-            CompleteBtn.backgroundColor = UIColor( red :177/255 , green : 181/255, blue : 192/255, alpha : 1)
+            CompleteBtn.setImage(UIImage(named: "joinoff"), for: UIControlState.normal)
+            
+            
         }
         else{
             CompleteBtn.isEnabled = false
-            CompleteBtn.backgroundColor = UIColor( red :177/255 , green : 181/255, blue : 192/255, alpha : 1)
+            CompleteBtn.setImage(UIImage(named: "joinoff"), for: UIControlState.normal)
+            
+            
         }
         
     }
