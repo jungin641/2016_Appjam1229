@@ -15,6 +15,7 @@ class RoomInfo{
     var room_image : String? //방의 사진 URL
     var host : String? //호스트의 이름
     var hostprofile : String? //호스트 사지 ㄴURL
+    var host_id : Int?
     
     init(){
         

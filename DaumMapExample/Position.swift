@@ -8,14 +8,14 @@
 
 class Position {
     var place : String?
-    var longtitude : String?
-    var latitude : String?
+    var longtitude : Double?
+    var latitude : Double?
     
     init(){
         
     }
     
-    init(place : String?, longtitude : String?, latitude : String?){
+    init(place : String?, longtitude : Double?, latitude : Double?){
         self.place = place
         self.longtitude = longtitude
         self.latitude = latitude

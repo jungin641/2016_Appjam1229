@@ -11,36 +11,43 @@ import SwiftyJSON
 
 class MapModel: NetworkModel {
     
-    func daumKeywordSearch(query: String) {
-        
+    func daumKeywordSearch(query: String?) {
+        var resultPosition = [Position]()
         let params : [String:String] = [
-            "query" : query,
+            "query" : gsno(query),
             "apikey" : "ad94ca8d3398bf222fd6e5acbbb8f96d"
         ]
         
         let url = "https://apis.daum.net/local/v1/search/keyword.json"
         
         Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.queryString, headers: nil).responseJSON { res in
-
+            
             switch res.result {
             case .success:
                 if let value = res.result.value {
+                    
                     let data = JSON(value)
-                   
-                        if let array = data["channel"]["item"].array{
+                    print(data)
+                    if let array = data["channel"]["item"].array{
                         for position in array{
-                           print(position["latitude"].string)
-                            print(position["longitude"].string)
-                            print(position["title"].string)
+                            resultPosition.append(
+                                Position(
+                                    place: position["latitude"].string,
+                                    longtitude: self.gdno(Double(self.gsno(position["longitude"].string))),
+                                    latitude: self.gdno(Double(self.gsno(position["title"].string)))
+                                )
+                            )
                             
                         }
                         
-                        self.view.networkResult(resultData: "", code: 0)
-                    
+                        self.view.networkResult(resultData: resultPosition, code: 0)
+                        
                     }
-//                    self.view.networkResult(resultData: value, code: 0)
+                    //                    self.view.networkResult(resultData: value, code: 0)
                 }
+                break
             case .failure(let err):
+                print("위치검색하기 : 에러")
                 print(err)
                 self.view.networkFailed()
             }

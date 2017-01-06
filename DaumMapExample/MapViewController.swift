@@ -9,16 +9,37 @@
 import UIKit
 
 class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate,NetworkCallback {
+    var searchedPosition  = [Position]()
     internal func networkResult(resultData: Any, code: Int) {
-        print("@@@@@@@@$$$$$$$$$$$s@@@@@@@@@")
-        print(resultData)
+        searchedPosition = resultData as! [Position]
+        
+        
+        mypoiItem.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(
+            latitude: gdno(searchedPosition[0].latitude),
+            longitude: gdno(searchedPosition[0].longtitude)))
+        
+        mypoiItem.itemName = gsno(searchedPosition[0].place)
+        mypoiItem.draggable = true
+        
+        
+        mapView.add(mypoiItem)
+        
+        mapView.currentLocationTrackingMode = .off
+        mapView.fitAreaToShowAllPOIItems()
+
     }
+    @IBOutlet var serachBar: UISearchBar!
 
     var selectedPosition : Position?
     let mypoiItem = MTMapPOIItem()
+    let searchController = UISearchController(searchResultsController: nil)
+    
     @IBAction func ConfirmBtn(_ sender: AnyObject) {
         
-        selectedPosition = Position(place: "임시값", longtitude:"\(mypoiItem.mapPoint.mapPointGeo().latitude)", latitude: "\(mypoiItem.mapPoint.mapPointGeo().longitude)")
+        selectedPosition = Position(
+            place: "임시값",
+            longtitude: mypoiItem.mapPoint.mapPointGeo().latitude,
+            latitude: mypoiItem.mapPoint.mapPointGeo().longitude)
         
     }
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
@@ -28,20 +49,32 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        serachBar.delegate = self
+
+    
         mapView.daumMapApiKey = daumAPIKey
         mapView.delegate = self
         mapView.baseMapType = .standard
         mapView.showCurrentLocationMarker = false
         mapView.currentLocationTrackingMode = .onWithoutHeading
-searchKeyword()
+        
+        searchBarSearchButtonClicked(serachBar)
+        
        
         
         self.view.insertSubview(mapView, at: 0)
     }
-    func searchKeyword() {
-        let query = "광화문"
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("위치검색하기 : 버튼 눌러짐")
+         searchKeyword(searchKeyword: searchBar.text)
+    }
+    
+    func searchKeyword(searchKeyword : String?) {
+        print("위치검색하기 : 검색함수 호출됨, daumKeywordSearch호출")
+        print("searchKeyword : \(searchKeyword)")
         let model = MapModel(self)
-        model.daumKeywordSearch(query: query)
+        
+        model.daumKeywordSearch(query: searchKeyword)
     }
     //현위치 트래킹
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
@@ -60,11 +93,7 @@ searchKeyword()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //        var items = [MTMapPOIItem]()
-        //        items.append(poiItem(name: "하나", latitude: 37.4981688, longitude: 127.0484572))
-        //
-        //        mapView.addPOIItems(items)
-        //        mapView.fitAreaToShowAllPOIItems()
+       
     }
     
     func poiItem(name: String, latitude: Double, longitude: Double) -> MTMapPOIItem {

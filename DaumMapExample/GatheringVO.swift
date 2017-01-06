@@ -18,14 +18,17 @@ class GatheringVO{
     var days : [String]?
     var position : Position?
     var participants : [Participants]?
-    var roomInfo : [RoomInfo]?
+    var roomInfos : [RoomInfo]?
+    var roomInfo : RoomInfo?
     var dates : [Dates]?
     var meeting_id : Int?
     var is_open : Int?
-    var  place : String?
+    var place : String?
     var longitude : String?
     var latitude : String?
+    var friend_list = [FriendVO]()
     init(){ //디폴트 생성자
+        
         
     }
     //메인페이지용 생성자
@@ -41,9 +44,9 @@ class GatheringVO{
     }
     
     //내 방 상세보기용 생성자
-    init(participants : [Participants]? , roomInfo : [RoomInfo]?, dates : [Dates]?){
+    init(participants : [Participants]? , roomInfos : [RoomInfo]?, dates : [Dates]?){
         self.participants = participants
-        self.roomInfo = roomInfo
+        self.roomInfos = roomInfos
         self.dates = dates
     }
     // 방 만들기용 참여자 반영

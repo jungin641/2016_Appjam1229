@@ -48,8 +48,8 @@ class ResultInsertMapVC: UIViewController, MTMapViewDelegate {
                     poiItem(
                         //gdno extensionControl에 추가!
                         name: gsno(sp.place),
-                        latitude:  gdno(Double(gsno(sp.latitude))),
-                        longitude:  gdno(Double(gsno(sp.longtitude)))
+                        latitude:  gdno(sp.latitude),
+                        longitude:  gdno(sp.longtitude)
                 ))
             }
             

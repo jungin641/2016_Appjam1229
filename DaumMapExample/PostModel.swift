@@ -282,99 +282,24 @@ class PostModel: NetworkModel {
         
     }
     
-//    //11번통신
-//    func getVoteInfo(my_meeting_id : String) {
-//        
-//        // let idValue = userDefault.string(forKey: "id")
-//        let params1 = ["id" : my_meeting_id]
-//        
-//        Alamofire.request("\(baseURL)/room/vote_my_opinion", method: .get, parameters: params1, encoding: JSONEncoding.default).responseJSON()  { res in // 맨 끝의 인자가 함수면 클로저 사용 가능
-//            switch res.result {
-//            case .success :
-//                //name : String?, is_input : String?, place : String?, longitude : String?, latitude : String?, profile : String?
-//                //                    meeting_id : int , //방 번호
-//                //                    is_open : int, (0: 비공개방, 1: 공개방)
-//                if let value = res.result.value {
-//                    let data = JSON(value)
-//                    var tempList = [GatheringVO]()
-//                    if let array = data["result"].array{
-//                        for item in array{
-//                            let gvo = GatheringVO(
-//                                
-//                                name : item["name"].string,
-//                                profileImg : item["profileImg"].string,
-//                                
-//                                place : item["place"].string,
-//                                longitude : item["longitude"].string,
-//                                latitude : item["latitude"].string,
-//                                
-//                                days : item["days"].string
-//                                
-//                                
-//                            )
-//                            tempList.append(gvo)
-//                        }
-//                        
-//                        self.view.networkResult(resultData: tempList, code: 0)
-//                    }
-//                    
-//                    
-//                }
-//                break
-//                
-//            case .failure :
-//                self.view.networkFailed()
-//            }
-//        }
-//    }
-//
-//    //9번통신
-//    func roomProfileEdit(my_meeting_id : Int,profileData : Data){
-//        
-//        
-//        let url = "\(baseURL)/room/profile_edit/"
-//        
-//        
-//        if profileData == nil {
-//        } else {
-//            
-//            /// - parameter multipartFormData:       The closure used to append body parts to the `MultipartFormData`.
-//            /// - parameter encodingMemoryThreshold: The encoding memory threshold in bytes.
-//            ///                                      `multipartFormDataEncodingMemoryThreshold` by default.
-//            /// - parameter url:                     The URL.
-//            /// - parameter method:                  The HTTP method. `.post` by default.
-//            /// - parameter headers:                 The HTTP headers. `nil` by default.
-//            /// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
-//            
-//            Alamofire.upload(multipartFormData:  { multipartFormData in
-//                if let id = idData{
-//                    multipartFormData.append
-//                    
-//                }
-//                
-//                multipartFormData.append(profileData, withName: "image", fileName: "image.jpg", mimeType: "image/png")e
-//            },
-//                             usingThreshold: 0,  to: url, method: .put, headers: nil,   encodingCompletion: { encodingResult in
-//                                switch encodingResult {
-//                                case .success(let upload, _, _):
-//                                    upload.responseData { res in
-//                                        switch res.result {
-//                                        case .success:
-//                                            DispatchQueue.main.async(execute: {
-//                                                print("방사진수정 완료")
-//                                            })
-//                                        case .failure(let err):
-//                                            print("upload Error : \(err)")
-//                                            DispatchQueue.main.async(execute: {
-//                                                
-//                                            })
-//                                        }
-//                                    }
-//                                case .failure(let err):
-//                                    print("network Error : \(err)")
-//                                    self.view.networkFailed()
-//                                }            })
-//            
-//        }
-//    }
+    func exit(){
+        let id = userDefault.integer(forKey: "my_meeting_id")
+        Alamofire.request("\(baseURL)/room/exit/\(id)", method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON(){ res in // 맨 끝의 인자가 함수면 클로저 사용 가능
+            if let value = res.result.value {
+                let data = JSON(value)
+                if let idCheckResult = data["result"].string{
+                    print("\(idCheckResult)성공")
+                    if idCheckResult == "SUCCESS" {
+                        self.view.networkResult(resultData: "방을 나갔습니다.", code: 5)
+                    }
+                    else if idCheckResult == "FAIL" {
+                        print("나가기 실패")
+                        self.view.networkResult(resultData: "방 나가기 실패! 통신오류!", code: 6)
+                    }
+                    
+                }
+            }
+        }
+    }
+    
 }

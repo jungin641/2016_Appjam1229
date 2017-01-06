@@ -47,6 +47,7 @@
 		26DC77D51E164984000FEDF2 /* NoldamPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D11E164984000FEDF2 /* NoldamPresentationController.swift */; };
 		26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D21E164984000FEDF2 /* NoldamTrasitionDelegate.swift */; };
 		26DC77D71E164984000FEDF2 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC77D31E164984000FEDF2 /* PopupVC.swift */; };
+		26E8B1491E1F7DFD00ADCF85 /* PRFriendCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8B1481E1F7DFD00ADCF85 /* PRFriendCell2.swift */; };
 		26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1C1E14F2B10069971A /* CalendarVC.swift */; };
 		26F1ED211E14F2B10069971A /* GatheringVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1D1E14F2B10069971A /* GatheringVO.swift */; };
 		26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1ED1E1E14F2B10069971A /* GatheringCell.swift */; };
@@ -134,6 +135,7 @@
 		26DC77D11E164984000FEDF2 /* NoldamPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamPresentationController.swift; sourceTree = "<group>"; };
 		26DC77D21E164984000FEDF2 /* NoldamTrasitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoldamTrasitionDelegate.swift; sourceTree = "<group>"; };
 		26DC77D31E164984000FEDF2 /* PopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
+		26E8B1481E1F7DFD00ADCF85 /* PRFriendCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRFriendCell2.swift; sourceTree = "<group>"; };
 		26F1ED1C1E14F2B10069971A /* CalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		26F1ED1D1E14F2B10069971A /* GatheringVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringVO.swift; sourceTree = "<group>"; };
 		26F1ED1E1E14F2B10069971A /* GatheringCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatheringCell.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
 				269173341E17C981000788AF /* FriendCell.swift */,
 				2682D34D1E1D8A4300191E1D /* PRFriendCell.swift */,
+				26E8B1481E1F7DFD00ADCF85 /* PRFriendCell2.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				26D471DC1E193594008BB01E /* Position.swift in Sources */,
 				264548681E175D080084C865 /* PostModel.swift in Sources */,
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
+				26E8B1491E1F7DFD00ADCF85 /* PRFriendCell2.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
 				2616F9031E1EED1100CB20F4 /* ResultInsertMapVC.swift in Sources */,

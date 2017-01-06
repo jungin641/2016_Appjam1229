@@ -65,6 +65,12 @@ class MainVC: UITableViewController, NetworkCallback {
             
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        let model = PostModel(self)
+        
+        model.getPrivate()
+        
+    }
     
     internal func networkResult(resultData: Any, code: Int) {
         

@@ -22,7 +22,8 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         
     }
     @IBAction func CompleteBtn(_ sender: AnyObject) {
-        //확인창으로 넘어가기
+        
+        //확인창으로 보낼 데이터들 가져옴
         let viewControllers = pageViewController.viewControllers! as [UIViewController]
         
         for vc in vcs{
@@ -43,13 +44,25 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
             
         }
         
+        if let targetVC = storyboard?.instantiateViewController(withIdentifier: "MakeRoomResult") as? MakeRoomResult{
+            if let partiResult =  newGathering.participant{
+                targetVC.gatheringVC.participant = partiResult
+
+            }
+            if let daysResult =  newGathering.days{
+                targetVC.gatheringVC.days = daysResult
+                
+            }
+            if let posiResult =  newGathering.position{
+                targetVC.gatheringVC.position = posiResult
+                
+            }
+            present(targetVC, animated: true)
+        }
         
-        //다 옵셔널로 프린트됨
-        print(newGathering.participant)
-        print(newGathering.days)
-        print(newGathering.position?.latitude)
+      
         
-        dismiss(animated: true)
+       
         
     }
     

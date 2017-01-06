@@ -78,7 +78,12 @@ class PublicMainVC: UITableViewController , UISearchResultsUpdating ,NetworkCall
             
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        let model = PostModel(self)
+        
+        model.getPrivate()
+        
+    }
     
     
     //검색창에 사용자가 입력할 때마다 위의 메소드 실행

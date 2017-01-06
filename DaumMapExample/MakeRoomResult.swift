@@ -9,11 +9,16 @@
 import UIKit
 import FSCalendar
 
-class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, FSCalendarDataSource{
+class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, FSCalendarDataSource, NetworkCallback{
+      let userDefault = UserDefaults.standard
+    internal func networkResult(resultData: Any, code: Int) {
+        
+    }
+
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
-    var selectedDates = [Dates]()
+
     var selectedDatesDate = [String]()
-    var selectedPosition : [Position]?
+    var selectedPosition = [Position]()
     
     @IBOutlet var btn1 : UIButton?
     @IBOutlet var btn2 : UIButton?
@@ -22,21 +27,18 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
     @IBOutlet var when : FSCalendar!
     @IBOutlet var manCount : UILabel?
     @IBOutlet var mapView : MTMapView!
+   
     
     var gatheringVC = GatheringVO()
-    var ischeck1 = 0
-    var ischeck2 = 0
+    var thisRoomInfo = RoomInfo()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         mapView.daumMapApiKey = daumAPIKey
         mapView.delegate = self
         
         manCount?.text = "\(gino(gatheringVC.participant?.count))"
-        //   when?.select(gatheringVC.days)
-        when?.allowsSelection = false
-        
-        
         
         when.delegate = self
         when.dataSource = self
@@ -50,16 +52,21 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         
         when.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
         // calendar.appearance.today // 오늘 색 변경
-
-        
+        if let hostSelectedDays = gatheringVC.days{
+            selectedDatesDate = hostSelectedDays
+        }
+        if let hostSelectedPosition = gatheringVC.position{
+            selectedPosition.append(hostSelectedPosition)
+        }
+        putPoiItem()
+        selectView()
+       
+         //self.view.insertSubview(mapView, at: 0)
     }
     //달력표시
     func selectView(){
         
-        for i in selectedDates {
-            selectedDatesDate.append(gsno(i.date))
-        }
-        
+      
         // 표시하기
         for date in selectedDatesDate{
             let myDate = self.formatter.date(from : date)!.xDays(0)
@@ -72,8 +79,7 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
     }
     // 지도 표시
     func putPoiItem(){
-        print("PublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVC")
-        mapView.baseMapType = .standard
+         mapView.baseMapType = .standard
         // items.append(poiItem(name: "넷", latitude: 126, longitude: 38))
         // items.append(poiItem(name: "넷", latitude: 127.1722, longitude: 37.5665))
         // items.append(poiItem(name: "넷", latitude: 126.920757, longitude: 37.623885))
@@ -86,24 +92,22 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         
         var items = [MTMapPOIItem]()
         
-        
-        if let mySelectedPosition = selectedPosition{
-            for sp in mySelectedPosition{
-                print("latitude \(sp.latitude) longtitude \(sp.longtitude)")
+
+            for sp in selectedPosition{
                 items.append(
                     poiItem(
                         //gdno extensionControl에 추가!
                         name: gsno(sp.place),
-                        latitude:  gdno(Double(gsno(sp.latitude))),
-                        longitude:  gdno(Double(gsno(sp.longtitude)))
+                        latitude:  gdno(sp.latitude),
+                        longitude: gdno(sp.longtitude)
                 ))
             }
             
-        }
+        
         
         mapView.addPOIItems(items)
         mapView.fitAreaToShowAllPOIItems()
-        self.view.insertSubview(mapView, at: 0)
+       
         
     }
     
@@ -128,5 +132,22 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         formatter.dateFormat = "yyyyMMdd"
         return formatter
     }()
+   @IBAction func BtnCancel(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func BtnComplete(_ sender: AnyObject) {
+        
+        thisRoomInfo.host_id = userDefault.integer(forKey: "id")
+        thisRoomInfo.title = titleTxt?.text
+        thisRoomInfo.text = contentsTxt?.text
+        thisRoomInfo.is_open = 0
+        thisRoomInfo.when_fix = 0 //날짜 확정 1 날짜 미정 0
+        thisRoomInfo.where_fix = 0 // 0: 장소 미정, 1: 장소 확정)
+        
+        gatheringVC.roomInfo = thisRoomInfo
+        let model = MakeGatheringModel(self)
+        model.roomCreate(gatheringVO: gatheringVC)
+
+    }
     
 }

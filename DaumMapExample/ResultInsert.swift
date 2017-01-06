@@ -9,54 +9,60 @@
 import UIKit
 
 class ResultInsert: UIViewController, NetworkCallback {
+    var userdefault = UserDefaults.standard
     var prRoomInfo = GatheringVO()
-    var friendsParticipate = [Participants]()
-    var selectedArray = [Participants]()
-    
+    var friendList = [FriendVO]()
+    var selectedArray = NSMutableArray()
+
     var meeting_id : Int?
     
-    let checked = UIImage(named: "checkbox")
-    let nochecked  = UIImage(named: "nochecked")
+    let maleImage = UIImage(named: "vv")
+    let femaleImage  = UIImage(named: "v")
     
-    let picker = UIImagePickerController()
-
+    
     @IBOutlet var firstView : UIView!
     @IBOutlet var secondView : UIView!
     @IBOutlet var thirdView : UIView!
     @IBOutlet var tableView : UITableView!
     internal func networkResult(resultData: Any, code: Int) {
-        if let thisRoomInfo = resultData as? GatheringVO{
-            prRoomInfo = thisRoomInfo
-            
-        }
-        if let prc = childViewControllers[1] as? PublicResultCalendarVC {
-            prc.selectedDates =  prRoomInfo.dates!
-            prc.selectView()
-            
-        }
+//        roomDetail.friend_list = tempList
+//        roomDetail.days = dateTempList
+//        roomDetail.position = selectedPosition
         
-        if let pmc = childViewControllers[0] as? PublicMapVC {
-            
-            pmc.selectedPosition = [Position]()
-            for p in prRoomInfo.participants!{
-                pmc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
-                
-            }
-            
-            pmc.putPoiItem()
-        }
         
-                for p in prRoomInfo.participants!{
-            friendsParticipate.append(p)
-        }
+       let insertedData = resultData as! GatheringVO
+        
+        friendList = insertedData.friend_list
+        prRoomInfo.days = insertedData.days
+        prRoomInfo.position = insertedData.position
+        print(childViewControllers[1])
+        print(childViewControllers[0])
+        
+//        if let prc = childViewControllers[1] as? ResultInsertCalendarVC {
+//            prc.selectedDatesDate =  prRoomInfo.days!
+//            prc.selectView()
+//            
+//        }
+//        
+//        if let pmc = childViewControllers[0] as? ResultInsertMapVC {
+//            
+//            pmc.selectedPosition = [Position]()
+//            for p in prRoomInfo.participants!{
+//                pmc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
+//                
+//            }
+//            
+//            pmc.putPoiItem()
+//        }
+        
         tableView.reloadData()
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         let model = MakeGatheringModel(self)
-        
-        model.roomDetail(meeting_id: gino(meeting_id))
+        meeting_id = userdefault.integer(forKey: "my_meeting_id")
+        model.voteMyOpinion(my_meeting_id: gino(meeting_id))
         
         
         
@@ -70,10 +76,10 @@ class ResultInsert: UIViewController, NetworkCallback {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -96,46 +102,54 @@ class ResultInsert: UIViewController, NetworkCallback {
         thirdView.isHidden = false
         
     }
-
-
+    
+    
 }
 
 
 extension ResultInsert: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendsParticipate.count
+        return friendList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         //다운캐스팅
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InsertFriendCell") as! FriendCell
-        
-        
-        
-        
-        let item = friendsParticipate[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
+        let item = friendList[indexPath.row]
+        if let profile = item.profile {
+            if let url = URL(string: profile){
+                cell.imgProfile.kf.setImage(with: url)
+                cell.imgProfile.contentMode = .scaleAspectFit
+                
+            }
+        }
         if let name = item.name{
             cell.txtname.text = name
         }
         
         
-        for p in friendsParticipate{
-            if p.is_input == "1" {
-                cell.checkBox.setBackgroundImage(checked, for: UIControlState.normal)
-            }
-            else if p.is_input == "0"{
-                cell.checkBox.setBackgroundImage(nochecked, for: UIControlState.normal)
-                
-            }
-            
+        cell.checkBox.temp = gino(item.id)
+        cell.checkBox.addTarget(self, action: #selector(ContactsViewController.tickClicked(sender:)), for: .touchUpInside)
+        if selectedArray.contains(gino(item.id)){
+            cell.checkBox.setBackgroundImage(maleImage, for: UIControlState.normal)
+        }else{
+            cell.checkBox.setBackgroundImage(femaleImage, for: UIControlState.normal)
         }
-        
         return cell
     }
-   
     
+    
+    func tickClicked(sender: CheckBox!){
+        let value = sender.temp
+        if selectedArray.contains(value){
+            selectedArray.remove(value)
+        }else{
+            selectedArray.add(value)
+        }
+        
+        tableView.reloadData()
+        
+    }
     
 }

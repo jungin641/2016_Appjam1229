@@ -43,10 +43,12 @@ class MakeGatheringModel: NetworkModel {
             }
         }
     }
-    func roomDetail(meeting_id : Int) {
+//    내방 상세보기 API
+//    8번 통신
+        func roomDetail(meeting_id : Int) {
         let my_id = userDefault.string(forKey: "id")
         
-        Alamofire.request("\(baseURL)/room/detail/\(gsno(my_id))/\(gino(meeting_id))").responseJSON()  { res in
+        Alamofire.request("\(baseURL)/room/detail/\(gsno(my_id))/\(meeting_id)").responseJSON()  { res in
             switch res.result {
             case .success :
                 if let value = res.result.value {
@@ -58,19 +60,20 @@ class MakeGatheringModel: NetworkModel {
                     
                     if let array = data["participants"].array{
                         for item in array{
-                            let participants = Participants(name: item["name"].string, is_input: item["is_input"].string, place: item["place"].string, longitude: item["longitude"].string, latitude: item["latitude"].string)
+                            let participants = Participants(
+                                name: item["name"].string,
+                                is_input: item["is_input"].string,
+                                place: item["place"].string,
+                                longitude: self.gdno(Double(self.gsno(item["longitude"].string))),
+                                latitude: self.gdno(Double(self.gsno(item["latitude"].string))))
                             participantsTempList.append(participants)
                         }
-                        
-                        
                     }
                     if let room_info = data["room_info"].array{
                         for item in room_info{
                             let rvo = RoomInfo(title: item["title"].string, text: item["text"].string, is_open: item["text"].int, when_fix: item["when_fix"].int, where_fix: item["where_fix"].int, room_image: item["room_image"].string, host: item["host"].string,hostprofile: item["host_profile"].string)
                             roomInfoTempList.append(rvo)
                         }
-                        
-                        
                     }
                     if let dates = data["dates"].array{
                         for item in dates{
@@ -88,7 +91,7 @@ class MakeGatheringModel: NetworkModel {
                       
                         
                     }
-                    let roomDetail = GatheringVO(participants: participantsTempList, roomInfo: roomInfoTempList, dates: datesTempList)
+                    let roomDetail = GatheringVO(participants: participantsTempList, roomInfos: roomInfoTempList, dates: datesTempList)
                     
                     self.view.networkResult(resultData: roomDetail, code: 0)
                 }
@@ -102,37 +105,54 @@ class MakeGatheringModel: NetworkModel {
     }
     // 방 만들기 완료 버튼 누를 때 ( 방 정보 다 선택하고 최종적으로 완료 버튼 누를 때)
     //5번 통신
-    func roomCreate(friends_list: [FriendVO]) {
-        let id = userDefault.data(forKey: "id")
-        //  let id = "1"
-        var friends = [[String : String]]()
-        
-        for friend in friends_list{
-            let tempFriends_list = [
-                "ph" : gsno(friend.ph),
-                "name" : gsno(friend.name)
-            ]
-            print(tempFriends_list)
-            friends.append(tempFriends_list)
+    func roomCreate(gatheringVO : GatheringVO) {
+        var partinames = [String]()
+        var sendDays = [String]()
+        var sendRoomInfo = RoomInfo()
+        if let nparti = gatheringVO.participants{
+            for parti in nparti{
+            partinames.append(gsno(parti.name))
+            }}
+        if let nodays = gatheringVO.days{
+            sendDays = nodays
         }
-        
+        if let noroomInfo = gatheringVO.roomInfo{
+            sendRoomInfo = noroomInfo
+        }
+        let meeting = [
+                "host_id" : gino(sendRoomInfo.host_id), //방장의 id(본인 id)
+                "title" : gsno(sendRoomInfo.title),
+                "text" : gsno(sendRoomInfo.text),
+                "is_open" : gino(sendRoomInfo.is_open),
+                "when_fix" : gino(sendRoomInfo.when_fix),
+                "where_fix" : gino(sendRoomInfo.where_fix)
+            ] as [String : Any]
+        let position = [
+            "place" : gsno(gatheringVO.position?.place) ,//방장의 id(본인 id)
+            "longitude" : gdno(gatheringVO.position?.longtitude),
+            "latitude" : gdno(gatheringVO.position?.latitude),
+            ] as [String : Any]
         let params = [
-            "id" :  id,
-            "friends_list" : friends
+            "meeting" :  meeting,
+            "days" : sendDays,
+            "position" :  position,
+            "participant" : partinames,
+            
             ] as [String : Any]
         print(params)
-        Alamofire.request("\(baseURL)/main/sync", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
+        Alamofire.request("\(baseURL)/room/create", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
             case .success :
                 if let value = res.result.value {
                     let data = JSON(value)
                     
                     if let syncResult = data["result"].string{
-                        print("\(syncResult)동기화성공")
+                        print("\(syncResult)방 만들기 완료")
                         if syncResult == "SUCCESS" {
                             // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
                         }
                         else if syncResult == "FAIL" {
+                             print("\(syncResult)방 만들기 실패")
                             //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
                         }
                     }
@@ -141,14 +161,69 @@ class MakeGatheringModel: NetworkModel {
                 break
             case .failure(let err) :
                 print(err)
-                print("동기화실패\(err)")
+                print("방만들기실패\(err)")
                 self.view.networkFailed()
             }
             
         }
         
     }
+//    내방_상세보기에서 입력 버튼 눌렀을 때 기존에 입력했던 정보 제공 API
+//    11번 통신
+    func voteMyOpinion(my_meeting_id : Int){
+        
+        Alamofire.request("\(baseURL)/room/vote_my_opinion/\(my_meeting_id)").responseJSON()  { res in
+            switch res.result {
+            case .success :
+                if let value = res.result.value {
+                    let data = JSON(value)
+                    
+                    var tempList = [FriendVO]()
+                    if let array = data["friend_list"].array{
+                        for item in array{
+                            let fvo = FriendVO(name: item["name"].string,
+                                               profile: item["profile"].string,
+                                               id: item["id"].int)
+                            tempList.append(fvo)
+                        }
+                        
+                        
+                    }
 
-    
+                    var dateTempList = [String]()
+                    if let dates = data["dates"].array{
+                        for item in dates{
+                            dateTempList.append(self.gsno(item.string))
+                        }
+                        
+                    }
+                    var selectedPosition = Position()
+                        selectedPosition = Position(
+                            place: self.gsno(data["position"]["place"].string),
+                            longtitude:  self.gdno(Double(self.gsno(data["position"]["longitude"].string))),
+                            latitude: self.gdno(Double(self.gsno(data["position"]["latitude"].string))))
+                    
+                    if let my_meeting_id = data["my_meeting_id"].int{
+                        //나중에 저장해두고 필요할 때 보내주기만 하면 됨
+                        // 약속관계 key
+                        self.userDefault.set(my_meeting_id, forKey: "my_meeting_id")
+                        
+                        
+                    }
+                    let roomDetail = GatheringVO()
+                    roomDetail.friend_list = tempList
+                    roomDetail.days = dateTempList
+                    roomDetail.position = selectedPosition
+                    
+                    self.view.networkResult(resultData: roomDetail, code: 0)
+                }
+                break
+                
+            case .failure(let err) :
+                print(err)
+                self.view.networkFailed()
+            }
+        }
+    }
     
 }

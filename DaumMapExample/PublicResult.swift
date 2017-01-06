@@ -20,10 +20,16 @@ class PublicResult : UIViewController, NetworkCallback {
     var meeting_id : Int?
     
     let checked = UIImage(named: "checkbox")
-    let nochecked  = UIImage(named: "nochecked")
+    let nochecked  = UIImage(named: "nocheckbox")
     
     let picker = UIImagePickerController()
-    
+ 
+    @IBAction func exit(_ sender: Any) {
+        
+        let model = PostModel(self)
+        model.exit()
+        
+    }
     @IBOutlet var firstView : UIView!
     @IBOutlet var secondView : UIView!
     @IBOutlet var thirdView : UIView!
@@ -33,8 +39,18 @@ class PublicResult : UIViewController, NetworkCallback {
     @IBOutlet var hostname : UILabel!
     @IBOutlet var roomTitle : UILabel!
     @IBOutlet var roomContent : UILabel!
-    
+     let btnOk = UIAlertAction(title: "확인", style: .default, handler: {_ in print("얍")})
     internal func networkResult(resultData: Any, code: Int) {
+        
+        if(code == 5){
+            
+            let alert = UIAlertController(title: "알림", message: "\(resultData)", preferredStyle: .alert)
+            
+            alert.addAction(btnOk)
+            present(alert, animated: true , completion: nil)
+            
+        }
+        
         if let thisRoomInfo = resultData as? GatheringVO{
             prRoomInfo = thisRoomInfo
             
@@ -56,13 +72,13 @@ class PublicResult : UIViewController, NetworkCallback {
             pmc.putPoiItem()
         }
         
-        hostname.text = prRoomInfo.roomInfo?[0].host
-        roomTitle.text = prRoomInfo.roomInfo?[0].title
-        roomContent.text = prRoomInfo.roomInfo?[0].text
-        if let roomimg = prRoomInfo.roomInfo?[0].room_image{
+        hostname.text = prRoomInfo.roomInfos?[0].host
+        roomTitle.text = prRoomInfo.roomInfos?[0].title
+        roomContent.text = prRoomInfo.roomInfos?[0].text
+        if let roomimg = prRoomInfo.roomInfos?[0].room_image{
             roomImage.imageFromUrl(roomimg, defaultImgPath: "mountain")
         }
-        if let hostimg = prRoomInfo.roomInfo?[0].hostprofile{
+        if let hostimg = prRoomInfo.roomInfos?[0].hostprofile{
             hostprofileImage.imageFromUrl(hostimg, defaultImgPath: "bighuman")
             hostprofileImage.roundedBorder()
         }
@@ -142,7 +158,7 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //다운캐스팅
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PRFriendCell") as! PRFriendCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PRFriendCell2") as! PRFriendCell2
         
         
         
@@ -156,9 +172,11 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
       
         for p in friendsParticipate{
             if p.is_input == "1" {
+                print("checked")
                cell.checkBox.image = checked
             }
             else if p.is_input == "0"{
+                 print("nochecked")
                 cell.checkBox.image = nochecked
 
             }
@@ -176,7 +194,7 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
         let link = KakaoTalkLinkObject.createAppButton("눌러보세요!!", actions: [appAction])
         KOAppCall.openKakaoTalkAppLink([text!, image!, link!])
     }
-    
+ 
  
 }
 
@@ -188,7 +206,6 @@ extension PublicResult: UINavigationControllerDelegate, UIImagePickerControllerD
     
     // 사진 선택 관련 딜리게이트
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("선택완료")
         // 새로운 이미지 프로퍼티를 만들어주고
         var newImage: UIImage
         
