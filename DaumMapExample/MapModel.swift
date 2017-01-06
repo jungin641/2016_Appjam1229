@@ -27,7 +27,7 @@ class MapModel: NetworkModel {
                 if let value = res.result.value {
                     
                     let data = JSON(value)
-                    print(data)
+                    
                     if let array = data["channel"]["item"].array{
                         for position in array{
                             resultPosition.append(
@@ -47,7 +47,7 @@ class MapModel: NetworkModel {
                 }
                 break
             case .failure(let err):
-                print("위치검색하기 : 에러")
+              
                 print(err)
                 self.view.networkFailed()
             }

@@ -35,25 +35,25 @@ class ResultInsert: UIViewController, NetworkCallback {
         friendList = insertedData.friend_list
         prRoomInfo.days = insertedData.days
         prRoomInfo.position = insertedData.position
-        print(childViewControllers[1])
-        print(childViewControllers[0])
         
-//        if let prc = childViewControllers[1] as? ResultInsertCalendarVC {
-//            prc.selectedDatesDate =  prRoomInfo.days!
-//            prc.selectView()
-//            
-//        }
-//        
-//        if let pmc = childViewControllers[0] as? ResultInsertMapVC {
-//            
-//            pmc.selectedPosition = [Position]()
-//            for p in prRoomInfo.participants!{
-//                pmc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
-//                
-//            }
-//            
-//            pmc.putPoiItem()
-//        }
+ 
+        if let prc = childViewControllers[1] as? ResultInsertCalendarVC {
+            prc.selectedDatesDate =  prRoomInfo.days!
+            prc.selectView()
+            
+        }
+        
+        if let pmc = childViewControllers[0] as? ResultInsertMapVC {
+            
+            pmc.selectedPosition = [Position]()
+            if let prRoomInfoparti  = prRoomInfo.participants{
+            for p in prRoomInfoparti{
+                pmc.selectedPosition?.append(Position(place: p.place, longtitude: p.longitude, latitude: p.latitude))
+                
+            }
+            }
+            pmc.putPoiItem()
+        }
         
         tableView.reloadData()
         
@@ -115,7 +115,7 @@ extension ResultInsert: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //다운캐스팅
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InsertFriendCell") as! InsertFriendCell
         let item = friendList[indexPath.row]
         if let profile = item.profile {
             if let url = URL(string: profile){

@@ -26,7 +26,7 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
        
     }
     func putPoiItem(){
-        print("PublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVC")
+       
          mapView.baseMapType = .standard
         // items.append(poiItem(name: "넷", latitude: 126, longitude: 38))
         // items.append(poiItem(name: "넷", latitude: 127.1722, longitude: 37.5665))

@@ -37,6 +37,7 @@
 		268811A51E1D3DDE00A6C2B0 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */; };
 		269173331E17B6CF000788AF /* UserVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173321E17B6CF000788AF /* UserVO.swift */; };
 		269173351E17C981000788AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269173341E17C981000788AF /* FriendCell.swift */; };
+		2692BD4E1E1FAD0600437B01 /* InsertFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2692BD4D1E1FAD0600437B01 /* InsertFriendCell.swift */; };
 		269E50821E1B7EEA00ED9F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */; };
 		26D1E0631E181C4500201341 /* FriendVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E0621E181C4500201341 /* FriendVO.swift */; };
 		26D471D81E191303008BB01E /* MakeGatheringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D471D71E191303008BB01E /* MakeGatheringModel.swift */; };
@@ -125,6 +126,7 @@
 		268811A41E1D3DDE00A6C2B0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
 		269173321E17B6CF000788AF /* UserVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVO.swift; sourceTree = "<group>"; };
 		269173341E17C981000788AF /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		2692BD4D1E1FAD0600437B01 /* InsertFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertFriendCell.swift; sourceTree = "<group>"; };
 		269E50811E1B7EEA00ED9F87 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26D1E0621E181C4500201341 /* FriendVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendVO.swift; sourceTree = "<group>"; };
 		26D471D71E191303008BB01E /* MakeGatheringModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeGatheringModel.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			children = (
 				26F1ED1E1E14F2B10069971A /* GatheringCell.swift */,
 				269173341E17C981000788AF /* FriendCell.swift */,
+				2692BD4D1E1FAD0600437B01 /* InsertFriendCell.swift */,
 				2682D34D1E1D8A4300191E1D /* PRFriendCell.swift */,
 				26E8B1481E1F7DFD00ADCF85 /* PRFriendCell2.swift */,
 			);
@@ -674,6 +677,7 @@
 				269173351E17C981000788AF /* FriendCell.swift in Sources */,
 				26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */,
 				26816FA71E166E7500327375 /* ContentViewController.swift in Sources */,
+				2692BD4E1E1FAD0600437B01 /* InsertFriendCell.swift in Sources */,
 				2616F8FF1E1EECE500CB20F4 /* ResultInsert.swift in Sources */,
 				264548641E175C550084C865 /* SecondVC.swift in Sources */,
 				26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */,

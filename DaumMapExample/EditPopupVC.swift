@@ -93,7 +93,7 @@ extension EditPopupVC: UINavigationControllerDelegate, UIImagePickerControllerDe
     
     // 사진 선택 관련 딜리게이트
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("선택완료")
+
         // 새로운 이미지 프로퍼티를 만들어주고
         var newImage: UIImage
         

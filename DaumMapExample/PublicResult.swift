@@ -170,18 +170,16 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
         }
         
       
-        for p in friendsParticipate{
-            if p.is_input == "1" {
-                print("checked")
-               cell.checkBox.image = checked
+        
+            if gsno(item.is_input) == "1" {
+                cell.checkBox.image = checked
             }
-            else if p.is_input == "0"{
-                 print("nochecked")
-                cell.checkBox.image = nochecked
+            else if gsno(item.is_input) == "0"{
+                    cell.checkBox.image = nochecked
 
             }
             
-        }
+        
         
         return cell
     }

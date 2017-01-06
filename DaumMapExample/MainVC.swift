@@ -75,10 +75,6 @@ class MainVC: UITableViewController, NetworkCallback {
     internal func networkResult(resultData: Any, code: Int) {
         
         myGatheringList = resultData as! [GatheringVO]
-        
-        print("@@@@@@@@@")
-        print(myGatheringList.count)
-        
         tableView.reloadData()
         
     }

@@ -26,7 +26,6 @@ class ResultInsertMapVC: UIViewController, MTMapViewDelegate {
         
     }
     func putPoiItem(){
-        print("PublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVCPublicMapVC")
         mapView.baseMapType = .standard
         // items.append(poiItem(name: "넷", latitude: 126, longitude: 38))
         // items.append(poiItem(name: "넷", latitude: 127.1722, longitude: 37.5665))
@@ -43,8 +42,7 @@ class ResultInsertMapVC: UIViewController, MTMapViewDelegate {
         
         if let mySelectedPosition = selectedPosition{
             for sp in mySelectedPosition{
-                print("latitude \(sp.latitude) longtitude \(sp.longtitude)")
-                items.append(
+                 items.append(
                     poiItem(
                         //gdno extensionControl에 추가!
                         name: gsno(sp.place),

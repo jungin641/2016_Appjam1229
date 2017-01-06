@@ -10,31 +10,50 @@ import UIKit
 import FSCalendar
 
 class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, FSCalendarDataSource, NetworkCallback{
-      let userDefault = UserDefaults.standard
+    let userDefault = UserDefaults.standard
+    var codeResult = 0
     internal func networkResult(resultData: Any, code: Int) {
+        codeResult = code
+        if(code == 1){
+            let noldamTransitionDelegate = NoldamTrasitionDelegate()
+            transitioningDelegate = noldamTransitionDelegate
+            let pvc = storyboard!.instantiateViewController(withIdentifier: "RoomMakedPopUp") as! RoomMakedPopUp
+            pvc.modalPresentationStyle = .custom
+            
+            pvc.transitioningDelegate = noldamTransitionDelegate
+            present(pvc, animated: true)
+        }
+        //        if codeResult == 1{
+        //            dismiss(animated: true, completion: nil)
+        //
+        //        }
         
     }
-
+    
     private let daumAPIKey = "989e84a4ef34f3f5247eab3c943f132d" // replace with your Daum API Key
-
+    
     var selectedDatesDate = [String]()
     var selectedPosition = [Position]()
     
     @IBOutlet var btn1 : UIButton?
     @IBOutlet var btn2 : UIButton?
     @IBOutlet var titleTxt : UITextField?
-    @IBOutlet var contentsTxt : UITextView?
+    @IBOutlet var contentsTxt : UITextField?
+    var count = 0
+    var count2 = 0
     @IBOutlet var when : FSCalendar!
     @IBOutlet var manCount : UILabel?
     @IBOutlet var mapView : MTMapView!
-   
+    var when_fix = 0
+    var where_fix = 0
     
     var gatheringVC = GatheringVO()
     var thisRoomInfo = RoomInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        btn1?.setImage(UIImage(named : "checkcheckoff"), for: UIControlState.normal)
+        btn2?.setImage(UIImage(named : "checkcheckoff"), for: UIControlState.normal)
         mapView.daumMapApiKey = daumAPIKey
         mapView.delegate = self
         
@@ -60,17 +79,17 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         }
         putPoiItem()
         selectView()
-       
-         //self.view.insertSubview(mapView, at: 0)
+        
+        //self.view.insertSubview(mapView, at: 0)
     }
     //달력표시
     func selectView(){
         
-      
+        
         // 표시하기
         for date in selectedDatesDate{
             let myDate = self.formatter.date(from : date)!.xDays(0)
-          //  dateList.append(myDate)
+            //  dateList.append(myDate)
             when.select(self.formatter.date(from : date)?.xDays(0))
         }
         
@@ -79,7 +98,7 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
     }
     // 지도 표시
     func putPoiItem(){
-         mapView.baseMapType = .standard
+        mapView.baseMapType = .standard
         // items.append(poiItem(name: "넷", latitude: 126, longitude: 38))
         // items.append(poiItem(name: "넷", latitude: 127.1722, longitude: 37.5665))
         // items.append(poiItem(name: "넷", latitude: 126.920757, longitude: 37.623885))
@@ -92,25 +111,47 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         
         var items = [MTMapPOIItem]()
         
-
-            for sp in selectedPosition{
-                items.append(
-                    poiItem(
-                        //gdno extensionControl에 추가!
-                        name: gsno(sp.place),
-                        latitude:  gdno(sp.latitude),
-                        longitude: gdno(sp.longtitude)
-                ))
-            }
-            
+        
+        for sp in selectedPosition{
+            items.append(
+                poiItem(
+                    //gdno extensionControl에 추가!
+                    name: gsno(sp.place),
+                    latitude:  gdno(sp.latitude),
+                    longitude: gdno(sp.longtitude)
+            ))
+        }
+        
         
         
         mapView.addPOIItems(items)
         mapView.fitAreaToShowAllPOIItems()
-       
+        
         
     }
+    @IBAction func Btn1Click(_ sender: Any) {
+        if count%2 == 0{
+            btn1?.setImage(UIImage(named : "checkcheck-1"), for: UIControlState.normal)
+            when_fix = 1
+        }
+        else{
+            btn1?.setImage(UIImage(named : "checkcheckoff"), for: UIControlState.normal)
+            when_fix = 0
+        }
+        count += 1
+    }
     
+    @IBAction func Btn2Click(_ sender: Any) {
+        if count2%2 == 0{
+            btn2?.setImage(UIImage(named : "checkcheck-1"), for: UIControlState.normal)
+            where_fix = 1
+        }
+        else{
+            btn2?.setImage(UIImage(named : "checkcheckoff"), for: UIControlState.normal)
+            where_fix = 0
+        }
+        count2 += 1
+    }
     func poiItem(name: String, latitude: Double, longitude: Double) -> MTMapPOIItem {
         let item = MTMapPOIItem()
         item.itemName = name
@@ -123,7 +164,7 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         
         return item
     }
-
+    
     
     
     
@@ -132,22 +173,37 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         formatter.dateFormat = "yyyyMMdd"
         return formatter
     }()
-   @IBAction func BtnCancel(_ sender: AnyObject) {
+    @IBAction func BtnCancel(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func BtnComplete(_ sender: AnyObject) {
+        
+        if titleTxt?.text?.isEmpty == true{
+            
+            
+            let noldamTransitionDelegate = NoldamTrasitionDelegate()
+            transitioningDelegate = noldamTransitionDelegate
+            let pvc = storyboard!.instantiateViewController(withIdentifier: "NoSelectPopUp") as! NoSelectPopUp
+            pvc.modalPresentationStyle = .custom
+            
+            pvc.transitioningDelegate = noldamTransitionDelegate
+            present(pvc, animated: true)
+            
+        }
+        
+        
         
         thisRoomInfo.host_id = userDefault.integer(forKey: "id")
         thisRoomInfo.title = titleTxt?.text
         thisRoomInfo.text = contentsTxt?.text
         thisRoomInfo.is_open = 0
-        thisRoomInfo.when_fix = 0 //날짜 확정 1 날짜 미정 0
-        thisRoomInfo.where_fix = 0 // 0: 장소 미정, 1: 장소 확정)
+        thisRoomInfo.when_fix = when_fix //날짜 확정 1 날짜 미정 0
+        thisRoomInfo.where_fix = where_fix // 0: 장소 미정, 1: 장소 확정)
         
         gatheringVC.roomInfo = thisRoomInfo
         let model = MakeGatheringModel(self)
         model.roomCreate(gatheringVO: gatheringVC)
-
+        
     }
     
 }

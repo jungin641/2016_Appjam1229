@@ -104,7 +104,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = 0
-        print("이전 : \(viewController)")
+      
         if viewController === vcs[0] {
             return nil
         } else if viewController === vcs[1] {
@@ -126,7 +126,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
         
         
         var index = 0
-        print("이후 : \(viewController)")
+
         if viewController === vcs[0] {
             index = 1
         } else if viewController === vcs[1] {

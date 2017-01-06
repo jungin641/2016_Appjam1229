@@ -236,7 +236,7 @@ class PostModel: NetworkModel {
     
     // 전화번호 동기화
     func sync(friends_list: [FriendVO]) {
-        let id = userDefault.data(forKey: "id")
+        let id = userDefault.integer(forKey: "id")
         //  let id = "1"
         var friends = [[String : String]]()
         
@@ -245,7 +245,7 @@ class PostModel: NetworkModel {
                 "ph" : gsno(friend.ph),
                 "name" : gsno(friend.name)
             ]
-            print(tempFriends_list)
+           
             friends.append(tempFriends_list)
         }
         
@@ -270,7 +270,6 @@ class PostModel: NetworkModel {
                         }
                     }
                 }
-                
                 break
             case .failure(let err) :
                 print(err)

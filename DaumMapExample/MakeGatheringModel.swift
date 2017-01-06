@@ -139,25 +139,24 @@ class MakeGatheringModel: NetworkModel {
             "participant" : partinames,
             
             ] as [String : Any]
-        print(params)
+        
         Alamofire.request("\(baseURL)/room/create", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
             case .success :
                 if let value = res.result.value {
                     let data = JSON(value)
-                    
-                    if let syncResult = data["result"].string{
-                        print("\(syncResult)방 만들기 완료")
-                        if syncResult == "SUCCESS" {
-                            // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
-                        }
-                        else if syncResult == "FAIL" {
-                             print("\(syncResult)방 만들기 실패")
-                            //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
-                        }
+                     if let syncResult = data["result"].string{
+                    if syncResult == "SUCCESS" {
+                        self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 1)
+                       
                     }
+                    else if syncResult == "FAIL" {
+                   
+                        self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
+                    }
+
                 }
-                
+                }
                 break
             case .failure(let err) :
                 print(err)
@@ -224,6 +223,61 @@ class MakeGatheringModel: NetworkModel {
                 self.view.networkFailed()
             }
         }
+    }
+    
+//    입력 버튼 눌러서 새로 입력한 정보 저장 API
+//    12번 통신
+    func voteMyOpinion_final(gatheringVO : GatheringVO){
+        
+        let id = userDefault.integer(forKey: "my_meeting_id")
+    
+        var partinames = [String]()
+        var sendDays = [String]()
+        var sendRoomInfo = RoomInfo()
+        if let nparti = gatheringVO.participants{
+            for parti in nparti{
+                partinames.append(gsno(parti.name))
+            }}
+        if let nodays = gatheringVO.days{
+            sendDays = nodays
+        }
+        let position = [
+            "place" : gsno(gatheringVO.position?.place) ,//방장의 id(본인 id)
+            "longitude" : gdno(gatheringVO.position?.longtitude),
+            "latitude" : gdno(gatheringVO.position?.latitude),
+            ] as [String : Any]
+        let params = [
+            "participant" :  partinames,
+            "days" : sendDays,
+            "position:" : position,
+            "my_meeting_id" : id,
+
+            ] as [String : Any]
+        print(params)
+        Alamofire.request("\(baseURL)/room/vote_my_opinion", method: .put, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
+            switch res.result {
+            case .success :
+                if let value = res.result.value {
+                    let data = JSON(value)
+                    
+                    if let syncResult = data["result"].string{
+                            if syncResult == "SUCCESS" {
+                            // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
+                        }
+                        else if syncResult == "FAIL" {
+                            //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
+                        }
+                    }
+                }
+                break
+            case .failure(let err) :
+                print(err)
+              
+                self.view.networkFailed()
+            }
+            
+        }
+        
     }
     
 }
