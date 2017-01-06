@@ -19,8 +19,7 @@ class ContactsViewController: UITableViewController, NetworkCallback {
     let femaleImage  = UIImage(named: "v")
     
     override func viewDidLoad() {
-        
-        let model = MakeGatheringModel(self)
+                let model = MakeGatheringModel(self)
         model.getFriendsList()
         self.tableView.reloadData()
         tableView.delegate = self

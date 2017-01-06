@@ -192,6 +192,7 @@ class MakeGatheringModel: NetworkModel {
                     var dateTempList = [String]()
                     if let dates = data["dates"].array{
                         for item in dates{
+                            print(item.string)
                             dateTempList.append(self.gsno(item.string))
                         }
                         
@@ -253,7 +254,6 @@ class MakeGatheringModel: NetworkModel {
             "my_meeting_id" : id,
 
             ] as [String : Any]
-        print(params)
         Alamofire.request("\(baseURL)/room/vote_my_opinion", method: .put, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
             case .success :

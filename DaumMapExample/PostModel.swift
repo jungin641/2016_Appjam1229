@@ -253,7 +253,7 @@ class PostModel: NetworkModel {
             "id" :  id,
             "friends_list" : friends
             ] as [String : Any]
-        print(params)
+   
         Alamofire.request("\(baseURL)/main/sync", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
             switch res.result {
             case .success :

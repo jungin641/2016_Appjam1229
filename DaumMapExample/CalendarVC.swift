@@ -42,8 +42,7 @@ class CalendarVC: UIViewController, FSCalendarDelegate, FSCalendarDataSource { /
     
     // 스와이프를 통해서 다른 달(month)의 달력으로 넘어갈 때 발생하는 이벤트를 이 곳에서 처리할 수 있겠네요.
     func calendarCurrentMonthDidChange(calendar: FSCalendar) {
-        
-    }
+          }
     //
     // 특정 날짜를 선택했을 때, 발생하는 이벤트는 이 곳에서 처리할 수 있겠네요.
     func calendar(_ calendar: FSCalendar, didSelect date: Date) {

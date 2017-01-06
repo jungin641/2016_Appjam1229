@@ -28,10 +28,10 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
     func putPoiItem(){
        
          mapView.baseMapType = .standard
-        // items.append(poiItem(name: "넷", latitude: 126, longitude: 38))
-        // items.append(poiItem(name: "넷", latitude: 127.1722, longitude: 37.5665))
-        // items.append(poiItem(name: "넷", latitude: 126.920757, longitude: 37.623885))
-        // items.append(poiItem(name: "넷", latitude: 126.927032, longitude: 37.4873488))
+         items.append(poiItem(name: "여기", latitude: 126, longitude: 38))
+         items.append(poiItem(name: "여기", latitude: 127.1722, longitude: 37.5665))
+         items.append(poiItem(name: "여기", latitude: 126.920757, longitude: 37.623885))
+         items.append(poiItem(name: "여기", latitude: 126.927032, longitude: 37.4873488))
         
         
         //        //샘플 데이터
@@ -43,7 +43,6 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
 
         if let mySelectedPosition = selectedPosition{
             for sp in mySelectedPosition{
-                print("latitude \(sp.latitude) longtitude \(sp.longtitude)")
                 items.append(
                     poiItem(
                         //gdno extensionControl에 추가!
