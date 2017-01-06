@@ -157,14 +157,7 @@ class SecondVC : UIViewController, NetworkCallback {
             model.joinWithPhoto(id: id, pw: pw, ph: ph, name: name,work : work, imageData: imageData,home: home)
         }
         
-        //
-        //            let noldamTransitionDelegate = NoldamTrasitionDelegate()
-        //            transitioningDelegate = noldamTransitionDelegate
-        //            let pvc = storyboard!.instantiateViewController(withIdentifier: "PopupVC") as! PopupVC
-        //            pvc.modalPresentationStyle = .custom
-        //            pvc.strDate = id
-        //            pvc.transitioningDelegate = noldamTransitionDelegate
-        //            present(pvc, animated: true)
+        
     }
     
     @IBAction func backBtn(_ sender: AnyObject){

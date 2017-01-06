@@ -184,12 +184,11 @@ extension PublicResult: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     @IBAction func kakaoShare(_ sender: AnyObject) {
-        let text = KakaoTalkLinkObject.createLabel("테스트입니다.")
-        let image = KakaoTalkLinkObject.createImage("https://s3.ap-northeast-2.amazonaws.com/noldam/sitter/certificate/pokemon1.png", width: 164, height: 198)
-        let appAction = KakaoTalkLinkAction.createAppAction(.IOS, devicetype: .phone, marketparamString: "itms-apps://itunes.apple.com/kr/app/noldam/id1137715307?mt=8", execparamString: "")!
-        //        let appAction2 = KakaoTalkLinkAction.createApac
-        //설치되어있으면 거기로 감 안되어있으면 아이튠즈 링크 뜸
-        let link = KakaoTalkLinkObject.createAppButton("눌러보세요!!", actions: [appAction])
+        let text = KakaoTalkLinkObject.createLabel("모임제목 : \(gsno(roomTitle.text))\n모임내용 :  \(gsno(roomTitle.text))")
+        let image = KakaoTalkLinkObject.createImage("http://postfiles9.naver.net/MjAxNzAxMDdfMjgg/MDAxNDgzNzE4MjQyNDYz.giU7-1VFEtJrooXM7m4cF-vUsPUbEU25TLMnBxOGCssg.PlE-09lmoo2DVnw7z4JjPNKJpjhnWkBn8L5HRkhITO8g.PNG.jungin641/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2017-01-07_%EC%98%A4%EC%A0%84_12.56.26.png?type=w1", width: 164, height: 198)
+        let appAction = KakaoTalkLinkAction.createAppAction(.IOS, devicetype: .phone, marketparamString: "", execparamString: "")!
+      
+        let link = KakaoTalkLinkObject.createAppButton("모임 참여하기", actions: [appAction])
         KOAppCall.openKakaoTalkAppLink([text!, image!, link!])
     }
  

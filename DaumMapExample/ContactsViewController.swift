@@ -50,7 +50,8 @@ class ContactsViewController: UITableViewController, NetworkCallback {
         if let profile = item.profile {
             if let url = URL(string: profile){
                 cell.imgProfile.kf.setImage(with: url)
-                cell.imgProfile.contentMode = .scaleAspectFit
+                cell.imgProfile.contentMode = .redraw
+                cell.imgProfile.roundedBorder()
                 
             }
         }

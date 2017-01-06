@@ -33,7 +33,7 @@ class ResultInsertCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
         
         calendar.appearance.selectionColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         calendar.appearance.borderSelectionColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        
+        calendar.allowsSelection = true
         
         calendar.appearance.caseOptions = [.weekdayUsesSingleUpperCase]
         // calendar.appearance.today // 오늘 색 변경
@@ -49,12 +49,11 @@ class ResultInsertCalendarVC: UIViewController , FSCalendarDelegate, FSCalendarD
         // 표시하기
         for date in selectedDatesDate{
             let myDate = self.formatter.date(from : date)!.xDays(0)
-           
-            calendar.select(date)
+
+            calendar.select(myDate)
         }
         
-        //사용자 선택 막기, 꼭 맨 밑에 있어야 함
-        calendar.allowsSelection = false
+        
     }
     
 }

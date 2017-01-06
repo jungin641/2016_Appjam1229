@@ -28,11 +28,7 @@ class PublicMapVC: UIViewController, MTMapViewDelegate {
     func putPoiItem(){
        
          mapView.baseMapType = .standard
-         items.append(poiItem(name: "여기", latitude: 126, longitude: 38))
-         items.append(poiItem(name: "여기", latitude: 127.1722, longitude: 37.5665))
-         items.append(poiItem(name: "여기", latitude: 126.920757, longitude: 37.623885))
-         items.append(poiItem(name: "여기", latitude: 126.927032, longitude: 37.4873488))
-        
+                 
         
         //        //샘플 데이터
         //        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")

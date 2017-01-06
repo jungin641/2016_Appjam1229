@@ -108,9 +108,17 @@ class ResultInsert: UIViewController, NetworkCallback {
     @IBAction func btnInput(){
         //확인창으로 보낼 데이터들 가져옴
         
+        let friendList = selectedArray
+        if let swiftArray = friendList as NSArray as? [Int] {
+            prRoomInfo.setParticipant(participant: swiftArray)
+            
+        }
         
         if let prc = childViewControllers[1] as? ResultInsertCalendarVC {
-            prc.selectedDatesDate =  prRoomInfo.days!
+            if let roomdays = prRoomInfo.days{
+                prc.selectedDatesDate = roomdays
+            }
+            
             prc.selectView()
             
         }
@@ -125,41 +133,8 @@ class ResultInsert: UIViewController, NetworkCallback {
                 }
             }
             pmc.putPoiItem()
+            pmc.mapView.fitAreaToShowAllPOIItems()
         }
-//        
-//        for vc in vcs{
-//            if let ContactsVC = vc as? ContactsViewController{
-//                let friendList = ContactsVC.selectedArray
-//                if let swiftArray = friendList as NSArray as? [Int] {
-//                    newGathering.setParticipant(participant: swiftArray)
-//                }
-//            }
-//            if let CalendarVC = vc as? CalendarVC{
-//                let days = CalendarVC.selectedDates
-//                newGathering.setDays(days: days)
-//            }
-//            if let mapViewController = vc as? MapViewController{
-//                let position = mapViewController.selectedPosition
-//                newGathering.setPosision(position: position)
-//            }
-//            
-//        }
-//        
-//        if let targetVC = storyboard?.instantiateViewController(withIdentifier: "MakeRoomResult") as? MakeRoomResult{
-//            if let partiResult =  newGathering.participant{
-//                targetVC.gatheringVC.participant = partiResult
-//                
-//            }
-//            if let daysResult =  newGathering.days{
-//                targetVC.gatheringVC.days = daysResult
-//                
-//            }
-//            if let posiResult =  newGathering.position{
-//                targetVC.gatheringVC.position = posiResult
-//                
-//            }
-//            present(targetVC, animated: true)
-//        }
 
         
         
@@ -186,6 +161,7 @@ extension ResultInsert: UITableViewDelegate, UITableViewDataSource {
             if let url = URL(string: profile){
                 cell.imgProfile.kf.setImage(with: url)
                 cell.imgProfile.contentMode = .scaleAspectFit
+                cell.imgProfile.roundedBorder()
                 
             }
         }

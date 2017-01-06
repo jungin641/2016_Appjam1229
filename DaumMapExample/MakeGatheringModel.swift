@@ -190,9 +190,10 @@ class MakeGatheringModel: NetworkModel {
                     }
 
                     var dateTempList = [String]()
-                    if let dates = data["dates"].array{
+                    
+                    if let dates = data["days"].array{
                         for item in dates{
-                            print(item.string)
+                            
                             dateTempList.append(self.gsno(item.string))
                         }
                         
@@ -202,7 +203,8 @@ class MakeGatheringModel: NetworkModel {
                             place: self.gsno(data["position"]["place"].string),
                             longtitude:  self.gdno(Double(self.gsno(data["position"]["longitude"].string))),
                             latitude: self.gdno(Double(self.gsno(data["position"]["latitude"].string))))
-                    
+                    print("selectedPositionselectedPositionselectedPosition")
+                        print(selectedPosition)
                     if let my_meeting_id = data["my_meeting_id"].int{
                         //나중에 저장해두고 필요할 때 보내주기만 하면 됨
                         // 약속관계 key
@@ -232,23 +234,22 @@ class MakeGatheringModel: NetworkModel {
         
         let id = userDefault.integer(forKey: "my_meeting_id")
     
-        var partinames = [String]()
+        var partiIds = [Int]()
         var sendDays = [String]()
-        var sendRoomInfo = RoomInfo()
-        if let nparti = gatheringVO.participants{
+        if let nparti = gatheringVO.participant{
             for parti in nparti{
-                partinames.append(gsno(parti.name))
+                partiIds.append(gino(parti))
             }}
         if let nodays = gatheringVO.days{
             sendDays = nodays
         }
         let position = [
-            "place" : gsno(gatheringVO.position?.place) ,//방장의 id(본인 id)
+            "place" : gsno(gatheringVO.position?.place) ,
             "longitude" : gdno(gatheringVO.position?.longtitude),
             "latitude" : gdno(gatheringVO.position?.latitude),
             ] as [String : Any]
         let params = [
-            "participant" :  partinames,
+            "participant" :  partiIds,
             "days" : sendDays,
             "position:" : position,
             "my_meeting_id" : id,
