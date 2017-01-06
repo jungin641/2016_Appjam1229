@@ -100,7 +100,55 @@ class MakeGatheringModel: NetworkModel {
             }
         }
     }
-    
+    // 방 만들기 완료 버튼 누를 때 ( 방 정보 다 선택하고 최종적으로 완료 버튼 누를 때)
+    //5번 통신
+    func roomCreate(friends_list: [FriendVO]) {
+        let id = userDefault.data(forKey: "id")
+        //  let id = "1"
+        var friends = [[String : String]]()
+        
+        for friend in friends_list{
+            let tempFriends_list = [
+                "ph" : gsno(friend.ph),
+                "name" : gsno(friend.name)
+            ]
+            print(tempFriends_list)
+            friends.append(tempFriends_list)
+        }
+        
+        let params = [
+            "id" :  id,
+            "friends_list" : friends
+            ] as [String : Any]
+        print(params)
+        Alamofire.request("\(baseURL)/main/sync", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON() { res in
+            switch res.result {
+            case .success :
+                if let value = res.result.value {
+                    let data = JSON(value)
+                    
+                    if let syncResult = data["result"].string{
+                        print("\(syncResult)동기화성공")
+                        if syncResult == "SUCCESS" {
+                            // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
+                        }
+                        else if syncResult == "FAIL" {
+                            //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
+                        }
+                    }
+                }
+                
+                break
+            case .failure(let err) :
+                print(err)
+                print("동기화실패\(err)")
+                self.view.networkFailed()
+            }
+            
+        }
+        
+    }
+
     
     
 }

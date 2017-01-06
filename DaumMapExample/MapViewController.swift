@@ -8,7 +8,12 @@
 
 import UIKit
 
-class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate {
+class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate,NetworkCallback {
+    internal func networkResult(resultData: Any, code: Int) {
+        print("@@@@@@@@$$$$$$$$$$$s@@@@@@@@@")
+        print(resultData)
+    }
+
     var selectedPosition : Position?
     let mypoiItem = MTMapPOIItem()
     @IBAction func ConfirmBtn(_ sender: AnyObject) {
@@ -28,10 +33,16 @@ class MapViewController: UIViewController, MTMapViewDelegate,UISearchBarDelegate
         mapView.baseMapType = .standard
         mapView.showCurrentLocationMarker = false
         mapView.currentLocationTrackingMode = .onWithoutHeading
-
+searchKeyword()
+       
+        
         self.view.insertSubview(mapView, at: 0)
     }
-    
+    func searchKeyword() {
+        let query = "광화문"
+        let model = MapModel(self)
+        model.daumKeywordSearch(query: query)
+    }
     //현위치 트래킹
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
         mapView.showCurrentLocationMarker = false

@@ -352,7 +352,7 @@ class PostModel: NetworkModel {
 //                    
 //                }
 //                
-//                multipartFormData.append(profileData, withName: "image", fileName: "image.jpg", mimeType: "image/png")
+//                multipartFormData.append(profileData, withName: "image", fileName: "image.jpg", mimeType: "image/png")e
 //            },
 //                             usingThreshold: 0,  to: url, method: .put, headers: nil,   encodingCompletion: { encodingResult in
 //                                switch encodingResult {

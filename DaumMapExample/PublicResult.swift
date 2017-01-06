@@ -37,7 +37,6 @@ class PublicResult : UIViewController, NetworkCallback {
     internal func networkResult(resultData: Any, code: Int) {
         if let thisRoomInfo = resultData as? GatheringVO{
             prRoomInfo = thisRoomInfo
-            print("networkResultnetworkResultnetworkResultnetworkResult")
             
         }
         if let prc = childViewControllers[1] as? PublicResultCalendarVC {
@@ -83,8 +82,10 @@ class PublicResult : UIViewController, NetworkCallback {
     }
     
     @IBAction func CompleteBtn(_ sender: Any) {
-        
-        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ResultInsert"){
+            present(vc, animated: true)
+            
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +105,7 @@ class PublicResult : UIViewController, NetworkCallback {
         self.tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
-         tableView.reloadData()
+        tableView.reloadData()
     }
     
     

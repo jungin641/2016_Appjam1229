@@ -11,6 +11,10 @@
 		15B4B5F21E1E3ADA0071F472 /* EditPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4B5F11E1E3ADA0071F472 /* EditPopupVC.swift */; };
 		15B4B5F41E1E496E0071F472 /* NoSelectPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4B5F31E1E496E0071F472 /* NoSelectPopUp.swift */; };
 		15B4B5F61E1E4A050071F472 /* RoomMakedPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4B5F51E1E4A050071F472 /* RoomMakedPopUp.swift */; };
+		2616F8FF1E1EECE500CB20F4 /* ResultInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616F8FE1E1EECE500CB20F4 /* ResultInsert.swift */; };
+		2616F9011E1EECFE00CB20F4 /* ResultInsertCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616F9001E1EECFE00CB20F4 /* ResultInsertCalendarVC.swift */; };
+		2616F9031E1EED1100CB20F4 /* ResultInsertMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616F9021E1EED1100CB20F4 /* ResultInsertMapVC.swift */; };
+		2616F9051E1F0E0600CB20F4 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616F9041E1F0E0600CB20F4 /* MapModel.swift */; };
 		2617976D1E16735700CF785E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2617976C1E16735700CF785E /* MainVC.swift */; };
 		262EC5301E1BE34F00025D58 /* PublicResultCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262EC52F1E1BE34F00025D58 /* PublicResultCalendarVC.swift */; };
 		262EC5321E1BE36D00025D58 /* PublicMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262EC5311E1BE36D00025D58 /* PublicMapVC.swift */; };
@@ -93,6 +97,10 @@
 		15B4B5F11E1E3ADA0071F472 /* EditPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPopupVC.swift; sourceTree = "<group>"; };
 		15B4B5F31E1E496E0071F472 /* NoSelectPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSelectPopUp.swift; sourceTree = "<group>"; };
 		15B4B5F51E1E4A050071F472 /* RoomMakedPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomMakedPopUp.swift; sourceTree = "<group>"; };
+		2616F8FE1E1EECE500CB20F4 /* ResultInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultInsert.swift; sourceTree = "<group>"; };
+		2616F9001E1EECFE00CB20F4 /* ResultInsertCalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultInsertCalendarVC.swift; sourceTree = "<group>"; };
+		2616F9021E1EED1100CB20F4 /* ResultInsertMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultInsertMapVC.swift; sourceTree = "<group>"; };
+		2616F9041E1F0E0600CB20F4 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		2617976C1E16735700CF785E /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		262EC52F1E1BE34F00025D58 /* PublicResultCalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicResultCalendarVC.swift; sourceTree = "<group>"; };
 		262EC5311E1BE36D00025D58 /* PublicMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicMapVC.swift; sourceTree = "<group>"; };
@@ -210,6 +218,16 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		2616F8FD1E1EEC8400CB20F4 /* ResultInsert */ = {
+			isa = PBXGroup;
+			children = (
+				2616F8FE1E1EECE500CB20F4 /* ResultInsert.swift */,
+				2616F9001E1EECFE00CB20F4 /* ResultInsertCalendarVC.swift */,
+				2616F9021E1EED1100CB20F4 /* ResultInsertMapVC.swift */,
+			);
+			name = ResultInsert;
+			sourceTree = "<group>";
+		};
 		262EC52E1E1BE0B200025D58 /* PublicResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				2617976C1E16735700CF785E /* MainVC.swift */,
+				2616F8FD1E1EEC8400CB20F4 /* ResultInsert */,
 				262EC52E1E1BE0B200025D58 /* PublicResult */,
 				26DC77CE1E163DAD000FEDF2 /* PublicMainVC.swift */,
 				267AC3A51E1A17C3001BE5DC /* MySetting.swift */,
@@ -325,6 +344,7 @@
 				264548651E175D080084C865 /* NetworkModel.swift */,
 				264548661E175D080084C865 /* PostModel.swift */,
 				26D471D71E191303008BB01E /* MakeGatheringModel.swift */,
+				2616F9041E1F0E0600CB20F4 /* MapModel.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -645,19 +665,23 @@
 				26816FA61E166E7500327375 /* MakeGatheringVC.swift in Sources */,
 				26F1ED201E14F2B10069971A /* CalendarVC.swift in Sources */,
 				26F1ED251E14F9480069971A /* ExtensionControl.swift in Sources */,
+				2616F9031E1EED1100CB20F4 /* ResultInsertMapVC.swift in Sources */,
 				26586B231E1DE0D200AE44A1 /* Dates.swift in Sources */,
 				269173351E17C981000788AF /* FriendCell.swift in Sources */,
 				26DC77C91E161701000FEDF2 /* NetworkCallback.swift in Sources */,
 				26816FA71E166E7500327375 /* ContentViewController.swift in Sources */,
+				2616F8FF1E1EECE500CB20F4 /* ResultInsert.swift in Sources */,
 				264548641E175C550084C865 /* SecondVC.swift in Sources */,
 				26DC77D41E164984000FEDF2 /* NoldamAnimatedTransitioning.swift in Sources */,
 				26F1ED221E14F2B10069971A /* GatheringCell.swift in Sources */,
 				15B4B5F41E1E496E0071F472 /* NoSelectPopUp.swift in Sources */,
+				2616F9051E1F0E0600CB20F4 /* MapModel.swift in Sources */,
 				26F1ED271E14FCDF0069971A /* ContactsViewController.swift in Sources */,
 				2617976D1E16735700CF785E /* MainVC.swift in Sources */,
 				26DC77D61E164984000FEDF2 /* NoldamTrasitionDelegate.swift in Sources */,
 				3C36EF621DE5BF7300B3F1B4 /* AppDelegate.swift in Sources */,
 				2635D6161E1C0C3B00D86891 /* MakeRoomResult.swift in Sources */,
+				2616F9011E1EECFE00CB20F4 /* ResultInsertCalendarVC.swift in Sources */,
 				269173331E17B6CF000788AF /* UserVO.swift in Sources */,
 				267AC3A81E1A2E9F001BE5DC /* CheckBox.swift in Sources */,
 				267AC3A61E1A17C3001BE5DC /* MySetting.swift in Sources */,
