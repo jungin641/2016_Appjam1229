@@ -40,6 +40,7 @@ class MakeGatheringVC: UIViewController , UIPageViewControllerDataSource {
             if let mapViewController = vc as? MapViewController{
                 let position = mapViewController.selectedPosition
                 newGathering.setPosision(position: position)
+                print(gdno(newGathering.position?.latitude))
             }
             
         }

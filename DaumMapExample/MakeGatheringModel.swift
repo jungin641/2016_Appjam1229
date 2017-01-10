@@ -251,7 +251,7 @@ class MakeGatheringModel: NetworkModel {
         let params = [
             "participant" :  partiIds,
             "days" : sendDays,
-            "position:" : position,
+            "position" : position,
             "my_meeting_id" : id,
 
             ] as [String : Any]
@@ -263,10 +263,11 @@ class MakeGatheringModel: NetworkModel {
                     
                     if let syncResult = data["result"].string{
                             if syncResult == "SUCCESS" {
-                            // self.view.networkResult(resultData: "동기화성공 완료되었습니다.", code: 0)
-                        }
+                                self.view.networkResult(resultData: "의견 반영에 성공하였습니다.", code: 7)
+                            }
                         else if syncResult == "FAIL" {
-                            //  self.view.networkResult(resultData: "동기화 실패하였습니다..", code: 0)
+                               self.view.networkResult(resultData: "의견 반영에 실패하였습니다.", code: 8)
+
                         }
                     }
                 }

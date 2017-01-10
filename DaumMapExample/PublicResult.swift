@@ -30,6 +30,9 @@ class PublicResult : UIViewController, NetworkCallback {
         model.exit()
         
     }
+    @IBOutlet var firstbutton : UIButton!
+    @IBOutlet var secondbutton : UIButton!
+    @IBOutlet var thirdbutton : UIButton!
     @IBOutlet var firstView : UIView!
     @IBOutlet var secondView : UIView!
     @IBOutlet var thirdView : UIView!
@@ -105,6 +108,10 @@ class PublicResult : UIViewController, NetworkCallback {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhoon"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenoff"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereoff"), for: UIControlState.normal)
         let model = MakeGatheringModel(self)
         
         model.roomDetail(meeting_id: gino(meeting_id))
@@ -133,19 +140,26 @@ class PublicResult : UIViewController, NetworkCallback {
         firstView.isHidden = false
         secondView.isHidden = true
         thirdView.isHidden = true
-        
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhoon"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenoff"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereoff"), for: UIControlState.normal)
     }
     @IBAction func btn2click(){
         firstView.isHidden = true
         secondView.isHidden = false
         thirdView.isHidden = true
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhooff"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenon"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereoff"), for: UIControlState.normal)
         
     }
     @IBAction func btn3click(){
         firstView.isHidden = true
         secondView.isHidden = true
         thirdView.isHidden = false
-        
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhooff"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenoff"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereon"), for: UIControlState.normal)
     }
 }
 

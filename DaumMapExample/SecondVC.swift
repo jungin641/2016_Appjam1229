@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class SecondVC : UIViewController, NetworkCallback {
+class SecondVC : UIViewController, NetworkCallback,UITextFieldDelegate {
     
     
     
@@ -90,6 +90,21 @@ class SecondVC : UIViewController, NetworkCallback {
     let picker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IdTextField.delegate = self
+        PwTextField.delegate = self
+        PwCheckText.delegate = self
+        liveTextfield.delegate = self
+        workTextField.delegate = self
+        nameTextField.delegate = self
+        
+        IdTextField.tag = 0
+        PwTextField.tag = 1
+        PwCheckText.tag = 2
+        liveTextfield.tag = 3
+        workTextField.tag = 4
+        nameTextField.tag = 5
+        
         // 포토 갤러리로 넘어가는거 구현
         hideKeyboardWhenTappedAround()//화면 누르면 키보드 내림
         picker.allowsEditing = true
@@ -139,6 +154,17 @@ class SecondVC : UIViewController, NetworkCallback {
             return true
         }
         
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
     }
     @IBAction func FCompleteBtn(_ sender: AnyObject) {
         

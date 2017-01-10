@@ -77,10 +77,10 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
         if let hostSelectedPosition = gatheringVC.position{
             selectedPosition.append(hostSelectedPosition)
         }
+        
         putPoiItem()
         selectView()
         
-        //self.view.insertSubview(mapView, at: 0)
     }
     //달력표시
     func selectView(){
@@ -99,14 +99,6 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
     // 지도 표시
     func putPoiItem(){
         mapView.baseMapType = .standard
-        // items.append(poiItem(name: "넷", latitude: 126, longitude: 38))
-        // items.append(poiItem(name: "넷", latitude: 127.1722, longitude: 37.5665))
-        // items.append(poiItem(name: "넷", latitude: 126.920757, longitude: 37.623885))
-        // items.append(poiItem(name: "넷", latitude: 126.927032, longitude: 37.4873488))
-        
-        
-        //        //샘플 데이터
-        //        selectedPosition = Position(place: "여기", longtitude: "127.0426469", latitude: "37.5037539")
         
         
         var items = [MTMapPOIItem]()
@@ -117,9 +109,12 @@ class MakeRoomResult : UIViewController, MTMapViewDelegate, FSCalendarDelegate, 
                 poiItem(
                     //gdno extensionControl에 추가!
                     name: gsno(sp.place),
-                    latitude:  gdno(sp.latitude),
-                    longitude: gdno(sp.longtitude)
-            ))
+                    latitude:  gdno(sp.longtitude),
+                    longitude: gdno(sp.latitude)
+                )
+            
+            )
+                print(sp.latitude)
         }
         
         

@@ -25,7 +25,7 @@ class MySetting : UIViewController  ,NetworkCallback{
     @IBOutlet var profile : UIImageView?
     override func viewDidLoad() {
         let userDefault = UserDefaults.standard
-        let stringValue = userDefault.string(forKey: "id")
+        let stringValue = userDefault.string(forKey: "real_id")
         let nameValue = userDefault.string(forKey: "name")
         let phValue = userDefault.string(forKey: "ph")
         let homeValue = userDefault.string(forKey: "home")

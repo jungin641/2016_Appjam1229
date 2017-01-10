@@ -19,17 +19,22 @@ class ResultInsert: UIViewController, NetworkCallback {
     let maleImage = UIImage(named: "vv")
     let femaleImage  = UIImage(named: "v")
     
-    
+    @IBOutlet var firstbutton : UIButton!
+    @IBOutlet var secondbutton : UIButton!
+    @IBOutlet var thirdbutton : UIButton!
     @IBOutlet var firstView : UIView!
     @IBOutlet var secondView : UIView!
     @IBOutlet var thirdView : UIView!
     @IBOutlet var tableView : UITableView!
     internal func networkResult(resultData: Any, code: Int) {
 //        roomDetail.friend_list = tempList
-//        roomDetail.days = dateTempList
+//        roomDetail.days po= dateTempList
 //        roomDetail.position = selectedPosition
-        
-        
+        if code == 7 || code == 8{
+            simpleAlert(title: "안내", msg: resultData as! String)
+            
+        }
+        else {
        let insertedData = resultData as! GatheringVO
         
         friendList = insertedData.friend_list
@@ -54,12 +59,17 @@ class ResultInsert: UIViewController, NetworkCallback {
             }
             pmc.putPoiItem()
         }
-        
+        }
         tableView.reloadData()
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhoon"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenoff"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereoff"), for: UIControlState.normal)
+
+        
         let model = MakeGatheringModel(self)
         meeting_id = userdefault.integer(forKey: "my_meeting_id")
         model.voteMyOpinion(my_meeting_id: gino(meeting_id))
@@ -88,19 +98,26 @@ class ResultInsert: UIViewController, NetworkCallback {
         firstView.isHidden = false
         secondView.isHidden = true
         thirdView.isHidden = true
-        
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhoon"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenoff"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereoff"), for: UIControlState.normal)
     }
     @IBAction func btn2click(){
         firstView.isHidden = true
         secondView.isHidden = false
         thirdView.isHidden = true
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhooff"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenon"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereoff"), for: UIControlState.normal)
         
     }
     @IBAction func btn3click(){
         firstView.isHidden = true
         secondView.isHidden = true
         thirdView.isHidden = false
-        
+        firstbutton.setImage(#imageLiteral(resourceName: "whowhooff"), for: UIControlState.normal)
+        secondbutton.setImage(#imageLiteral(resourceName: "whenwhenoff"), for: UIControlState.normal)
+        thirdbutton.setImage(#imageLiteral(resourceName: "wherewhereon"), for: UIControlState.normal)
     }
     @IBAction func btnCancel(){
         dismiss(animated: true, completion: nil)

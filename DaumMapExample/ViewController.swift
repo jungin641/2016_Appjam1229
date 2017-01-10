@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController :UIViewController, NetworkCallback,UITextFieldDelegate {
+class ViewController :UIViewController, NetworkCallback, UITextFieldDelegate {
     
     internal func networkResult(resultData: Any, code: Int) {
         let alert = UIAlertController(title: "", message: "\(resultData)", preferredStyle: .alert)
@@ -26,7 +26,18 @@ class ViewController :UIViewController, NetworkCallback,UITextFieldDelegate {
                 present(vc, animated: true)
             }}
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
+    }
     
     @IBOutlet weak var txtID: UITextField!
     @IBOutlet weak var txtPasswd: UITextField!
@@ -45,18 +56,7 @@ class ViewController :UIViewController, NetworkCallback,UITextFieldDelegate {
     }
     
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Try to find next responder
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
-        } else {
-            // Not found, so remove keyboard.
-            textField.resignFirstResponder()
-        }
-        // Do not add a line break
-        return false
-    }
+
     
     @IBAction func BtnSignUp(_ sender: AnyObject) {
         if let svc = storyboard?.instantiateViewController(withIdentifier: "SecondVC") as? SecondVC{

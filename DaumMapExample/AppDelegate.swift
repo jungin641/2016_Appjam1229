@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         pageController.pageIndicatorTintColor = UIColor.lightGray
         pageController.currentPageIndicatorTintColor = UIColor(hex: 0xF0144B, alpha: 1.0)
+        
+        var navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         return true
     }
 
